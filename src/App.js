@@ -9,6 +9,8 @@ import Category from "./views/Category";
 import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
+import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
+import PanelAdministrador from "./views/PanelAdministrador";
 function App() {
   return (
     <>
@@ -27,6 +29,8 @@ function App() {
             children={<SingleProduct />}
           />
           <Route exact path="/checkout" children={<Checkout />} />
+          <Route exact path="/BienvenidoAdministrador" children={<BienvenidoAdministrador />} />
+          <Route exact path="/PanelAdministrador" children={<PanelAdministrador />} />
           <Route exact path="/profile/:user_id" children={<Profile />} />
         </Switch>
       </Router>
