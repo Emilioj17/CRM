@@ -2,7 +2,8 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div>
+    <>
+    <div className="container">
    <div
         id="carouselExampleIndicators"
         className="carousel slide"
@@ -32,13 +33,13 @@ const Home = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="..." className="d-block w-100" alt="..." />
+            <img src="https://picsum.photos/200/300" className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..." />
+            <img src="https://picsum.photos/200/300" className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..." />
+            <img src="https://picsum.photos/200/300" className="d-block w-100" alt="..." />
           </div>
         </div>
         <button
@@ -66,7 +67,9 @@ const Home = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+
     </div>
+    </>
   );
 };
 export default Home;
