@@ -1,0 +1,31 @@
+.PanelAdministrador {
+	background-color: #f1d15f;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+ul {
+	padding-left: 0 !important;
+}
+
+li {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+li:hover {
+	background-color: white;
+}
+
+thead {
+	background-color: #1b4b4d;
+	color: white;
+}
+
+tbody {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.box {
+	background-color: #c4c4c4;
+}
