@@ -13,6 +13,7 @@ import Contacto from "./views/Contacto";
 import Nosotros from "./views/Nosotros";
 import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
 import PanelAdministrador from "./views/PanelAdministrador";
+import SendEmail from "./views/SendEmail";
 import Contacts from "./views/Contacts";
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/checkout" children={<Checkout />} />
           <Route exact path="/BienvenidoAdministrador" children={<BienvenidoAdministrador />} />
           <Route exact path="/PanelAdministrador" children={<PanelAdministrador />} />
+          <Route exact path="/SendEmail" children={<SendEmail />} />
           <Route exact path="/profile/:user_id" children={<Profile />} />
         </Switch>
       </Router>
