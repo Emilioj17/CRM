@@ -10,7 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         actions: {
             getContacts: async () => {
-                fetch("localhost:5000/api/contacts", {
+                fetch("http://localhost:5000/api/contacts", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -23,12 +23,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => {
                         setStore({
-                            error: error.message
+                            error: "contacts " + error.message
                         })
                     });
             },
             getUsers: async () => {
-                fetch("localhost:5000/api/users", {
+                fetch("http://localhost:5000/api/users", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -41,12 +41,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => {
                         setStore({
-                            error: error.message
+                            error: "users " + error.message
                         })
                     });
             },
             getNotes: async () => {
-                fetch("localhost:5000/api/notes", {
+                fetch('http://localhost:5000/api/notes', {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -59,12 +59,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => {
                         setStore({
-                            error: error.message
+                            error: "notes " + error.message
                         })
                     });
             },
             getDeals: async () => {
-                fetch("localhost:5000/api/deals", {
+                fetch("http://localhost:5000/api/deals", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -77,12 +77,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch((error) => {
                         setStore({
-                            error: error.message
+                            error: "deals " + error.message
                         })
                     });
             },
             setContact: async (name, lastName, rut, type, phone, email, userId) => {
-                fetch("localhost:5000/api/contacts", {
+                fetch("http://localhost:5000/api/contacts", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -109,7 +109,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setUser: async (name, lastName, rut, phone, email) => {
-                fetch("localhost:5000/api/users", {
+                fetch("http://localhost:5000/api/users", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -134,7 +134,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setNote: async (comment, contactId, userId) => {
-                fetch("localhost:5000/api/notes", {
+                fetch("http://localhost:5000/api/notes", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -157,7 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setDeal: async (name, description, contactId, userId) => {
-                fetch("localhost:5000/api/deals", {
+                fetch("http://localhost:5000/api/deals", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -181,7 +181,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editContact: async (id, name, lastName, rut, type, phone, email, userId) => {
-                fetch("localhost:5000/api/contacts/"+id, {
+                fetch("http://localhost:5000/api/contacts/"+id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
@@ -208,7 +208,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editUser: async (id, name, lastName, rut, phone, email) => {
-                fetch("localhost:5000/api/users"+id, {
+                fetch("http://localhost:5000/api/users"+id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
@@ -233,7 +233,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editNote: async (id, comment, contactId, userId) => {
-                fetch("localhost:5000/api/notes"+id, {
+                fetch("http://localhost:5000/api/notes"+id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
@@ -256,7 +256,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editDeal: async (id, name, description, contactId, userId) => {
-                fetch("localhost:5000/api/deals"+id, {
+                fetch("http://localhost:5000/api/deals"+id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
@@ -280,7 +280,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteContact: async (id) => {
-                fetch("localhost:5000/api/contacts/"+id, {
+                fetch("http://localhost:5000/api/contacts/"+id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
@@ -298,7 +298,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteUser: async (id) => {
-                fetch("localhost:5000/api/users/"+id, {
+                fetch("http://localhost:5000/api/users/"+id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
@@ -316,7 +316,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteNote: async (id) => {
-                fetch("localhost:5000/api/notes/"+id, {
+                fetch("http://localhost:5000/api/notes/"+id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
@@ -334,7 +334,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteDeal: async (id) => {
-                fetch("localhost:5000/api/deals/"+id, {
+                fetch("http://localhost:5000/api/deals/"+id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
@@ -353,7 +353,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
 
         }
-    }
+    };
 };
 
 export default getState;

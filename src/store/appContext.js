@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getState } from 'expect';
+import getState from './flux';
 
 export const AppContext = React.createContext(null);
 
@@ -7,27 +7,27 @@ function ContextWrapper(PassedComponent) {
     const StoreWrapper = props => {
         const [state, setState] = useState(
             getState({
-                getStore: () => state.store,
-                getActions : () => state.actions,
-                setStore : updateStore =>
+                getStore : () => state.store,
+                getActions: () => state.actions,
+                setStore: updatedStore =>
                 setState({
-                    store: Object.assign(state.store, updateStore),
+                    store: Object.assign(state.store, updatedStore),
                     actions: {...state.actions}
                 })
             })
         );
 
-        useEffect(() =>{
+        useEffect(() => {
             state.actions.getContacts();
             state.actions.getUsers();
             state.actions.getNotes();
             state.actions.getDeals();
         },[]);
 
-        return(
-            <AppContext value={state}>
-                <PassedComponent {...props} />
-            </AppContext>
+        return (
+            <AppContext.Provider value={state}>
+                <PassedComponent {...props}/>
+            </AppContext.Provider>
         );
     };
     return StoreWrapper;
