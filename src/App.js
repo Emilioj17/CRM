@@ -18,7 +18,7 @@ function App() {
        <Navbar />
         <Switch>
           <Route exact path="/" children={<Home />} />
-          <Route exact path="/log-in" children={<Login />} />
+          <Route exact path="/login" children={<Login />} />
           <Route exact path="/remind" children={<Remind />} />
           <Route exact path="/products" children={<Products />} />
           <Route exact path="/contact" children={<Contact/>} />

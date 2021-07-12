@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../style/Navbar.css"
 
 function Navbar() {
   return (
     <>
-     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+     <nav className="navbar navbar-expand-lg navbar-dark ">
 				<Link className="navbar-brand ms-3" to="/">
 					LOGO
 				</Link>
