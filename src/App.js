@@ -9,7 +9,7 @@ import Category from "./views/Category";
 import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
-import Contact from "./views/Contact";
+import Contacto from "./views/Contacto";
 function App() {
   return (
     <>
@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/sign-up" children= {<Signup />} />
           <Route exact path="/remind" children={<Remind />} />
           <Route exact path="/products" children={<Products />} />
-          <Route exact path="/contact" children={<Contact/>} />
+          <Route exact path="/contacto" children={<Contacto/>} />
           <Route exact path="/category/:category_id" children= {<Category />} />
           <Route
             exact
