@@ -14,6 +14,7 @@ import Nosotros from "./views/Nosotros";
 import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
 import PanelAdministrador from "./views/PanelAdministrador";
 import Contacts from "./views/Contacts";
+import Deals from "./views/Deals";
 function App() {
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/nosotros" children={<Nosotros />} />
           <Route exact path="/category/:category_id" children= {<Category />} />
           <Route exact path="/contactos" children= {<Contacts/>} />
+          <Route exact path="/tratos" children= {<Deals/>} />
           <Route
             exact
             path="/product/:product_id"
