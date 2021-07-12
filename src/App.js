@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./views/Home";
-import Navbar from "../src/components/navbar";
+import Navbar from "./components/Navbar";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import Remind from "./views/Remind";
@@ -9,6 +9,7 @@ import Category from "./views/Category";
 import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
+import Contact from "./views/Contact";
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/sign-up" children= {<Signup />} />
           <Route exact path="/remind" children={<Remind />} />
           <Route exact path="/products" children={<Products />} />
+          <Route exact path="/contact" children={<Contact/>} />
           <Route exact path="/category/:category_id" children= {<Category />} />
           <Route
             exact
