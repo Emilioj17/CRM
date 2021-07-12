@@ -15,21 +15,6 @@ function App() {
     <>
       <Router>
         <Navbar />
-<<<<<<< HEAD
-        <div>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/nosotros" component={Home} />
-            <Route exact path="/contacto" component={Home} />
-            <Route exact path="/producto" component={Home} />
-            <Route exact path="/login" component={Home} />
-
-            <Route render={() => <h1>Not found!</h1>} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    </div>
-=======
         <Switch>
           <Route exact path="/" children={<Home />} />
           <Route exact path="/log-in" children={<Login />} />
@@ -48,7 +33,6 @@ function App() {
         </Switch>
       </Router>
     </>
->>>>>>> 606fc5d9857e429111824fd332fe7a8c311e290f
   );
 }
 
