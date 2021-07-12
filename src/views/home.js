@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-   {/*    <div
+   <div
         id="carouselExampleIndicators"
         className="carousel slide"
         data-bs-ride="carousel"
@@ -65,7 +65,7 @@ const Home = () => {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
-      </div> */}
+      </div>
     </div>
   );
 };
