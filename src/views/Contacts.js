@@ -15,11 +15,12 @@ function Contact() {
                 <thead>
                     <tr>
                         <th scope="col">id</th>
+                        <th scope="col">Tipo</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">Rut</th>
                         <th scope="col">mail</th>
-                        <th scope="col">Telefono</th>
+                        <th scope="col">Teléfono</th>
                         <th scope="col">Creado</th>
                         <th scope="col">Id usuario</th>
                         <th scope="col">Acciones</th>
@@ -30,6 +31,7 @@ function Contact() {
                     {contacts.map((object, i) =>
                         <tr key={i}>
                             <th scope="row">{object.id}</th>
+                            <td>{object.type}</td>
                             <td>{object.name}</td>
                             <td>{object.last_name}</td>
                             <td>{object.rut}</td>

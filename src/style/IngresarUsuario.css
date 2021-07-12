@@ -1,0 +1,58 @@
+div#root{
+background-color: rgba(241, 209, 95, 1);
+}
+.IngresarUsuario {
+position: relative;
+width: 360px;
+height: 500px;
+left: 500px;
+top: 40px;
+background: #1B4B4D;
+border-radius: 100px;
+}
+h1.Ingresar {
+position: relative;
+text-align: center;
+top: 35px;
+opacity: 80%;
+color: rgba(255, 255, 255, 1)
+}
+input.Usuario {
+position: relative;
+width: 240px;
+height: 60px;
+left: 50px;
+top: 100px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Password {
+position: relative;
+left: 50px;
+top: 130px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+button.Entrar {
+position: relative;
+width: 240px;
+height: 60px;
+left: 50px;
+top: 160px;
+background: #E8984A;
+border-radius: 20px;
+}
+a.Registrate {
+position: absolute;
+top: 400px;
+width: 120px;
+left: 130px;
+}
+p {
+position: absolute;
+top: 420px;
+width: 120px;
+left: 150px;
+}

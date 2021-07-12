@@ -17,6 +17,7 @@ import SendEmail from "./views/SendEmail";
 import CorreosRecibidos from "./views/CorreosRecibidos";
 import Contacts from "./views/Contacts";
 import Deals from "./views/Deals";
+import CreateContact from "./views/CreateContact";
 function App() {
   return (
     <>
@@ -24,7 +25,7 @@ function App() {
        <Navbar />
         <Switch>
           <Route exact path="/" children={<Home />} />
-          <Route exact path="/log-in" children={<Login />} />
+          <Route exact path="/login" children={<Login />} />
           <Route exact path="/remind" children={<Remind />} />
           <Route exact path="/products" children={<Products />} />
           <Route exact path="/contacto" children={<Contacto/>} />
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/category/:category_id" children= {<Category />} />
           <Route exact path="/contactos" children= {<Contacts/>} />
           <Route exact path="/tratos" children= {<Deals/>} />
+          <Route exact path="/crear/contacto" children= {<CreateContact/>} />
           <Route
             exact
             path="/product/:product_id"
