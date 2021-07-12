@@ -6,19 +6,19 @@ const PanelAdministrador = () => {
     const usuariosInactivos = ["Vendedor 1", "Vendedor 5", "Vendedor 7"]
     const usuariosActivos = ["Vendedor 2", "Vendedor 3", "Vendedor 4", "Vendedor 6", "Vendedor 8"]
 
-    const Inactivos = usuariosInactivos.map((usuario, index) => {
-        return (
-            <li key={index}>{usuario}</li>
-        )
-    });
-
-    const Activos = usuariosActivos.map((usuario, index) => {
-        return (
-            <li key={index}>{usuario}</li>
-        )
-    });
-
     const DivUsuarios = () => {
+        const Activos = usuariosActivos.map((usuario, index) => {
+            return (
+                <li key={index}>{usuario}</li>
+            )
+        });
+
+        const Inactivos = usuariosInactivos.map((usuario, index) => {
+            return (
+                <li key={index}>{usuario}</li>
+            )
+        });
+
         return (
             <div className="row">
                 <div className="col-6 col-md-3">
