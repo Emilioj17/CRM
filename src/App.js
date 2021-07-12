@@ -8,12 +8,9 @@ import Category from "./views/Category";
 import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
-<<<<<<< HEAD
 import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
 import PanelAdministrador from "./views/PanelAdministrador";
-=======
 import Contact from "./views/Contact";
->>>>>>> 783c4e564a4e031dda4617b2e8d7be0ab0713d4c
 function App() {
   return (
     <>
