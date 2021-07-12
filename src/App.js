@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "../src/components/navbar";
+import Navbar from "./components/navbar";
 import Home from "./views/home";
 import Login from "./views/Login";
 import Remind from "./views/Remind";
@@ -9,6 +9,7 @@ import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
 import Contacto from "./views/Contacto";
+import Nosotros from "./views/Nosotros";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/products" children={<Products />} />
           <Route exact path="/contacto" children={<Contacto/>} />
           <Route exact path="/category/:category_id" children= {<Category />} />
+          <Route exact path="/nosotros" children={<Nosotros />} />
           <Route
             exact
             path="/product/:product_id"
