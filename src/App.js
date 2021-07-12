@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "../src/components/navbar";
-import Home from "./views/home";
+import ContextWrapper from "./store/appContext";
+import Navbar from "../src/components/Navbar";
+import Home from "./views/Home";
 import Login from "./views/Login";
 import Remind from "./views/Remind";
 import Products from "./views/Products";
@@ -11,6 +12,7 @@ import Profile from "./views/Profile";
 import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
 import PanelAdministrador from "./views/PanelAdministrador";
 import Contact from "./views/Contact";
+import Contacts from "./views/Contacts";
 function App() {
   return (
     <>
@@ -23,6 +25,7 @@ function App() {
           <Route exact path="/products" children={<Products />} />
           <Route exact path="/contact" children={<Contact/>} />
           <Route exact path="/category/:category_id" children= {<Category />} />
+          <Route exact path="/contactos" children= {<Contacts/>} />
           <Route
             exact
             path="/product/:product_id"
@@ -38,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default ContextWrapper(App);
