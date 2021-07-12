@@ -7,15 +7,16 @@ const PanelAdministrador = () => {
     const usuariosActivos = ["Vendedor 2", "Vendedor 3", "Vendedor 4", "Vendedor 6", "Vendedor 8"]
 
     const DivUsuarios = () => {
+        //Este DIV genera las tablas de Usuarios Activos/Inactivos en función de las listas de Usuarios de más arriba.
         const Activos = usuariosActivos.map((usuario, index) => {
             return (
-                <li key={index}>{usuario}</li>
+                <li key={index}><input type="checkbox" className="form-check-input"></input>{usuario}</li>
             )
         });
 
         const Inactivos = usuariosInactivos.map((usuario, index) => {
             return (
-                <li key={index}>{usuario}</li>
+                <li key={index}><input type="checkbox" className="form-check-input"></input>{usuario}</li>
             )
         });
 
@@ -66,6 +67,7 @@ const PanelAdministrador = () => {
     }
 
     const DivAdicional = () => {
+        //Este DIV genera 4 box con distintas opciones que NO están disponibles. Es relleno.
         const box1 = ["Configuración personal", "Detalles de empresa", "Reserva de calendario"];
         const box2 = ["Módulos y campos", "Ciclos de venta", "Plantillas", "Copiar personalización", "Personalizar pantalla de inicio"];
         const box3 = ["Administracion de Datos", "Importar/Exportar", "Copia de seguridad de datos", "Almacenamiento", "Papelera de reciclaje"];
@@ -113,13 +115,13 @@ const PanelAdministrador = () => {
 
         return (
             <div>
-                <div className="row">
-                    <div className="box box1 rounded col-12 col-md-5 m-2">{Ebox1}</div>
-                    <div className="box box2 rounded col-12 col-md-5 m-2">{Ebox2}</div>
+                <div className="row m-2">
+                    <div className="box box1 rounded col-12 col-md-5 m-2 p-2">{Ebox1}</div>
+                    <div className="box box2 rounded col-12 col-md-5 m-2 p-2">{Ebox2}</div>
                 </div>
-                <div className="row">
-                    <div className="box box3 rounded col-12 col-md-5 m-2">{Ebox3}</div>
-                    <div className="box box4 rounded col-12 col-md-5 m-2">{Ebox4}</div>
+                <div className="row m-2">
+                    <div className="box box3 rounded col-12 col-md-5 m-2 p-2">{Ebox3}</div>
+                    <div className="box box4 rounded col-12 col-md-5 m-2 p-2">{Ebox4}</div>
                 </div>
             </div>
         )
