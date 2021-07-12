@@ -9,14 +9,11 @@ function App() {
         <div>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/log-in" component={Login} />
-            <Route exact path="/sign-up" component={Signup} />
-            <Route exact path="/remind" component={Remind} />
-            <Route exact path="/products" component={Products} />
-            <Route exact path="/category/:category_id" component={Category} />
-            <Route exact path="/product/:product_id" component={SingleProduct} />
-            <Route exact path="/checkout" component={Checkout} />
-            <Route exact path="/profile/:user_id" component={Profile} />
+            <Route exact path="/nosotros" component={Home} />
+            <Route exact path="/contacto" component={Home} />
+            <Route exact path="/producto" component={Home} />
+            <Route exact path="/login" component={Home} />
+
             <Route render={() => <h1>Not found!</h1>} />
           </Switch>
         </div>
