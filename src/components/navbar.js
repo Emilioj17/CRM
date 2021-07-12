@@ -2,7 +2,9 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <>
+    </>
+/*     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
     <link className="navbar-brand" to="/">LOGO </link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +27,7 @@ const Navbar = () => {
       </ul>
     </div>
   </div>
-</nav>
+</nav> */
   )
 }
 
