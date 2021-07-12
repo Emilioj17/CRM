@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./views/Home";
-import Navbar from "./components/Navbar";
+import Navbar from "../src/components/navbar";
+import Home from "./views/home";
 import Login from "./views/Login";
-import Signup from "./views/Signup";
 import Remind from "./views/Remind";
 import Products from "./views/Products";
 import Category from "./views/Category";
@@ -14,11 +13,10 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+       <Navbar />
         <Switch>
           <Route exact path="/" children={<Home />} />
           <Route exact path="/log-in" children={<Login />} />
-          <Route exact path="/sign-up" children= {<Signup />} />
           <Route exact path="/remind" children={<Remind />} />
           <Route exact path="/products" children={<Products />} />
           <Route exact path="/contact" children={<Contact/>} />
