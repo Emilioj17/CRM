@@ -108,7 +108,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
-            setUser: async (name, lastName, rut, phone, email) => {
+            setUser: async (name, lastName, rut, type, phone, email) => {
                 fetch("http://localhost:5000/api/users", {
                     method: "POST",
                     headers: {
@@ -118,6 +118,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "name": name,
                         "last_name": lastName,
                         "rut": rut,
+                        "type": type,
                         "phone": phone,
                         "email": email
                     })
