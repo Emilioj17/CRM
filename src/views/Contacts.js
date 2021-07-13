@@ -5,6 +5,11 @@ function Contact() {
     const { store, actions } = useContext(AppContext);
     const { contacts } = store;
 
+    function handleDelete(id){
+        actions.deleteContact(id)
+        window.location.reload();
+    }
+
     return (
         <div className="container">
             <div className="row">
@@ -42,14 +47,14 @@ function Contact() {
                             <td><button type="button" className="btn btn-secondary mx-1">Notas</button>
                                 <button type="button" className="btn btn-secondary mx-1">Tratos</button>
                                 <button type="button" className="btn btn-primary mx-1">Editar</button>
-                                <button type="button" className="btn btn-danger mx-1">Eliminar</button></td>
+                                <button type="button" className="btn btn-danger mx-1" onClick={() => handleDelete(object.id)}>Eliminar</button></td>
                         </tr>
                     )}
                 </tbody>
             </table>
             :
             <h2 className="text-center"> - no hay datos -</h2>}
-            <button type="button" className="col-2 btn btn-success mx-1 ms-auto">Agregar contacto</button>
+            <button type="button" className="col-2 btn btn-success my-5 ms-auto">Agregar contacto</button>
         </>
             </div>
         </div>
