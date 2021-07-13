@@ -14,6 +14,7 @@ import Nosotros from "./views/Nosotros";
 import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
 import PanelAdministrador from "./views/PanelAdministrador";
 import Contacts from "./views/Contacts";
+import EditarContacto from "./views/EditarContacto";
 function App() {
   return (
     <>
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/BienvenidoAdministrador" children={<BienvenidoAdministrador />} />
           <Route exact path="/PanelAdministrador" children={<PanelAdministrador />} />
           <Route exact path="/profile/:user_id" children={<Profile />} />
+          <Route exact path="/editar-contacto" children={<EditarContacto/>}/>
         </Switch>
       </Router>
     </>
