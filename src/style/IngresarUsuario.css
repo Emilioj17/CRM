@@ -1,11 +1,11 @@
-div#root{
-background-color: rgba(241, 209, 95, 1);
+div#root {
+background-color: #F1D15F;
 }
 .IngresarUsuario {
 position: relative;
 width: 360px;
 height: 500px;
-left: 500px;
+left: 460px;
 top: 40px;
 background: #1B4B4D;
 border-radius: 100px;
@@ -22,14 +22,14 @@ position: relative;
 width: 240px;
 height: 60px;
 left: 50px;
-top: 100px;
+top: 90px;
 background: #E8984A;
 border-radius: 20px;
 }
 input.Password {
 position: relative;
 left: 50px;
-top: 130px;
+top: 110px;
 width: 240px;
 height: 60px;
 background: #E8984A;
@@ -48,11 +48,20 @@ a.Registrate {
 position: absolute;
 top: 400px;
 width: 120px;
-left: 130px;
+left: 120px;
 }
 p {
 position: absolute;
 top: 420px;
 width: 120px;
-left: 150px;
+left: 140px;
+}
+button.Atras {
+position: relative;
+width: 240px;
+height: 60px;
+left: 480px;
+top: 163px;
+background: #E8984A;
+border-radius: 20px;
 }

@@ -3,6 +3,7 @@ import ContextWrapper from "./store/appContext";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Login from "./views/Login";
+import Registro from "./views/Registro";
 import Remind from "./views/Remind";
 import Products from "./views/Products";
 import Category from "./views/Category";
@@ -19,9 +20,11 @@ import CorreosEnviados from "./views/CorreosEnviados";
 import CrearUsuario from "./views/CrearUsuario";
 import ModificarUsuario from "./views/ModificarUsuario";
 import Contacts from "./views/Contacts";
+import EditarContacto from "./views/EditarContacto";
 import Deals from "./views/Deals";
 import CreateContact from "./views/CreateContact";
 import CreateDeal from "./views/CreateDeal";
+
 function App() {
   return (
     <>
@@ -30,6 +33,7 @@ function App() {
         <Switch>
           <Route exact path="/" children={<Home />} />
           <Route exact path="/login" children={<Login />} />
+          <Route exact path="/registro" children={<Registro />} />
           <Route exact path="/remind" children={<Remind />} />
           <Route exact path="/products" children={<Products />} />
           <Route exact path="/contacto" children={<Contacto/>} />
@@ -49,6 +53,7 @@ function App() {
           <Route exact path="/CrearUsuario" children={<CrearUsuario />} />
           <Route exact path="/ModificarUsuario" children={<ModificarUsuario />} />
           <Route exact path="/profile/:user_id" children={<Profile />} />
+          <Route exact path="/editar-contacto" children={<EditarContacto/>}/>
         </Switch>
       </Router>
     </>
