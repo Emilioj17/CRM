@@ -1,12 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router";
 
 const Contacto = () => {
+  let history = useHistory()
+
   const formProcess = (e) => {
     e.preventDefault();
-
     setTimeout(() => {
       alert("Mensaje enviado");
-    }, 1000);
+      history.push('/contacto/success')
+    }, 500);
   };
 
   return (
@@ -87,9 +90,15 @@ const Contacto = () => {
                   <p className="card-text text-muted">hello@hello.com</p>
                   <p className="card-text text-muted">123456789</p>
                   <h5 className="card-title">Follow Us</h5>
-                  <span className="card-link text-muted">IG</span>
-                  <span className="card-link text-muted">FB</span>
-                  <span className="card-link text-muted">TW</span>
+                  <span className="card-link text-muted">
+                    <a href="http://instagram.com" target="_blank">IG</a>                    
+                    </span>
+                  <span className="card-link text-muted">
+                  <a href="http://facebook.com" target="_blank">FB</a>
+                  </span>
+                  <span className="card-link text-muted">
+                  <a href="http://twitter.com" target="_blank">TW</a>
+                  </span>
                 </div>
               </div>
             </div>

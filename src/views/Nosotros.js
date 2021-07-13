@@ -3,26 +3,26 @@ import React from "react";
 const Nosotros = () => {
   return (
     <>
-      <div className="container">
-        <h1 className="py-2">Nosotros</h1>
+      <div className="container">        
         <div className="row">
           {/* Rigth side */}
-
-          <div className="col-12 col-md-6 py-3">
+          <div className="col-12 col-md-6 my-5">
+          <h1 className="py-2">Nosotros</h1>
+          <div className="container">
             <p className="text-muted">
               lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Quia a fugit, eos dolorum ex sequi fuga quod repellendus molestias
               quidem sint possimus ducimus vitae ipsam optio vero aliquam
               mollitia quibusdam!
             </p>
+
           </div>
-
+          </div>
           {/* Card Row */}
-
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 my-5">
 
             <div className="row g-0">
-              <div className="col-md-2 d-flex align-items-center justify-content-center px-2 py-2">
+              <div className="col-md-2 d-flex align-items-start justify-content-center mt-4 px-3">
                 <img src="https://picsum.photos/200" alt="#" className="img-fluid rounded-start" />
               </div>
               <div className="col-md-10">
@@ -35,7 +35,7 @@ const Nosotros = () => {
             </div>
 
             <div className="row g-0 my-2 py-2">
-              <div className="col-md-2 d-flex align-items-center justify-content-center px-2">
+              <div className="col-md-2 d-flex align-items-start justify-content-center mt-4 px-3">
                 <img src="https://picsum.photos/200" alt="#" className="img-fluid rounded-start" />
               </div>
               <div className="col-md-10">
@@ -48,7 +48,7 @@ const Nosotros = () => {
             </div>
 
             <div className="row g-0">
-              <div className="col-md-2 d-flex align-items-center justify-content-center px-2 py-2">
+              <div className="col-md-2 d-flex align-items-start justify-content-center mt-4 px-3">
                 <img src="https://picsum.photos/200" alt="#" className="img-fluid rounded-start" />
               </div>
               <div className="col-md-10">
@@ -63,7 +63,6 @@ const Nosotros = () => {
            
 
           </div>
-
         </div>
       </div>
     </>

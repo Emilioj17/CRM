@@ -14,7 +14,6 @@ function Login() {
                 <Link className="Registrate" to="/registro">¿Usuario nuevo?</Link>
             </div>
             <p>Registrate!</p>
-            <button className="Atras">Volver</button>
         </div>
     )
 }
