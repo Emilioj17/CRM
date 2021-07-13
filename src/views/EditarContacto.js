@@ -7,7 +7,7 @@ const EditarContacto = () => {
         <h4 className="my-3">Editar Contacto</h4>
         <form className="border">
           <div className="row">
-              {/* Card Primary Info */}
+            {/* Card Primary Info */}
             <div className="col-12 col-md-6">
               <div className="container d-flex align-items-center justify-content-center ">
                 <div className="row g-0">
@@ -15,7 +15,7 @@ const EditarContacto = () => {
                     <img
                       src="https://picsum.photos/300"
                       alt="#"
-                      className="img-fluid rounded-circle"
+                      className="img-fluid rounded-circle py-3"
                     />
                   </div>
                   <div className="col-md-9">
@@ -62,32 +62,142 @@ const EditarContacto = () => {
             {/* Middle Content */}
             <div className="col-12">
               <div className="container">
-              <div className="card text-white border-0">
-                    <div className="card-header bg-danger text-center">
-                      Notas del cliente
-                    </div>
-                    <div className="row g-0 my-2">
-
-                    <input type="text" name="" id="" className="w-50" />
-                    <input type="text" name="" id="" className="w-50" />
-                    <input type="text" name="" id="" className="w-50" />
-                    <input type="text" name="" id="" className="w-50" />
-                    <input type="text" name="" id="" className="w-50" />
-                    <input type="text" name="" id="" className="w-50" />
-                    <input type="text" name="" id="" className="w-50" />
-                    <input type="text" name="" id="" className="w-50" />
-                    </div>                    
+                <div className="card text-white border-0">
+                  <div className="card-header bg-danger text-center">
+                    Notas del cliente
                   </div>
+                  <div className="container">
+                    <div className="row py-2">
+                      <div className="col-12 col-md-6">
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Direccion:"
+                        />
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Ciudad:"
+                        />
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Pais:"
+                        />
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Telefono:"
+                        />
+                      </div>
+                      <div className="col-12 col-md-6">
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Agente Activo"
+                        />
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Area:"
+                        />
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Cliente Captado:"
+                        />
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          className="w-100 my-2"
+                          placeholder="Tratos hasta la fecha:"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            {/* Lower Content */}
-            <div className="col-12 col-md-6 border">
-              <h1>gato</h1>
+            {/* Lower Content Left */}
+            <div className="col-12 col-md-6">
+              <div className="container">
+                <div className="row">
+                  <div className="card text-white border-0">
+                    <div className="card-header bg-danger text-center">
+                      Ultimos tratos activos
+                    </div>
+                    <div className="card-body">
+                      <ul class="list-group">
+                        <li class="list-group-item">
+                          Trato #, Fecha de inicio, Fecha de termino
+                        </li>
+                        <li class="list-group-item">
+                          Trato #, Fecha de inicio, Fecha de termino
+                        </li>
+                        <li class="list-group-item">
+                          Trato #, Fecha de inicio, Fecha de termino
+                        </li>
+                        <li class="list-group-item">
+                          Trato #, Fecha de inicio, Fecha de termino
+                        </li>
+                        <li class="list-group-item">
+                          Trato #, Fecha de inicio, Fecha de termino
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Lower Contetn Right */}
+            <div className="col-12 col-md-6">
+              <div className="container">
+                <div className="row">
+                  <div className="card text-white border-0">
+                    <div className="card-header bg-danger text-center">
+                      Informacion sobre tipo de cliente
+                    </div>
+                    <div className="card-body">
+                    <select
+                  name="edit_contact_usertype"
+                  id="edit_contact_usertype"
+                  className="form-select my-2"
+                >
+                  <option defaultValue>Desea transformar en contacto:</option>
+                  <option value="1">Si</option>
+                  <option value="1">No</option>
+                </select>
+                <input className="w-100 my-2" type="text" name="edit_contact_date" id="edit_contact_date" value="Fecha"/>
+                <input className="w-100 my-2" type="text" name="edit_contact_agent" id="edit_contact_agent" value="Nombre del agente"/>
+
+            {/* Button Row */}
+            <div className="row py-3">
+              <div className="col d-flex justify-content-end">
+                <button className="btn btn-success mx-2">Guardar</button>
+                <button className="btn btn-danger">Cancelar</button>
+              </div>
+            </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="col-12 col-md-6 border">
-              <h1>camello</h1>
-            </div>
           </div>
         </form>
       </div>

@@ -156,14 +156,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
-            setDeal: async (name, description, contactId, userId) => {
+            setDeal: async (plan, duration, description, contactId, userId) => {
                 fetch("http://localhost:5000/api/deals", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        "name": name,
+                        "plan": plan,
+                        "duration": duration,
                         "description": description,
                         "user_id": contactId,
                         "contact_id": userId
@@ -255,14 +256,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
-            editDeal: async (id, name, description, contactId, userId) => {
+            editDeal: async (id, plan, duration, description, contactId, userId) => {
                 fetch("http://localhost:5000/api/deals"+id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        "name": name,
+                        "plan": plan,
+                        "duration": duration,
                         "description": description,
                         "user_id": contactId,
                         "contact_id": userId

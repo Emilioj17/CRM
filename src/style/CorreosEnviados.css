@@ -1,0 +1,14 @@
+.CorreosEnviados {
+	background-color: #f1d15f;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.cuerpoCorreosEnviados {
+	background-color: rgb(255, 255, 255, 0.8);
+}
+
+.headCuerpoCorreosEnviados {
+	background-color: #fb6767;
+	color: white;
+}

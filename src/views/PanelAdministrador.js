@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import "../style/PanelAdministrador.css"
+import "../style/PanelAdministrador.css";
+import { Link } from "react-router-dom";
 
 const PanelAdministrador = () => {
     const usuariosInactivos = ["Vendedor 1", "Vendedor 5", "Vendedor 7"]
@@ -135,9 +136,9 @@ const PanelAdministrador = () => {
                 </div>
                 <DivUsuarios />
                 <div className="col-12 col-md-6 d-flex justify-content-start">
-                    <button type="button" className="btn btn-success">Crear</button>
+                    <Link to="/CrearUsuario"><button type="button" className="btn btn-success">Crear</button></Link>
                     <button type="button" className="btn btn-danger mx-3">Borrar</button>
-                    <button type="button" className="btn btn-warning">Modificar</button>
+                    <Link to="/ModificarUsuario"><button type="button" className="btn btn-warning">Modificar</button></Link>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-5">
                     <h2>Administracion de Adicional</h2>

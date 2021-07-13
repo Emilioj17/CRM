@@ -4,11 +4,11 @@ const Nosotros = () => {
   return (
     <>
       <div className="container">
-        <h1 className="py-3">Nosotros</h1>
+        <h1 className="py-2">Nosotros</h1>
         <div className="row">
           {/* Rigth side */}
 
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 py-3">
             <p className="text-muted">
               lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Quia a fugit, eos dolorum ex sequi fuga quod repellendus molestias
