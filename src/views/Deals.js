@@ -42,7 +42,7 @@ function Deals() {
                             <th scope="row">{object.id}</th>
                             <td>{object.plan}</td>
                             <td>{object.duration}</td>
-                            <td>{object.description}</td>
+                            <td style={{width: "40%"}}>{object.description}</td>
                             <td>{object.create_at}</td>
                             <td>{object.user_id}</td>
                             <td>{object.contact_id}</td>
