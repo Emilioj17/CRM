@@ -24,6 +24,7 @@ import EditarContacto from "./views/EditarContacto";
 import Deals from "./views/Deals";
 import CreateContact from "./views/CreateContact";
 import CreateDeal from "./views/CreateDeal";
+import EditDeal from "./views/editDeal";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/tratos" children= {<Deals/>} />
           <Route exact path="/crear/contacto" children= {<CreateContact/>} />
           <Route exact path="/crear/trato" children= {<CreateDeal/>} />
+          <Route exact path="/editar/trato/:id" component= {EditDeal} />
           <Route exact path="/product/:product_id"children={<SingleProduct />}/>
           <Route exact path="/checkout" children={<Checkout />} />
           <Route exact path="/BienvenidoAdministrador" children={<BienvenidoAdministrador />} />

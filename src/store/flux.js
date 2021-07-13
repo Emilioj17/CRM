@@ -167,8 +167,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "plan": plan,
                         "duration": duration,
                         "description": description,
-                        "user_id": contactId,
-                        "contact_id": userId
+                        "user_id": userId,
+                        "contact_id": contactId
                     })
                 }).then((response) => response.json())
                     .then((data) => {
@@ -258,7 +258,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editDeal: async (id, plan, duration, description, contactId, userId) => {
-                fetch("http://localhost:5000/api/deals"+id, {
+                fetch("http://localhost:5000/api/deals/"+id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"

@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
 
-function CreateDeal() {
+function EditDeal(props) {
     const { store, actions } = useContext(AppContext);
     const { contacts, users } = store;
-    const { setDeal } = actions;
+    const { editDeal } = actions;
     let history = useHistory();
 
     const [plan, setPlan] = useState(null);
@@ -25,17 +25,17 @@ function CreateDeal() {
     }
 
     function handleSubmit(){
-        setDeal(plan, duration, description, contactId, userId)
+        editDeal(props.match.params.id, plan, duration, description, contactId, userId)
         history.push("/tratos");
     }
 
     return (
         <div className="container">
             <div className="row">
-                <h1 className="my-5">Crear trato</h1>
+                <h1 className="my-5">Editar trato</h1>
                 <div className="d-flex flex-column align-items-center">
                     <div className="col-6 my-3">
-                        <label for="plan" className="form-label">Plan</label>
+                        <label htmlFor="plan" className="form-label">Plan</label>
                         <select id="contact" className="form-select" onChange={(event) => setPlan(event.target.value)}>
                             <option disabled selected>Selecciona una opción</option>
                             <option >Plan 1</option>
@@ -45,7 +45,7 @@ function CreateDeal() {
                         </select>
                     </div>
                     <div className="col-6 my-3">
-                        <label for="plan" className="form-label">Duración</label>
+                        <label htmlFor="plan" className="form-label">Duración</label>
                         <select id="contact" className="form-select" onChange={(event) => setDuration(event.target.value)}>
                             <option disabled selected>Selecciona una opción</option>
                             <option >Mensual</option>
@@ -55,7 +55,7 @@ function CreateDeal() {
                         </select>
                     </div>
                     <div className="col-6 my-3">
-                        <label for="contact" className="form-label">Contacto</label>
+                        <label htmlFor="contact" className="form-label">Contacto</label>
                         <select id="contact" className="form-select" onChange={onSelectContact}>
                             <option disabled selected>Selecciona una opción</option>
                             {contacts !== null && contacts.length > 0 ?
@@ -66,7 +66,7 @@ function CreateDeal() {
                         </select>
                     </div>
                     <div className="col-6 my-3">
-                        <label for="contact" className="form-label">Usuario</label>
+                        <label htmlFor="contact" className="form-label">Usuario</label>
                         <select id="contact" className="form-select" onChange={onSelectUser}>
                             <option disabled selected>Selecciona una opción</option>
                             {users !== null && users.length > 0 ?
@@ -77,17 +77,17 @@ function CreateDeal() {
                         </select>
                     </div>
                     <div className="col-6 my-3">
-                        <label for="description">Descripción</label>
+                        <label htmlFor="description">Descripción</label>
                         <textarea className="form-control" id="description" rows="3"onChange={(event) => setDescription(event.target.value)}></textarea>
                     </div>
                 </div>
 
                 <div className="col-12 d-flex">
-                    <button className="col-2 btn btn-success my-5 ms-auto" onClick={handleSubmit}>Crear trato</button>
+                    <button className="col-2 btn btn-success my-5 ms-auto" onClick={handleSubmit}>Editar trato</button>
                 </div>
             </div>
         </div>
     )
 }
 
-export default CreateDeal
+export default EditDeal
