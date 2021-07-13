@@ -68,3 +68,13 @@ top: 43px;
 background: #E8984A;
 border-radius: 20px;
 }
+button.btn.btn-secondary.Admin {
+position: absolute;
+left: -350px;
+background-color: #1B4B4D;
+}
+button.btn.btn-secondary.User {
+position: absolute;
+left: -190px;
+background-color: #1B4B4D;
+}

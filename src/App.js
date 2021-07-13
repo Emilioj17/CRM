@@ -16,9 +16,14 @@ import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
 import PanelAdministrador from "./views/PanelAdministrador";
 import SendEmail from "./views/SendEmail";
 import CorreosRecibidos from "./views/CorreosRecibidos";
+import CorreosEnviados from "./views/CorreosEnviados";
+import CrearUsuario from "./views/CrearUsuario";
+import ModificarUsuario from "./views/ModificarUsuario";
 import Contacts from "./views/Contacts";
+import EditarContacto from "./views/EditarContacto";
 import Deals from "./views/Deals";
 import CreateContact from "./views/CreateContact";
+
 function App() {
   return (
     <>
@@ -46,7 +51,11 @@ function App() {
           <Route exact path="/PanelAdministrador" children={<PanelAdministrador />} />
           <Route exact path="/SendEmail" children={<SendEmail />} />
           <Route exact path="/CorreosRecibidos" children={<CorreosRecibidos />} />
+          <Route exact path="/CorreosEnviados" children={<CorreosEnviados />} />
+          <Route exact path="/CrearUsuario" children={<CrearUsuario />} />
+          <Route exact path="/ModificarUsuario" children={<ModificarUsuario />} />
           <Route exact path="/profile/:user_id" children={<Profile />} />
+          <Route exact path="/editar-contacto" children={<EditarContacto/>}/>
         </Switch>
       </Router>
     </>
