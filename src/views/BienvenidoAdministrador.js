@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../style/BienvenidoAdministrador.css"
 import Heroe from "../img/BienvenidoAdmin_img1.png"
 import Heroe2 from "../img/BienvenidoAdmin_img2.png"
+import { Link } from "react-router-dom";
 
 const BienvenidoAdministrador = () => {
   return (
@@ -11,7 +12,7 @@ const BienvenidoAdministrador = () => {
         <div className="d-flex justify-content-between align-items-center">
           <h2>Bienvenido Administrador</h2>
           <div>
-            <button type="button" class="btn btn-success">Configuracion</button>
+          <Link to="/PanelAdministrador"><button type="button" class="btn btn-success">Configuracion</button></Link>
           </div>
         </div>
         <div className="col-12 Heroe1">

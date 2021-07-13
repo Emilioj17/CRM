@@ -1,0 +1,21 @@
+.ModificarUsuario {
+	background-color: #f1d15f;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.internoModificarUsuario {
+	background-color: #c4c4c4;
+}
+
+.bodyModificarUsuario {
+	background-color: rgb(255, 253, 253, 0.8);
+}
+
+.fotoModificarUsuario {
+	background-color: #c4c4c4;
+}
+
+.divResumen {
+	background-color: #fe6060;
+}
