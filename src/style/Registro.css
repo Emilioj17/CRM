@@ -1,0 +1,80 @@
+div.Registro{
+position: relative;
+width: 360px;
+height: 500px;
+left: 460px;
+top: 40px;
+background: #1B4B4D;
+border-radius: 100px;
+}
+h1 {
+position: relative;
+text-align: center;
+top: 35px;
+opacity: 80%;
+color: rgba(255, 255, 255, 1)
+}
+input.Nombre {
+position: relative;
+width: 240px;
+height: 60px;
+left: 60px;
+top: 50px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Apellido {
+position: relative;
+left: 60px;
+top: 60px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Telefono {
+position: relative;
+left: 60px;
+top: 70px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Correo{
+position: relative;
+left: 60px;
+top: 80px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.CrearPassword {
+position: relative;
+left: 60px;
+top: 90px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+button.Volver {
+position: relative;
+width: 240px;
+height: 60px;
+left: 480px;
+top: 43px;
+background: #E8984A;
+border-radius: 20px;
+}
+button.btn.btn-secondary.Admin {
+position: absolute;
+left: -350px;
+background-color: #1B4B4D;
+}
+button.btn.btn-secondary.User {
+position: absolute;
+left: -190px;
+background-color: #1B4B4D;
+}

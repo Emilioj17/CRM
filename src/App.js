@@ -51,7 +51,7 @@ function App() {
           <Route exact path="/crear/contacto" children= {<CreateContact/>} />
           <Route exact path="/CorreosRecibidos" children={<CorreosRecibidos />} />
           <Route exact path="/CorreosEnviados" children={<CorreosEnviados />} />
-          <Route exact path="/editar-contacto" children={<EditarContacto/>}/>
+          <Route exact path="/editar/contacto" children={<EditarContacto/>}/>
           <Route exact path="/SendEmail" children={<SendEmail />} />
           <Route exact path="/profile/:user_id" children={<Profile />} />
           

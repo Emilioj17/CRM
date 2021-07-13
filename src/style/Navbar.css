@@ -1,3 +1,17 @@
 nav.navbar.navbar-expand-lg.navbar-dark{
 background-color: rgba(27, 75, 77, 1);
 }
+a.nav-link.Ingresar {
+position: absolute;
+left: 1100px;
+top: 8px;
+}
+button.Volver {
+position: relative;
+width: 240px;
+height: 60px;
+left: 480px;
+top: 163px;
+background: #E8984A;
+border-radius: 20px;
+}
