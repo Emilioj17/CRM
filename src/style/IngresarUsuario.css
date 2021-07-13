@@ -1,8 +1,3 @@
- div#root {
-background-color: #F1D15F;
-width: 1280px;
-height: 609px;
-}
 .IngresarUsuario {
 position: relative;
 width: 360px;
@@ -52,12 +47,12 @@ top: 400px;
 width: 120px;
 left: 120px;
 }
-p {
+/* p {
 position: absolute;
 top: 420px;
 width: 120px;
 left: 140px;
-}  /* Ojo con la especificidad, este p desconfigura los p de otras vistas */
+}  */ /* Ojo con la especificidad, este p desconfigura los p de otras vistas */
 button.Atras {
 position: relative;
 width: 240px;
