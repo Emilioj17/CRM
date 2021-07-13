@@ -1,12 +1,18 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { AppContext } from "../store/appContext.js";
 
 function Contact() {
     const { store, actions } = useContext(AppContext);
     const { contacts } = store;
+    const { getContacts, deleteContact } = actions;
+
+    useEffect(() => {
+        getContacts();
+    },[]);
 
     function handleDelete(id){
-        actions.deleteContact(id)
+        deleteContact(id)
         window.location.reload();
     }
 
@@ -54,7 +60,7 @@ function Contact() {
             </table>
             :
             <h2 className="text-center"> - no hay datos -</h2>}
-            <button type="button" className="col-2 btn btn-success my-5 ms-auto">Agregar contacto</button>
+            <Link  className="col-2 btn btn-success my-5 ms-auto" to="crear/contacto">Agregar contacto</Link>
         </>
             </div>
         </div>

@@ -21,6 +21,7 @@ import ModificarUsuario from "./views/ModificarUsuario";
 import Contacts from "./views/Contacts";
 import Deals from "./views/Deals";
 import CreateContact from "./views/CreateContact";
+import CreateDeal from "./views/CreateDeal";
 function App() {
   return (
     <>
@@ -37,11 +38,8 @@ function App() {
           <Route exact path="/contactos" children= {<Contacts/>} />
           <Route exact path="/tratos" children= {<Deals/>} />
           <Route exact path="/crear/contacto" children= {<CreateContact/>} />
-          <Route
-            exact
-            path="/product/:product_id"
-            children={<SingleProduct />}
-          />
+          <Route exact path="/crear/trato" children= {<CreateDeal/>} />
+          <Route exact path="/product/:product_id"children={<SingleProduct />}/>
           <Route exact path="/checkout" children={<Checkout />} />
           <Route exact path="/BienvenidoAdministrador" children={<BienvenidoAdministrador />} />
           <Route exact path="/PanelAdministrador" children={<PanelAdministrador />} />
