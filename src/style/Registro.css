@@ -1,7 +1,4 @@
-div#root {
-background-color: #F1D15F;
-}
-.IngresarUsuario {
+div.Registro{
 position: relative;
 width: 360px;
 height: 500px;
@@ -10,58 +7,64 @@ top: 40px;
 background: #1B4B4D;
 border-radius: 100px;
 }
-h1.Ingresar {
+h1 {
 position: relative;
 text-align: center;
 top: 35px;
 opacity: 80%;
 color: rgba(255, 255, 255, 1)
 }
-input.Usuario {
+input.Nombre {
 position: relative;
 width: 240px;
 height: 60px;
-left: 50px;
+left: 60px;
+top: 50px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Apellido {
+position: relative;
+left: 60px;
+top: 60px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Telefono {
+position: relative;
+left: 60px;
+top: 70px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Correo{
+position: relative;
+left: 60px;
+top: 80px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.CrearPassword {
+position: relative;
+left: 60px;
 top: 90px;
-background: #E8984A;
-border-radius: 20px;
-}
-input.Password {
-position: relative;
-left: 50px;
-top: 110px;
 width: 240px;
 height: 60px;
 background: #E8984A;
 border-radius: 20px;
 }
-button.Entrar {
-position: relative;
-width: 240px;
-height: 60px;
-left: 50px;
-top: 160px;
-background: #E8984A;
-border-radius: 20px;
-}
-a.Registrate {
-position: absolute;
-top: 400px;
-width: 120px;
-left: 120px;
-}
-p {
-position: absolute;
-top: 420px;
-width: 120px;
-left: 140px;
-}
-button.Atras {
+button.Volver {
 position: relative;
 width: 240px;
 height: 60px;
 left: 480px;
-top: 163px;
+top: 43px;
 background: #E8984A;
 border-radius: 20px;
 }
