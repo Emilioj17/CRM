@@ -13,9 +13,9 @@ li {
 	margin-left: 0;
 }
 
-li:hover {
+/* li:hover {
 	background-color: white;
-}
+} */ /* Esta etiqueta css tambien desconfigura otras */
 
 thead {
 	background-color: #1b4b4d;
