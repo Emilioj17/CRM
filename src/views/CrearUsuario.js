@@ -13,11 +13,13 @@ const CrearUsuario = () => {
     const [rut, setRut] = useState(null);
     const [phone, setPhone] = useState(null);
     const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
     const [type, setType] = useState("Vendedor");
     const history = useHistory();
 
-    function handleSubmit(){
-        actions.setUser(name, lastName, rut, type, phone, email)
+    function handleSubmit() {
+        console.log(password);
+        actions.setUser(name, lastName, rut, type, phone, email, password)
         history.push("/PanelAdministrador");
     }
 
@@ -62,6 +64,10 @@ const CrearUsuario = () => {
                                 <div className="col-6">
                                     <label htmlFor="email" className="form-label">Correo</label>
                                     <input type="text" className="form-control" id="email" onChange={(event) => setEmail(event.target.value)}/>
+                                </div>
+                                <div className="col-6">
+                                    <label htmlFor="password" className="form-label">Clave</label>
+                                    <input type="text" className="form-control" id="password" onChange={(event) => setPassword(event.target.value)}/>
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="admin" className="form-label">Rol de Usuario</label>
