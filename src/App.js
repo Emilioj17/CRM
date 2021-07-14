@@ -28,6 +28,7 @@ import EditDeal from "./views/EditDeal";
 import ContactoSuccess from "./views/ContactoSuccess";
 import NotFound from "./views/NotFound";
 import EditContact from "./views/EditContact";
+import Notes from "./views/Notes";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           {/* Panel Usuario */}
           <Route exact path="/tratos" children= {<Deals/>} />
           <Route exact path="/contactos" children= {<Contacts/>} />
+          <Route exact path="/contactos/:id" component= {Notes} />
           <Route exact path="/crear/contacto" children= {<CreateContact/>} />
           <Route exact path="/crear/trato" children= {<CreateDeal/>} />
           <Route exact path="/editar/trato/:id" component= {EditDeal} />
