@@ -13,7 +13,7 @@ function Login() {
                 <button className="Entrar">Ingresar</button>
                 <Link className="Registrate" to="/registro">¿Usuario nuevo?</Link>
             </div>
-            <p>Registrate!</p>
+            <p className="Registrate">Registrate!</p>
         </div>
     )
 }
