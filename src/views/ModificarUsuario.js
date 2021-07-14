@@ -2,34 +2,77 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/ModificarUsuario.css";
 import { Link } from "react-router-dom";
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
 
 const ModificarUsuario = () => {
-    const { actions } = useContext(AppContext);
+    const { store, actions } = useContext(AppContext);
+    const [usuario, setUsuario] = useState({
+        nombre: "",
+        apellido: "",
+        telefono:"",
+        correo: "",
+        rut: "",
+        tipo:"",
+        estado:""
+    });
     const [name, setName] = useState(null);
     const [lastName, setLastName] = useState(null);
     const [rut, setRut] = useState(null);
     const [phone, setPhone] = useState(null);
     const [email, setEmail] = useState(null);
-    const [type, setType] = useState("Vendedor");
-    const [estado, setEstado] = useState("Activo");
+    const [type, setType] = useState(null);
+    const [estado, setEstado] = useState(null);
     let history = useHistory();
 
-    function handleSubmit(){
-        actions.setUser(name, lastName, rut, type, phone, email, estado)
+    useEffect(() => {
+        const id = store.userId;
+        console.log(id);
+		fetch("http://localhost:5000/api/users/"+id, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setUsuario({
+                            nombre: data.name,
+                            apellido: data.last_name,
+                            telefono: data.phone,
+                            correo: data.email,
+                            rut: data.rut,
+                            tipo: data.type,
+                            estado: data.estado
+                        })
+                        console.log(data);
+                    })
+                    .catch(err => (console.error(err)));
+    }, []);
+
+
+    function handleSubmit() {
+        console.log(usuario.nombre);
+        const idx = store.userId
+        actions.editUser(idx, name, lastName, rut, type, estado, phone, email)
+        history.push("/PanelAdministrador");
+    }
+
+    const HandlerBorrarUsuario = () => {
+        // console.log(usuariosActivos);
+        actions.deleteUser(store.userId);
         history.push("/PanelAdministrador");
     }
 
     return (
-        <div className="ModificarUsuario mt-4 py-2">
+        <div className="ModificarUsuario py-2">
             <div className="container internoModificarUsuario pb-2">
                 <div className="d-flex justify-content-between align-items-center m-2 pb-2">
                     <h2>Modificar Usuario</h2>
                     <div>
-                        <button type="button" class="btn btn-success m-2" onClick={handleSubmit}>Guardar</button>
-                        <Link to="/PanelAdministrador"><button type="button" class="btn btn-danger m-2">Cancelar</button></Link>
+                        <button type="button" className="btn btn-success m-2" onClick={handleSubmit}>Guardar</button>
+                        <button type="button" className="btn btn-danger mx-3" onClick={HandlerBorrarUsuario}>Borrar</button>
+                        <Link to="/PanelAdministrador"><button type="button" className="btn btn-warning m-2">Cancelar</button></Link>
                     </div>
                 </div>
                 <div className="bodyModificarUsuario pb-2">
@@ -46,36 +89,36 @@ const ModificarUsuario = () => {
                             <form className="row g-3">
                                 <div className="col-md-6">
                                     <label htmlFor="name" className="form-label">Nombre</label>
-                                    <input type="text" className="form-control" id="name" onChange={(event) => setName(event.target.value)}/>
+                                    <input type="text" className="form-control" id="name" onChange={(event) => setName(event.target.value)} placeholder={usuario.nombre}/>
                                 </div>
                                 <div className="col-md-6">
                                     <label htmlFor="last_name" className="form-label">Apellido</label>
-                                    <input type="text" className="form-control" id="last_name" onChange={(event) => setLastName(event.target.value)}/>
+                                    <input type="text" className="form-control" id="last_name" onChange={(event) => setLastName(event.target.value)} placeholder={usuario.apellido}/>
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="rut" className="form-label">Rut</label>
-                                    <input type="text" className="form-control" id="rut" onChange={(event) => setRut(event.target.value)}/>
+                                    <input type="text" className="form-control" id="rut" onChange={(event) => setRut(event.target.value)} placeholder={usuario.rut}/>
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="phone" className="form-label">Teléfono</label>
-                                    <input type="text" className="form-control" id="phone" onChange={(event) => setPhone(event.target.value)}/>
+                                    <input type="text" className="form-control" id="phone" onChange={(event) => setPhone(event.target.value)} placeholder={usuario.telefono}/>
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="email" className="form-label">Correo</label>
-                                    <input type="text" className="form-control" id="email" onChange={(event) => setEmail(event.target.value)}/>
+                                    <input type="text" className="form-control" id="email" onChange={(event) => setEmail(event.target.value)} placeholder={usuario.correo}/>
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="estado" className="form-label">Estado de Usuario</label>
-                                    <select id="estado" className="form-select" onChange={(event) => setEstado(event.target.value)}>
-                                        <option defaultValue>Activo</option>
-                                        <option>Inactivo</option>
+                                    <select id="estado" className="form-select" onChange={(event) => setEstado(event.target.value)} placeholder={usuario.estado}>
+                                        <option selected={usuario.tipo=="Activo"?"selected":""}>Activo</option>
+                                        <option selected={usuario.tipo=="Inactivo"?"selected":""}>Inactivo</option>
                                     </select>
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="admin" className="form-label">Rol de Usuario</label>
-                                    <select id="admin" className="form-select" onChange={(event) => setType(event.target.value)}>
-                                        <option defaultValue>Vendedor</option>
-                                        <option>Administrador</option>
+                                    <select id="admin" className="form-select" onChange={(event) => setType(event.target.value)} placeholder={usuario.tipo}>
+                                        <option selected={usuario.tipo=="Vendedor"?"selected":""}>Vendedor</option>
+                                        <option selected={usuario.tipo=="Administrador"?"selected":""}>Administrador</option>
                                     </select>
                                 </div>
                             </form>

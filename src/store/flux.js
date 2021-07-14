@@ -10,7 +10,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             note: null,
             deal: null,
             response: null,
-            error: null
+            error: null,
+            userId: null,
         },
         actions: {
             getContacts: async () => {
@@ -285,8 +286,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
-            editUser: async (id, name, lastName, rut, phone, email) => {
-                fetch("http://localhost:5000/api/users"+id, {
+            editUser: async (id, name, lastName, rut, type, estado, phone, email) => {
+                fetch("http://localhost:5000/api/users/"+id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
@@ -295,6 +296,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "name": name,
                         "last_name": lastName,
                         "rut": rut,
+                        "type": type,
+                        "estado": estado,
                         "phone": phone,
                         "email": email
                     })
@@ -429,6 +432,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                             error: error.message
                         })
                     });
+            },
+            idUser: (id) => {
+                setStore({ userId: id })
             }
 
         }
