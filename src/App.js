@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Login from "./views/Login";
 import Registro from "./views/Registro";
+import Recuperar from "./views/Recuperar";
 import Remind from "./views/Remind";
 import Products from "./views/Products";
 import Category from "./views/Category";
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/" children={<Home />} />
           <Route exact path="/login" children={<Login />} />
           <Route exact path="/registro" children={<Registro />} />
+          <Route exact path="/recuperar" children={<Recuperar />} />
           <Route exact path="/contacto" children={<Contacto/>} />
           <Route exact path="/contacto/success" children={ <ContactoSuccess/>} />
           <Route exact path="/nosotros" children={<Nosotros />} />

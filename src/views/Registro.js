@@ -22,7 +22,7 @@ function Registro() {
             <input className="CrearPassword" type="password" placeholder="Contraseña" onChange={(e) => {SetPasswordReg(e.target.value);}}></input>
             </form>
             <div>
-            <button className="Aceptar" type="submit" value="Send Form"  >Aceptar</button>
+            <button className="Aceptar" type="submit" value="Send Form">Aceptar</button>
             </div>
         </div>
 
