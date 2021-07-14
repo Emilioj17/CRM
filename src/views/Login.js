@@ -5,18 +5,18 @@ import "../style/IngresarUsuario.css";
 
 function Login() {
 
-    const [user, SetUser] = useState("")
+    const [email, SetEmail] = useState("")
     const [password, SetPassword] = useState("")
     return (
-        <div className="IngresarUsuario">
-            <div className="container">
+        <div className="container">
+            <div className="container-fluid">
                 <h1 className="Ingresar">Ingresar</h1>
-                <input className="Usuario" placeholder="Usuario" onChange={(e) => {SetUser(e.target.value);}}></input>
+                <input className="Usuario" placeholder="Email" onChange={(e) => {SetEmail(e.target.value);}}></input>
                 <input className="Password" placeholder="Contraseña" onChange={(e) => {SetPassword(e.target.value);}}></input>
                 <button className="Entrar">Ingresar</button>
                 <Link className="Registrate" to="/registro">¿Usuario nuevo?</Link>
+                <p className="Registrate">Registrate!</p>
             </div>
-            <p className="Registrate">Registrate!</p>
         </div>
     )
 }

@@ -12,7 +12,7 @@ function Registro() {
 
 
     return (
-        <div className="Registro">
+        <div className="Registro container-fluid">
             <h1 className="Registrate">Registrate</h1>
             <form>
             <input className="Nombre" type="text" placeholder="Nombre" onChange={(e) => {SetNameReg(e.target.value);}}></input>
@@ -20,9 +20,12 @@ function Registro() {
             <input className="Telefono" type="" placeholder="Telefono" onChange={(e) => {SetPhoneReg(e.target.value);}}></input>
             <input className="Correo" placeholder="Correo" onChange={(e) => {SetEmailReg(e.target.value);}}></input>
             <input className="CrearPassword" type="password" placeholder="Contraseña" onChange={(e) => {SetPasswordReg(e.target.value);}}></input>
-            <button className="Aceptar" type="submit" value="Send Form"  >Aceptar</button>
             </form>
+            <div>
+            <button className="Aceptar" type="submit" value="Send Form"  >Aceptar</button>
+            </div>
         </div>
+
     )
 }
 export default Registro;

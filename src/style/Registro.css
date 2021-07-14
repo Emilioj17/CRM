@@ -2,8 +2,7 @@ div.Registro{
 position: relative;
 width: 360px;
 height: 500px;
-left: 750px;
-top: 80px;
+top: 100px;
 background: #1B4B4D;
 border-radius: 100px;
 }
@@ -15,17 +14,19 @@ opacity: 80%;
 color: rgba(255, 255, 255, 1)
 } 
 input.Nombre {
+text-align: center;
 position: relative;
 width: 240px;
 height: 60px;
-left: 60px;
+left: 50px;
 top: 50px;
 background: #E8984A;
 border-radius: 20px;
 }
 input.Apellido {
+text-align: center;
 position: relative;
-left: 60px;
+left: 50px;
 top: 60px;
 width: 240px;
 height: 60px;
@@ -33,8 +34,9 @@ background: #E8984A;
 border-radius: 20px;
 }
 input.Telefono {
+text-align: center;
 position: relative;
-left: 60px;
+left: 50px;
 top: 70px;
 width: 240px;
 height: 60px;
@@ -42,8 +44,9 @@ background: #E8984A;
 border-radius: 20px;
 }
 input.Correo{
+text-align: center;
 position: relative;
-left: 60px;
+left: 50px;
 top: 80px;
 width: 240px;
 height: 60px;
@@ -51,8 +54,9 @@ background: #E8984A;
 border-radius: 20px;
 }
 input.CrearPassword {
+text-align: center;
 position: relative;
-left: 60px;
+left: 50px;
 top: 90px;
 width: 240px;
 height: 60px;
@@ -61,20 +65,10 @@ border-radius: 20px;
 }
 button.Aceptar {
 position: relative;
+top: 170px;
+left: 50px;
+background-color: darkgreen;
 width: 240px;
 height: 60px;
-left: 450px;
-top: 90px;
-background: #E8984A;
 border-radius: 20px;
-}
-button.btn.btn-secondary.Admin {
-position: absolute;
-left: -350px;
-background-color: #1B4B4D;
-}
-button.btn.btn-secondary.User {
-position: absolute;
-left: -190px;
-background-color: #1B4B4D;
 }
