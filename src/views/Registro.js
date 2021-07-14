@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../style/Registro.css';
 import "bootstrap/dist/css/bootstrap.css";
 
 function Registro() {
+
+  const [nameReg, SetNameReg] = useState("")
+  const [lastnameReg, SetLastnameReg] = useState("")
+  const [phoneReg, SetPhoneReg] = useState("")
+  const [emailReg, SetEmailReg] = useState("")
+  const [passwordReg, SetPasswordReg] = useState("")
+
+
     return (
         <div className="Registro">
             <h1 className="Registrate">Registrate</h1>
-            <input className="Nombre" placeholder="Nombre"></input>
-            <input className="Apellido" placeholder="Apellido"></input>
-            <input className="Telefono" placeholder="Telefono"></input>
-            <input className="Correo" placeholder="Correo"></input>
-            <input className="CrearPassword" placeholder="Contraseña"></input>
-            <button className="Volver">Volver</button>
+            <form>
+            <input className="Nombre" type="text" placeholder="Nombre" onChange={(e) => {SetNameReg(e.target.value);}}></input>
+            <input className="Apellido" type="text" placeholder="Apellido" onChange={(e) => {SetLastnameReg(e.target.value);}}></input>
+            <input className="Telefono" type="" placeholder="Telefono" onChange={(e) => {SetPhoneReg(e.target.value);}}></input>
+            <input className="Correo" placeholder="Correo" onChange={(e) => {SetEmailReg(e.target.value);}}></input>
+            <input className="CrearPassword" type="password" placeholder="Contraseña" onChange={(e) => {SetPasswordReg(e.target.value);}}></input>
+            <button className="Aceptar" type="submit" value="Send Form"  >Aceptar</button>
+            </form>
         </div>
     )
 }
