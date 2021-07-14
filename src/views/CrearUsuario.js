@@ -14,7 +14,7 @@ const CrearUsuario = () => {
     const [phone, setPhone] = useState(null);
     const [email, setEmail] = useState(null);
     const [type, setType] = useState("Vendedor");
-    let history = useHistory();
+    const history = useHistory();
 
     function handleSubmit(){
         actions.setUser(name, lastName, rut, type, phone, email)
@@ -27,8 +27,8 @@ const CrearUsuario = () => {
                 <div className="d-flex justify-content-between align-items-center m-2 pb-2">
                     <h2>Crear Usuario</h2>
                     <div>
-                        <button type="button" class="btn btn-success m-2" onClick={handleSubmit}>Guardar</button>
-                        <Link to="/PanelAdministrador"><button type="button" class="btn btn-danger m-2">Cancelar</button></Link>
+                        <button type="button" className="btn btn-success m-2" onClick={handleSubmit}>Guardar</button>
+                        <Link to="/PanelAdministrador"><button type="button" className="btn btn-danger m-2">Cancelar</button></Link>
                     </div>
                 </div>
                 <div className="bodyCrearUsuario pb-2">

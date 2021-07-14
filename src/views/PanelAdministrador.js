@@ -6,58 +6,65 @@ import { useContext } from 'react';
 import { AppContext } from '../store/appContext';
 
 const PanelAdministrador = () => {
-    const { store, actions } = useContext(AppContext);
+    const [usuarios, setUsuarios] = useState([""]);
     const usuariosActivosx = [];
     const usuariosInactivosx = [];
     const [usuariosActivos, setUsuariosActivos] = useState([""]);
     const [usuariosInactivos, setUsuariosInactivos] = useState([""]);
-    const [idClick, setIdClick] = useState("");
-    // actions.getUsers();
-    // const uno = store.users;
+    const { actions } = useContext(AppContext);
 
-    // useEffect(() => {
-    //     // actions.getUsers();
-    //     // const uno = store.users;
-    //     for (let x = 0; uno.length > x; x++){
-    //         if (uno[x].estado == "Activo") {
-    //             usuariosActivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
-    //         } else if(uno[x].estado == "Inactivo"){
-    //             usuariosInactivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
-    //         }
-    //     }
-    //     setUsuariosActivos(usuariosActivosx)
-    //     setUsuariosInactivos(usuariosInactivosx)
-    // }, [])
-
-    const Handler = () => {
-        actions.getUsers();
-        const uno = store.users;
-        for (let x = 0; uno.length > x; x++){
-            if (uno[x].estado == "Activo") {
-                usuariosActivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
-            } else if(uno[x].estado == "Inactivo"){
-                usuariosInactivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
+    useEffect(() => {
+		fetch("http://localhost:5000/api/users", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setUsuarios(data)
+                    })
+                    .catch(err => (console.error(err)));
+    }, []);
+    
+    useEffect(() => {
+        for (let x = 0; usuarios.length > x; x++){
+            if (usuarios[x].estado == "Activo") {
+                usuariosActivosx.push([usuarios[x].name, usuarios[x].last_name, usuarios[x].id])
+            } else if(usuarios[x].estado == "Inactivo"){
+                usuariosInactivosx.push([usuarios[x].name, usuarios[x].last_name, usuarios[x].id])
             }
         }
         setUsuariosActivos(usuariosActivosx)
         setUsuariosInactivos(usuariosInactivosx)
-    }
+    }, [usuarios])
 
-    const Handler2 = (event) => {
-        console.log(event.target.id);
+    const HandlerOnClick = (event) => {
+        console.log("Hola desde Click");
+        const id = event.target.id;
+        actions.idUser(id)
     }
 
     const DivUsuarios = () => {
         //Este DIV genera las tablas de Usuarios Activos/Inactivos en función de las listas de Usuarios de más arriba.
         const Activos = usuariosActivos.map((usuario, index) => {
             return (
-                <li key={index}><input key={index} onClick={(e)=>Handler2(e)} id={index} type="checkbox" className="form-check-input"></input> {usuario[0]} {usuario[1]}</li>
+                <div className="form-check" key={index}>
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" onClick={(e) => HandlerOnClick(e)} id={usuario[2]}/>
+                    <label className="form-check-label" htmlFor={usuario[2]}>
+                        {usuario[0]} {usuario[1]}
+                    </label>
+                </div>
             )
         });
 
         const Inactivos = usuariosInactivos.map((usuario, index) => {
             return (
-                <li key={index}><input type="checkbox" className="form-check-input"></input> {usuario[0]} {usuario[1]}</li>
+                <div className="form-check" key={index}>
+                    <input className="form-check-input" type="radio" name="flexRadioDefault" onClick={(e) => HandlerOnClick(e)} id={usuario[2]}/>
+                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                        {usuario[0]} {usuario[1]}
+                    </label>
+                </div>
             )
         });
 
@@ -73,11 +80,7 @@ const PanelAdministrador = () => {
                         <tbody>
                             <tr>
                                 <td>
-                                    <div>
-                                        <ul>
-                                            {Inactivos}
-                                        </ul>
-                                    </div>
+                                    {Inactivos}
                                 </td>
                             </tr>
                         </tbody>
@@ -93,11 +96,7 @@ const PanelAdministrador = () => {
                         <tbody>
                             <tr>
                                 <td>
-                                    <div>
-                                        <ul>
-                                            {Activos}
-                                        </ul>
-                                    </div>
+                                    {Activos}
                                 </td>
                             </tr>
                         </tbody>
@@ -176,8 +175,7 @@ const PanelAdministrador = () => {
                 </div>
                 <DivUsuarios />
                 <div className="col-12 col-md-6 d-flex justify-content-start">
-                    <Link to="/CrearUsuario"><button type="button" className="btn btn-success">Crear</button></Link>
-                    <button type="button" className="btn btn-danger mx-3" onClick={Handler}>Borrar</button>
+                    <Link to="/CrearUsuario"><button type="button" className="btn btn-success me-3">Crear</button></Link>
                     <Link to="/ModificarUsuario"><button type="button" className="btn btn-warning">Modificar</button></Link>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-5">
