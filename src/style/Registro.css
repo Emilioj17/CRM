@@ -7,13 +7,13 @@ top: 40px;
 background: #1B4B4D;
 border-radius: 100px;
 }
-/* h1 {
+h1.Registrate {
 position: relative;
 text-align: center;
 top: 35px;
 opacity: 80%;
 color: rgba(255, 255, 255, 1)
-} */ /* Ojo con la especificidad de estas etiquetas, tratar de que no sean globales */
+} 
 input.Nombre {
 position: relative;
 width: 240px;
