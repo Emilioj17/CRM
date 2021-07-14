@@ -2,8 +2,8 @@ div.Registro{
 position: relative;
 width: 360px;
 height: 500px;
-left: 460px;
-top: 40px;
+left: 750px;
+top: 80px;
 background: #1B4B4D;
 border-radius: 100px;
 }
@@ -59,12 +59,12 @@ height: 60px;
 background: #E8984A;
 border-radius: 20px;
 }
-button.Volver {
+button.Aceptar {
 position: relative;
 width: 240px;
 height: 60px;
-left: 480px;
-top: 43px;
+left: 450px;
+top: 90px;
 background: #E8984A;
 border-radius: 20px;
 }
