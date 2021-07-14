@@ -9,7 +9,7 @@ function Login() {
     const [password, SetPassword] = useState("")
     return (
         <div className="container">
-            <div className="container-fluid">
+            <div className="Login container-fluid">
                 <h1 className="Ingresar">Ingresar</h1>
                 <input className="Usuario" placeholder="Email" onChange={(e) => {SetEmail(e.target.value);}}></input>
                 <input className="Password" placeholder="Contraseña" onChange={(e) => {SetPassword(e.target.value);}}></input>
