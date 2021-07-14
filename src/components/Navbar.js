@@ -20,7 +20,7 @@ function Navbar() {
 					<span className="navbar-toggler-icon" />
 				</button>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul className="navbar-nav mb-2 mb-lg-0 d-flex align-items-center">
+					<ul className="navbar-nav mb-2 d-flex align-items-center">
 						<li className="nav-item">
 							<Link className="nav-link" to="/">
 								Inicio

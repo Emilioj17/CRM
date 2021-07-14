@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/PanelAdministrador.css";
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { AppContext } from '../store/appContext';
 
 const PanelAdministrador = () => {
+    const { store, actions } = useContext(AppContext);
+    const [usuariosActivosx, setUsuariosActivos] = useState("");
+    const [usuariosInactivosx, setUsuariosInactivos] = useState("");
+
+    useEffect(() => {
+        // actions.getUsers();
+        // for(let x = 0; (store.users).lenght > x; x++) {
+        //     console.log(store.users[x].name);
+        // }
+        // // for (let x = 0; store.users > x; x++){
+        // //     if (store.users[x].estado == "Activo") {
+        // //         setUsuariosActivos(...usuariosActivosx, store.users[x].name)
+        // //     } else if(store.users[x].estado == "Inactivo"){
+        // //         setUsuariosInactivos(...usuariosInactivosx, store.users[x].name)
+        // //     }
+        // // }
+        // // console.log(store.users[0].name);
+        // // if (store.users != null) {
+        // //     setUsuariosActivos(store.users.name);
+        // //     setUsuariosInactivos(store.users.name);
+        // // }
+    });
+
     const usuariosInactivos = ["Vendedor 1", "Vendedor 5", "Vendedor 7"]
     const usuariosActivos = ["Vendedor 2", "Vendedor 3", "Vendedor 4", "Vendedor 6", "Vendedor 8"]
 
