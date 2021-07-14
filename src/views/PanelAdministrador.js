@@ -7,42 +7,57 @@ import { AppContext } from '../store/appContext';
 
 const PanelAdministrador = () => {
     const { store, actions } = useContext(AppContext);
-    const [usuariosActivosx, setUsuariosActivos] = useState("");
-    const [usuariosInactivosx, setUsuariosInactivos] = useState("");
+    const usuariosActivosx = [];
+    const usuariosInactivosx = [];
+    const [usuariosActivos, setUsuariosActivos] = useState([""]);
+    const [usuariosInactivos, setUsuariosInactivos] = useState([""]);
+    const [idClick, setIdClick] = useState("");
+    // actions.getUsers();
+    // const uno = store.users;
 
-    useEffect(() => {
-        // actions.getUsers();
-        // for(let x = 0; (store.users).lenght > x; x++) {
-        //     console.log(store.users[x].name);
-        // }
-        // // for (let x = 0; store.users > x; x++){
-        // //     if (store.users[x].estado == "Activo") {
-        // //         setUsuariosActivos(...usuariosActivosx, store.users[x].name)
-        // //     } else if(store.users[x].estado == "Inactivo"){
-        // //         setUsuariosInactivos(...usuariosInactivosx, store.users[x].name)
-        // //     }
-        // // }
-        // // console.log(store.users[0].name);
-        // // if (store.users != null) {
-        // //     setUsuariosActivos(store.users.name);
-        // //     setUsuariosInactivos(store.users.name);
-        // // }
-    });
+    // useEffect(() => {
+    //     // actions.getUsers();
+    //     // const uno = store.users;
+    //     for (let x = 0; uno.length > x; x++){
+    //         if (uno[x].estado == "Activo") {
+    //             usuariosActivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
+    //         } else if(uno[x].estado == "Inactivo"){
+    //             usuariosInactivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
+    //         }
+    //     }
+    //     setUsuariosActivos(usuariosActivosx)
+    //     setUsuariosInactivos(usuariosInactivosx)
+    // }, [])
 
-    const usuariosInactivos = ["Vendedor 1", "Vendedor 5", "Vendedor 7"]
-    const usuariosActivos = ["Vendedor 2", "Vendedor 3", "Vendedor 4", "Vendedor 6", "Vendedor 8"]
+    const Handler = () => {
+        actions.getUsers();
+        const uno = store.users;
+        for (let x = 0; uno.length > x; x++){
+            if (uno[x].estado == "Activo") {
+                usuariosActivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
+            } else if(uno[x].estado == "Inactivo"){
+                usuariosInactivosx.push([uno[x].name, uno[x].last_name, uno[x].id])
+            }
+        }
+        setUsuariosActivos(usuariosActivosx)
+        setUsuariosInactivos(usuariosInactivosx)
+    }
+
+    const Handler2 = (event) => {
+        console.log(event.target.id);
+    }
 
     const DivUsuarios = () => {
         //Este DIV genera las tablas de Usuarios Activos/Inactivos en función de las listas de Usuarios de más arriba.
         const Activos = usuariosActivos.map((usuario, index) => {
             return (
-                <li key={index}><input type="checkbox" className="form-check-input"></input>{usuario}</li>
+                <li key={index}><input key={index} onClick={(e)=>Handler2(e)} id={index} type="checkbox" className="form-check-input"></input> {usuario[0]} {usuario[1]}</li>
             )
         });
 
         const Inactivos = usuariosInactivos.map((usuario, index) => {
             return (
-                <li key={index}><input type="checkbox" className="form-check-input"></input>{usuario}</li>
+                <li key={index}><input type="checkbox" className="form-check-input"></input> {usuario[0]} {usuario[1]}</li>
             )
         });
 
@@ -162,7 +177,7 @@ const PanelAdministrador = () => {
                 <DivUsuarios />
                 <div className="col-12 col-md-6 d-flex justify-content-start">
                     <Link to="/CrearUsuario"><button type="button" className="btn btn-success">Crear</button></Link>
-                    <button type="button" className="btn btn-danger mx-3">Borrar</button>
+                    <button type="button" className="btn btn-danger mx-3" onClick={Handler}>Borrar</button>
                     <Link to="/ModificarUsuario"><button type="button" className="btn btn-warning">Modificar</button></Link>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-5">
