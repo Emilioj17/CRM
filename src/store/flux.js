@@ -212,6 +212,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setNote: async (comment, contactId, userId) => {
+                console.log(comment, contactId, userId);
                 fetch("http://localhost:5000/api/notes", {
                     method: "POST",
                     headers: {

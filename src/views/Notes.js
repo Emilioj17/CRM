@@ -10,9 +10,9 @@ function Notes(props) {
     const [comment, setComment] = useState(null);
 
     function handlePutNote(){
-        console.log(comment, contact.id, contact.user_id)
         setNote(comment, contact.id, contact.user_id);
-        window.location.reload();
+        setComment("");
+        getContact(props.match.params.id);
     }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ function Notes(props) {
                 { contact != null ? (
                     <><div className="mt-5">
                         <label htmlFor="exampleFormControlTextarea1" className="form-label"><b>Nueva nota</b></label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"onChange={(event) => setComment(event.target.value)}></textarea>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"onChange={(event) => setComment(event.target.value)} value={comment}></textarea>
                   </div>
                   <button className="col-2 btn btn-success mt-3 mb-5 ms-auto" onClick={handlePutNote}>Agregar nota</button>
                   </>

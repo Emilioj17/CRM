@@ -50,7 +50,7 @@ function Contact() {
                             <td>{object.phone}</td>
                             <td>{object.create_at}</td>
                             <td>{object.user_id}</td>
-                            <td><button type="button" className="btn btn-secondary mx-1">Notas</button>
+                            <td><Link type="button" className="btn btn-secondary mx-1" to={"/contactos/"+object.id}>Notas</Link>
                                 <button type="button" className="btn btn-secondary mx-1">Tratos</button>
                                 <Link type="button" className="btn btn-primary mx-1" to={"/editar/contacto/"+object.id}>Editar</Link>
                                 <button type="button" className="btn btn-danger mx-1" onClick={() => handleDelete(object.id)}>Eliminar</button></td>
