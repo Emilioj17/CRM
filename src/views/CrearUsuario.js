@@ -18,13 +18,12 @@ const CrearUsuario = () => {
     const history = useHistory();
 
     function handleSubmit() {
-        console.log(password);
         actions.setUser(name, lastName, rut, type, phone, email, password)
         history.push("/PanelAdministrador");
     }
 
     return (
-        <div className="CrearUsuario mt-4 py-2">
+        <div className="CrearUsuario py-2">
             <div className="container internoCrearUsuario pb-2">
                 <div className="d-flex justify-content-between align-items-center m-2 pb-2">
                     <h2>Crear Usuario</h2>

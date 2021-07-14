@@ -19,7 +19,16 @@ function Contact() {
     return (
         <div className="container">
             <div className="row">
-                <h1 className="my-5">Contactos</h1>
+                <div className="d-flex justify-content-between align-items-center my-2">
+                    <h2>Bienvenido Vendedor</h2>
+                    <div>
+                        <Link to="/BienvenidoVendedor"><button type="button" className="btn btn-success m-1">Inicio</button></Link>
+                        <Link to="#"><button type="button" className="btn btn-success m-1">Posibles</button></Link>
+                        <Link to="#"><button type="button" className="btn btn-success m-1">Contactos</button></Link>
+                        <Link to="/tratos"><button type="button" className="btn btn-success m-1">Tratos</button></Link>
+                        <Link to="/sendEmail"><button type="button" className="btn btn-success m-1">Correos</button></Link>
+                    </div>
+                </div>
                 <>
         {contacts !== null && contacts.length > 0 ?
             <table className="table table-striped table-bordered">

@@ -13,7 +13,7 @@ function Login() {
                 <h1 className="Ingresar">Ingresar</h1>
                 <input className="Usuario" placeholder="Email" onChange={(e) => {SetEmail(e.target.value);}}></input>
                 <input className="Password" placeholder="Contraseña" onChange={(e) => {SetPassword(e.target.value);}}></input>
-                <button className="Entrar">Ingresar</button>
+                <Link to="/BienvenidoVendedor"><button className="Entrar">Ingresar</button></Link>
                 <Link className="Registrate" to="/registro">¿Usuario nuevo?</Link>
                 <p className="Registrate">Registrate!</p>
             </div>
