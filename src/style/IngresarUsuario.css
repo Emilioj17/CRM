@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-/* div.container-fluid {
-=======
 div.Login.container-fluid {
->>>>>>> fa234c0dc1d7e5af698a174f7f84f0d129d88471
 position: relative;
 top: 100px;
 width: 360px;
 height: 500px;
 background: #1B4B4D;
 border-radius: 100px;
-} */
+} 
 h1.Ingresar {
 position: relative;
 text-align: center;
@@ -59,3 +55,12 @@ top: 420px;
 color: rgba(255, 255, 255, 1);
 opacity: 80%;
 } 
+a.Idiota {
+position: relative;
+top: 205px;
+left: 80px;
+}
+footer.container-fluid.bg-dark.py-3.text-center.text-light {
+position: relative;
+top: 317px;
+}
