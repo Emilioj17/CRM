@@ -23,6 +23,9 @@ function Notes(props) {
     return (
         <div className="container">
             <div className="row">
+                
+
+              
                 {
                     contact != null ? (
                         <ul className="list-group list-group-horizontal my-5">
@@ -50,6 +53,7 @@ function Notes(props) {
                     </ul>
                 )) : ("")}
 
+            
             </div>
         </div>
     )

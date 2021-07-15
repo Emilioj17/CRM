@@ -442,7 +442,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ userId: id })
             },
             setContactMessage: (nombre, email, telefono, motivoDelMensaje, mensaje) => {
-                fetch("", {
+                fetch("http://localhost:5000/contacto", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
