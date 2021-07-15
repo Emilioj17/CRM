@@ -13,6 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             error: null,
             userId: null,
             contactMessage: null,
+            usuarioActual: [],
+            ingreso: []
         },
         actions: {
             getContacts: async () => {
@@ -464,7 +466,22 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
                 
-            },            
+            },
+            getUsuario: (usuario) => {
+				fetch("http://localhost:5000/login", {
+					method: "POST",
+					body: JSON.stringify({"email": usuario.correo, "password": usuario.clave})
+				}).then(res => {
+					if (res.status === 200) return res.json();
+					else if (res.status === 401) {
+						alert("Usuario o clave Incorrecto");
+					}
+				}).then(data => {
+					setStore({ usuarioActual: [data[0], data[1]] });
+					setStore({ ingreso: ["Correcto"] });
+					}
+				).catch(error => { console.error("Hay un problemilla", error) })
+			},
 
         }
     };
