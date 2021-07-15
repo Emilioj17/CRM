@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import { useHistory } from "react-router";
 import { AppContext } from "../store/appContext";
+import {FaPhone, FaEnvelope} from 'react-icons/fa'
 
 
 const Contacto = () => {
@@ -112,18 +113,9 @@ const handleSubmit = (e) => {
                 ></iframe>
                 <div className="card-body">
                   <h5 className="card-title">CRM Headquarters, Chile</h5>
-                  <p className="card-text text-muted">hello@hello.com</p>
-                  <p className="card-text text-muted">123456789</p>
-                  <h5 className="card-title">Follow Us</h5>
-                  <span className="card-link text-muted">
-                    <a href="http://instagram.com" target="_blank">IG</a>                    
-                    </span>
-                  <span className="card-link text-muted">
-                  <a href="http://facebook.com" target="_blank">FB</a>
-                  </span>
-                  <span className="card-link text-muted">
-                  <a href="http://twitter.com" target="_blank">TW</a>
-                  </span>
+                  <p className="card-text text-muted"><FaEnvelope/> hello@hello.com</p>
+                  <p className="card-text text-muted"><FaPhone/> 123456789</p>
+                  
                 </div>
               </div>
             </div>

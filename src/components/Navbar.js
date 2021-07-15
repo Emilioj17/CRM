@@ -22,17 +22,17 @@ function Navbar() {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav mb-2">
 						<li className="nav-item">
-							<LinkScroll to="carousel" spy={true} smooth={true} offset={50} duration={100} className="nav-link" style={{cursor: "pointer"}}>
+							<LinkScroll to="carousel" spy={true} smooth={true} offset={-500} duration={100} className="nav-link" style={{cursor: "pointer"}}>
 								Inicio
 							</LinkScroll>
 						</li>
 						<li className="nav-item">
-							<LinkScroll to="nosotros" spy={true} smooth={true} offset={50} duration={100} className="nav-link" style={{cursor: "pointer"}}>
+							<LinkScroll to="nosotros" spy={true} smooth={true} offset={-50} duration={100} className="nav-link" style={{cursor: "pointer"}}>
 								Nosotros
 							</LinkScroll>
 						</li>
 						<li className="nav-item">
-							<LinkScroll to="/products" spy={true} smooth={true} offset={50} duration={100} className="nav-link" style={{cursor: "pointer"}}>
+							<LinkScroll to="products" spy={true} smooth={true} offset={-500} duration={100} className="nav-link" style={{cursor: "pointer"}}>
 								Producto
 							</LinkScroll>
 						</li>

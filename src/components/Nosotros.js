@@ -3,7 +3,7 @@ import React from "react";
 const Nosotros = () => {
   return (
     <>
-    <div id="nosotros"></div>
+    <div className="mb-5" id="nosotros"></div>
       {/* Rigth side */}
       <div className="col-12 col-md-6 my-5">
         <h1 className="py-2">Nosotros</h1>
@@ -20,7 +20,7 @@ const Nosotros = () => {
       {/* Card Row */}
       <div className="col-12 col-md-6 my-5">
 
-        <div className="row g-0">
+        <div className="row g-0 mb-5">
           <div className="col-md-2 d-flex align-items-start justify-content-center mt-4 px-3">
             <img src="https://picsum.photos/200" alt="#" className="img-fluid rounded-start" />
           </div>

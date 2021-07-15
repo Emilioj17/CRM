@@ -31,6 +31,7 @@ import ContactoSuccess from "./views/ContactoSuccess";
 import NotFound from "./views/NotFound";
 import EditContact from "./views/EditContact";
 import Notes from "./views/Notes";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/registro" component={Registro} />
           <Route exact path="/recuperar" component={Recuperar} />
+          <Route exact path="/products" component={Products} />
           {/* <Route exact path="/contacto" component={Contacto} /> */}
           <Route exact path="/contacto/success" component={ContactoSuccess} />
           {/* <Route exact path="/nosotros" component={Nosotros} /> */}
@@ -78,6 +80,7 @@ function App() {
           <Route path='*' component={<NotFound/>} />
         </Switch>
       </Router>
+      <Footer/>
     </>
   );
 }
