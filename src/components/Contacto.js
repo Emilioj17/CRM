@@ -46,7 +46,7 @@ const handleSubmit = (e) => {
               </div>
             </nav>
             <form>
-              <div className="container border">
+              <div className="container border" style={{background:"white"}}>
                 <input
                   className="w-100 my-2"
                   type="text"
