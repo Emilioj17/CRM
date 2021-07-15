@@ -6,13 +6,13 @@ import Login from "./views/Login";
 import Registro from "./views/Registro";
 import Recuperar from "./views/Recuperar";
 import Remind from "./views/Remind";
-import Products from "./views/Products";
+import Products from "./components/Products";
 import Category from "./views/Category";
 import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
-import Contacto from "./views/Contacto";
-import Nosotros from "./views/Nosotros";
+// import Contacto from "./components/Contacto";
+// import Nosotros from "./components/Nosotros";
 import BienvenidoAdministrador from "./views/BienvenidoAdministrador";
 import BienvenidoVendedor from "./views/BienvenidoVendedor";
 import PanelAdministrador from "./views/PanelAdministrador";
@@ -39,43 +39,43 @@ function App() {
        <Navbar />
         <Switch>
           {/* Pagina Principal */}
-          <Route exact path="/" children={<Home />} />
-          <Route exact path="/login" children={<Login />} />
-          <Route exact path="/registro" children={<Registro />} />
-          <Route exact path="/recuperar" children={<Recuperar />} />
-          <Route exact path="/contacto" children={<Contacto/>} />
-          <Route exact path="/contacto/success" children={ <ContactoSuccess/>} />
-          <Route exact path="/nosotros" children={<Nosotros />} />
-          <Route exact path="/producto" children={<Products />} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/registro" component={Registro} />
+          <Route exact path="/recuperar" component={Recuperar} />
+          {/* <Route exact path="/contacto" component={Contacto} /> */}
+          <Route exact path="/contacto/success" component={ContactoSuccess} />
+          {/* <Route exact path="/nosotros" component={Nosotros} /> */}
+          {/* <Route exact path="/producto" component={Products} /> */}
 
           {/* ??? */}
-          <Route exact path="/remind" children={<Remind />} />
-          <Route exact path="/category/:category_id" children= {<Category />} />
-          <Route exact path="/checkout" children={<Checkout />} />
-          <Route exact path="/product/:product_id" children={<SingleProduct />} />
+          <Route exact path="/remind" component={Remind} />
+          <Route exact path="/category/:category_id" component= {Category} />
+          <Route exact path="/checkout" component={Checkout} />
+          {/* <Route exact path="/product/:product_id" component={SingleProduct} /> */}
 
           {/* Panel Usuario */}
-          <Route exact path="/BienvenidoVendedor" children={<BienvenidoVendedor />} />
-          <Route exact path="/tratos" children= {<Deals/>} />
-          <Route exact path="/contactos" children= {<Contacts/>} />
+          <Route exact path="/BienvenidoVendedor" component={BienvenidoVendedor} />
+          <Route exact path="/tratos" component= {Deals} />
+          <Route exact path="/contactos" component= {Contacts} />
           <Route exact path="/contactos/:id" component= {Notes} />
-          <Route exact path="/crear/contacto" children= {<CreateContact/>} />
-          <Route exact path="/crear/trato" children= {<CreateDeal/>} />
+          <Route exact path="/crear/contacto" component= {CreateContact} />
+          <Route exact path="/crear/trato" component= {CreateDeal} />
           <Route exact path="/editar/trato/:id" component= {EditDeal} />
           <Route exact path="/editar/contacto/:id" component= {EditContact} />
           {/* <Route exact path="/editar/contacto" children={<EditarContacto/>}/> */}
-          <Route exact path="/profile/:user_id" children={<Profile />} />
+          <Route exact path="/profile/:user_id" component={Profile} />
           {/*Panel enviar Correos*/}
-          <Route exact path="/SendEmail" children={<SendEmail />} />
-          <Route exact path="/CorreosRecibidos" children={<CorreosRecibidos />} />
-          <Route exact path="/CorreosEnviados" children={<CorreosEnviados />} />
+          <Route exact path="/SendEmail" component={SendEmail} />
+          <Route exact path="/CorreosRecibidos" component={CorreosRecibidos} />
+          <Route exact path="/CorreosEnviados" component={CorreosEnviados} />
           {/* Panel Admin */}
-          <Route exact path="/BienvenidoAdministrador" children={<BienvenidoAdministrador />} />
-          <Route exact path="/PanelAdministrador" children={<PanelAdministrador />} />
-          <Route exact path="/CrearUsuario" children={<CrearUsuario />} />
-          <Route exact path="/ModificarUsuario" children={<ModificarUsuario />} />
+          <Route exact path="/BienvenidoAdministrador" component={BienvenidoAdministrador} />
+          <Route exact path="/PanelAdministrador" component={PanelAdministrador} />
+          <Route exact path="/CrearUsuario" component={CrearUsuario} />
+          <Route exact path="/ModificarUsuario" component={ModificarUsuario} />
           {/* 404 */}
-          <Route path='*' children={<NotFound/>} />
+          <Route path='*' component={<NotFound/>} />
         </Switch>
       </Router>
     </>

@@ -13,9 +13,9 @@ const Contacto = () => {
   };
 
   return (
-    <>
+    <div id="contacto">
       <div className="container">
-        <h1 className="text-center my-5">Contacto</h1>
+        <h1 className="my-5">Contacto</h1>
         <hr />
         <div className="row">
           <div className="col-12 col-md-6 my-3">
@@ -105,7 +105,7 @@ const Contacto = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
