@@ -16,7 +16,9 @@ function Login() {
                 <Link to="/BienvenidoVendedor"><button className="Entrar">Ingresar</button></Link>
                 <Link className="Registrate" to="/registro">¿Usuario nuevo?</Link>
                 <p className="Registrate">Registrate!</p>
+                <div>
                 <Link className="Idiota" to="/recuperar">Recupera Tu Contraseña</Link>
+                </div>
             </div>
         </div>
     )
