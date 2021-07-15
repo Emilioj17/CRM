@@ -2,8 +2,8 @@ import React from 'react'
 
 function Products() {
     return (
-        <div>
-            
+        <div id="products">
+            Ventana de productos
         </div>
     )
 }

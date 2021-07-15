@@ -5,7 +5,7 @@ const ContactoSuccess = () => {
     
     const history = useHistory();
   const handleClick = () => {
-    history.push("/contacto");
+    history.push("/");
 }
 
     return (
@@ -15,8 +15,8 @@ const ContactoSuccess = () => {
           <h1 className="text-center">Enviado correctamente</h1>
           <div className="row">
             <div className="container d-flex justify-content-center">
-              <button onClick={handleClick} className="btn btn-warning ">
-                Volver contacto
+              <button onClick={handleClick} className="btn btn-warning text-light ">
+                Volver al inicio
               </button>
             </div>
           </div>

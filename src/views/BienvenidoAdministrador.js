@@ -10,7 +10,10 @@ const BienvenidoAdministrador = () => {
     <div className="BienvenidoAdministrador">
       <div className="container">
         <div className="d-flex justify-content-between align-items-center">
-          <h2>Bienvenido Administrador</h2>
+          <div>
+            <h2>Bienvenido Administrador</h2>
+            <p><Link to="/BienvenidoVendedor">Vista Vendedor</Link></p>
+          </div>
           <div>
           <Link to="/PanelAdministrador"><button type="button" class="btn btn-success">Configuracion</button></Link>
           </div>

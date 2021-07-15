@@ -12,12 +12,12 @@ const Contacto = () => {
   const [nombre, setNombre] = useState(null);
   const [email, setEmail] = useState(null);
   const [telefono, setTelefono] = useState(null);
-  const [motivoDelMensaje, setMotivoDelMensaje] = useState(null);
+  const [motivo, setMotivoDelMensaje] = useState(null);
   const [mensaje, setMensaje] = useState('');
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  actions.setContactMessage(nombre,email,telefono,motivoDelMensaje,mensaje);
+  actions.setContactMessage(nombre,email,telefono,motivo,mensaje);
   history.push('/contacto/success')
 }
 
@@ -33,9 +33,9 @@ const handleSubmit = (e) => {
   };
 
   return (
-    <>
+    <div id="contacto">
       <div className="container">
-        <h1 className="text-center my-5">Contacto</h1>
+        <h1 className="my-5">Contacto</h1>
         <hr />
         <div className="row">
           <div className="col-12 col-md-6 my-3">
@@ -130,7 +130,7 @@ const handleSubmit = (e) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
