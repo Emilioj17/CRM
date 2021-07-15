@@ -12,6 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             response: null,
             error: null,
             userId: null,
+            contactMessage: null,
         },
         actions: {
             getContacts: async () => {
@@ -437,7 +438,33 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             idUser: (id) => {
                 setStore({ userId: id })
-            }
+            },
+            setContactMessage: (nombre, email, telefono, motivoDelMensaje, mensaje) => {
+                fetch("", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "nombre": nombre,
+                        "email": email,
+                        "telefono": telefono,
+                        "motivo": motivoDelMensaje,
+                        "mensaje": mensaje
+                    })
+                }).then((res) => res.json())
+                    .then((data) => {
+                        setStore({
+                            contactMessage: data
+                        })
+                    })
+                    .catch((err) => {
+                        setStore({
+                            error: err.message
+                        })
+                    });
+                
+            },            
 
         }
     };

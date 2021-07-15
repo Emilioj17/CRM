@@ -1,8 +1,28 @@
 import React from "react";
+import { useState, useContext } from "react";
 import { useHistory } from "react-router";
+import { AppContext } from "../store/appContext";
+
 
 const Contacto = () => {
   let history = useHistory()
+
+  const {store, actions} = useContext(AppContext);
+  
+  const [nombre, setNombre] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [telefono, setTelefono] = useState(null);
+  const [motivoDelMensaje, setMotivoDelMensaje] = useState(null);
+  const [mensaje, setMensaje] = useState('');
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  actions.setContactMessage(nombre,email,telefono,motivoDelMensaje,mensaje);
+  history.push('/contacto/success')
+}
+
+
+
 
   const formProcess = (e) => {
     e.preventDefault();
@@ -32,6 +52,7 @@ const Contacto = () => {
                   name="contact_form_name"
                   id="contact_form_name"
                   placeholder="First Name"
+                  onChange={(e) => setNombre(e.target.value)}
                 />
                 <input
                   className="w-100 my-2"
@@ -39,6 +60,7 @@ const Contacto = () => {
                   name="contact_form_name"
                   id="contact_form_name"
                   placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                   className="w-100 my-2"
@@ -46,17 +68,19 @@ const Contacto = () => {
                   name="contact_form_name"
                   id="contact_form_name"
                   placeholder="Phone"
+                  onChange={(e) => setTelefono(e.target.value)}
                 />
                 <select
                   name="contact_form_subject"
                   id="contact_form_subject"
                   className="form-select my-2"
+                  onChange={(e) => setMotivoDelMensaje(e.target.value)}
                 >
                   <option defaultValue>Seleccione el motivo del mensaje</option>
-                  <option value="1">Dudas generales</option>
-                  <option value="1">Soporte Tecnico</option>
-                  <option value="1">Ventas</option>
-                  <option value="1">Post-venta</option>
+                  <option value="Dudas generales">Dudas generales</option>
+                  <option value="Soporte Tecnico">Soporte Tecnico</option>
+                  <option value="Ventas">Ventas</option>
+                  <option value="Post-Venta">Post-venta</option>
                 </select>
                 <textarea
                   className="form-control w-100 my-2"
@@ -64,10 +88,11 @@ const Contacto = () => {
                   name=""
                   id=""
                   placeholder="Type your message"
+                  onChange={(e) => setMensaje(e.target.value)}
                 ></textarea>
                 <button
                   type="submit"
-                  onClick={formProcess}
+                  onClick={handleSubmit}
                   className="btn btn-primary mb-5"
                 >
                   Enviar
