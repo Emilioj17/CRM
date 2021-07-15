@@ -33,6 +33,7 @@ import EditContact from "./views/EditContact";
 import Notes from "./views/Notes";
 import Footer from "./components/Footer";
 
+
 function App() {
   return (
     <>
