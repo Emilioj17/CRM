@@ -1,4 +1,5 @@
 import React from "react";
+import { BiLogIn } from 'react-icons/bi';
 import { Link as LinkScroll} from "react-scroll";
 import { Link } from "react-router-dom";
 
@@ -46,7 +47,7 @@ function Navbar() {
 					<ul className="navbar-nav mb-2 ms-auto">
 						<li className="ms-auto nav-item">
 							<Link className="nav-link Ingresar" to="/login">
-								Ingresar
+								<BiLogIn />
 							</Link>
 						</li>
 					</ul>
