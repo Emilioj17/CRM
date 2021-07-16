@@ -1,25 +1,13 @@
 div.Recuperar.container-fluid{
-    position: relative;
-    width: 780px;
-    height: 579px;
-    top: 100px;
     background-color: whitesmoke;
 }
-i.Escudo{
-    font-size: 150px;
-    position: relative;
-    left: 300px;
+div.row {
+    font-size: 100px;
 }
-i.Mail{
+div.Mail{
     font-size: 50px;
-    position: relative;
-    left: 200px;
+    text-align: end;
 }
 h3.Recupera{
     text-align: center;
-}
-div.recuperaa {
-    position: relative;
-    left: 290px;
-    top: -45px;
 }
