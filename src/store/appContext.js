@@ -17,12 +17,12 @@ function ContextWrapper(PassedComponent) {
             })
         );
 
-        useEffect(() => {
-            state.actions.getContacts();
-            state.actions.getUsers();
-            state.actions.getNotes();
-            state.actions.getDeals();
-        },[]);
+        // useEffect(() => {
+        //     state.actions.getContacts();
+        //     state.actions.getUsers();
+        //     state.actions.getNotes();
+        //     state.actions.getDeals();
+        // },[]);
 
         return (
             <AppContext.Provider value={state}>
