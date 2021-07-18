@@ -1,8 +1,16 @@
 div.Recuperar.container-fluid{
     background-color: whitesmoke;
 }
-div.row {
+div.Correo.container-fluid {
+    display: flex;
+}
+div.Input.col-md-7 {
+    position: relative;
+    top: 30px;
+}
+div.row-secured {
     font-size: 100px;
+    text-align: center;
 }
 div.Mail{
     font-size: 50px;
@@ -11,3 +19,4 @@ div.Mail{
 h3.Recupera{
     text-align: center;
 }
+

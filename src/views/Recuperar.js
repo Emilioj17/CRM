@@ -7,7 +7,7 @@ function Recuperar() {
     return (
         <div className="Recuperar container-fluid">
             <div className="container-fluid">
-              <div className="row">
+              <div className="row-secured">
                   <MdSecurity />
               </div>
             </div>
@@ -15,8 +15,10 @@ function Recuperar() {
         <div className="Correo container-fluid">
             <div className="Mail col-md-5">
                 <HiMail />
-                <input type="text" placeholder="Ingresa Tu Correo"></input>
             </div>
+                <div className="Input col-md-7">
+                <input  type="text" placeholder="Ingresa Tu Correo"></input>
+                </div>
         </div>
         </div>
     )
