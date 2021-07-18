@@ -44,7 +44,7 @@ const CorreosEnviados = () => {
             const para = listaCorreos2[emailSeleccionado][0]
             const hora = listaCorreos2[emailSeleccionado][1] //Hay que setear la Hora
             const asunto = listaCorreos2[emailSeleccionado][2]
-            const cuerpo = listaCorreos2[emailSeleccionado][3] //Hay que decode desde base64
+            const cuerpo = atob(listaCorreos2[emailSeleccionado][3]) //Hay que decode desde base64 ? deprecado
             return (
                 <div className="bodyCuerpoCorreosEnviadosSobre p-5 pb-0 pt-0 fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
                     <div className="p-5 pt-0">

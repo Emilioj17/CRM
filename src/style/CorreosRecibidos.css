@@ -3,11 +3,59 @@
 	padding-bottom: 10px;
 }
 
+.correoListado {
+	border-style: ridge;
+	display: grid;
+	grid-template-columns: 5% 25% 30% 40%;
+}
+
+.correoListado:hover {
+	background-color: rgb(201, 190, 190);
+	cursor: pointer;
+}
+
+.xdeCorreo {
+	cursor: pointer;
+	font-size: 32px;
+}
+
+.estrellaCorreos:hover {
+	color: yellow;
+}
+
 .cuerpoCorreosRecibidos {
 	background-color: rgb(255, 255, 255, 0.8);
+	display: grid;
+	grid-template-columns: 1% 98% 1%;
+	grid-template-rows: 5% auto 7%;
 }
 
 .headCuerpoCorreosRecibidos {
 	background-color: #fb6767;
 	color: white;
+	min-height: 3rem;
+	grid-column: 1/4;
+	grid-row: 1/2;
+}
+
+.bodyCuerpoCorreosRecibidos {
+	grid-column: 1/4;
+	grid-row: 2/3;
+}
+
+.bodyCuerpoCorreosRecibidosSobre {
+	overflow: scroll;
+	z-index: 8;
+	grid-column: 1/4;
+	grid-row: 1/4;
+}
+
+.bodyCuerpoCorreosRecibidosSobre > div {
+	background-color: rgb(179, 168, 168);
+}
+
+.botonesCorreosRecibidos {
+	grid-column: 1/4;
+	grid-row: 3/4;
+	min-height: 3.5rem;
 }
