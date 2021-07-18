@@ -14,8 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             userId: null,
             contactMessage: null,
             usuarioActual: [],
-            ingreso: [],
-            correo: []
+            ingreso: []
         },
         actions: {
             getContacts: async () => {
@@ -493,19 +492,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("Error Enviado Correo");
 					}
 				}).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
-            },
-            getEmail: (tipo) => {
-                fetch("http://127.0.0.1:5000/get_message", {
-					method: "POST",
-                    body: JSON.stringify({ "tipo": tipo })
-				}).then(res => {
-					if (res.status === 201) return res.json();
-					else if (res.status === 401) {
-						alert("Error Enviado Correo");
-					}
-                }).then(data => {
-                    setStore({correo:[data]})
-                }).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
             }
         }
     };
