@@ -8,7 +8,7 @@ const CorreosEnviados = () => {
     const [listaCorreos2, setListaCorreos] = useState([]);
     const [charging, setCharging] = useState(true);
     const [boxEmail, setBoxEmail] = useState(false);
-    const [emailSeleccionado, setEmailSeleccionado] = useState(null)
+    const [emailSeleccionado, setEmailSeleccionado] = useState([""])
     
     useEffect(() => {
             fetch("http://127.0.0.1:5000/get_message", {
@@ -26,24 +26,45 @@ const CorreosEnviados = () => {
         var para = correo[0].split("@");
         para=para[0]
         var asunto = correo[2].slice(0, 20);
+        var resumen = correo[4];
 
         return (
             <li key={index} id={index} className="p-2 m-2 correoListado" onClick={(e)=>handlerEmail(e)}><span className="estrellaCorreos" id={index}>{<BsFillStarFill />}</span>
-                <span className="spanPara" id={index}>Para: {para}</span> <span id={index}>Asunto: {asunto}</span> <span id={index}>Resumen: {correo[4]}</span></li>
+                <span className="spanPara" id={index}>Para: {para}</span> <span id={index}>Asunto: {asunto}</span> <span id={index}>Resumen: {resumen}</span></li>
         )
     });
 
     const CorreoAmpliado = () => {
-        return (
-            <div className="bodyCuerpoCorreosEnviadosSobre p-2" style={boxEmail ? { display: "" } : { display: "none" }}>
-                <div className="d-flex justify-content-between align-items-center my-2">
-                    <h2>Correo Entrante: {listaCorreos2[emailSeleccionado][0]}</h2>
-                    <div onClick={()=>setBoxEmail(false)}><BsFillXCircleFill/></div>
+        if (listaCorreos2[emailSeleccionado] == undefined) {
+            return (
+                <div></div>
+            )
+            
+        } else if (listaCorreos2[emailSeleccionado] != undefined) {
+            const para = listaCorreos2[emailSeleccionado][0]
+            const hora = listaCorreos2[emailSeleccionado][1] //Hay que setear la Hora
+            const asunto = listaCorreos2[emailSeleccionado][2]
+            const cuerpo = listaCorreos2[emailSeleccionado][3] //Hay que decode desde base64
+            return (
+                <div className="bodyCuerpoCorreosEnviadosSobre p-5 pb-0 pt-0 fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
+                    <div className="p-5 pt-0">
+                        <div className="d-flex flex-row-reverse bd-highlight" onClick={()=>setBoxEmail(false)}><span className="text-danger xdeCorreo"><BsFillXCircleFill/></span></div>
+                        <div className="d-flex justify-content-between align-items-center my-2">
+                            <div>
+                                <h5>Correo Saliente</h5>
+                                <p>De: Me</p>
+                                <p>Para: {para}</p>
+                            </div>
+                            <div className="align-self-start" > {hora} </div>
+                        </div>
+                        <div>Asunto: {asunto}</div>
+                        <div>{cuerpo}</div>
+                        <div className="d-flex flex-row-reverse bd-highlight"><button className="btn btn-success m-2 disabled">Respoder</button><button className="btn btn-success m-2 disabled">Reenviar</button></div>
+                    </div>
                 </div>
-                <div>Lorem {listaCorreos2[emailSeleccionado][0]}ipsum dolor sit amet consectetur adipisicing elit. Rerum consectetur odit non, sed eveniet optio corrupti voluptate fugiat architecto officiis quisquam labore libero eaque nostrum qui quas consequatur explicabo neque.</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero velit ea, unde, perferendis molestiae eligendi asperiores in id voluptatum, quam corrupti sit sunt veritatis laudantium dicta totam quod repudiandae et.</div>
-            </div>
-        )
+            )
+        }
+
     }
 
     const handlerEmail = (event) => {

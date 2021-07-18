@@ -14,6 +14,11 @@
 	cursor: pointer;
 }
 
+.xdeCorreo {
+	cursor: pointer;
+	font-size: 32px;
+}
+
 .estrellaCorreos:hover {
 	color: yellow;
 }
@@ -28,6 +33,7 @@
 .headCuerpoCorreosEnviados {
 	background-color: #fb6767;
 	color: white;
+	min-height: 3rem;
 	grid-column: 1/4;
 	grid-row: 1/2;
 }
@@ -41,10 +47,14 @@
 	z-index: 8;
 	grid-column: 1/4;
 	grid-row: 1/4;
-	background-color: thistle;
+}
+
+.bodyCuerpoCorreosEnviadosSobre > div {
+	background-color: rgb(179, 168, 168);
 }
 
 .botonesCorreosEnviados {
 	grid-column: 1/4;
 	grid-row: 3/4;
+	min-height: 3.5rem;
 }
