@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/CorreosRecibidos.css"
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { BsFillStarFill, BsFillXCircleFill } from 'react-icons/bs'
+import { AppContext } from "../store/appContext";
 
 const CorreosRecibidos = () => {
+    const { store } = useContext(AppContext);
     const [listaCorreos2, setListaCorreos] = useState([]);
     const [charging, setCharging] = useState(true);
     const [boxEmail, setBoxEmail] = useState(false);
@@ -72,6 +74,14 @@ const CorreosRecibidos = () => {
         setBoxEmail(true)
         setEmailSeleccionado(event.target.id)
     }
+
+    let history = useHistory()
+
+    useEffect(() => {
+        if(store.token === null){
+            history.push('/login')
+        }
+    },[]);
 
     return (
         <div className="CorreosRecibidos">

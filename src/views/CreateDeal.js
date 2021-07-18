@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
 
@@ -28,6 +28,12 @@ function CreateDeal() {
         setDeal(plan, duration, description, contactId, userId)
         history.push("/tratos");
     }
+
+    useEffect(() => {
+        if(store.token === null){
+            history.push('/login')
+        }
+    },[]);
 
     return (
         <div className="container">

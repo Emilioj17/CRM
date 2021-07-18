@@ -17,12 +17,16 @@ function ContextWrapper(PassedComponent) {
             })
         );
 
-        // useEffect(() => {
-        //     state.actions.getContacts();
-        //     state.actions.getUsers();
-        //     state.actions.getNotes();
-        //     state.actions.getDeals();
-        // },[]);
+        useEffect(() => {
+            state.store.usuarioActual = JSON.parse(sessionStorage.getItem("usuarioActual"));
+            state.store.token = sessionStorage.getItem("token");
+            if(state.store.token != null && state.store.token.length > 0){
+                state.actions.getContacts();
+                state.actions.getUsers();
+                state.actions.getNotes();
+                state.actions.getDeals();
+            }
+        },[state.store.token]);
 
         return (
             <AppContext.Provider value={state}>

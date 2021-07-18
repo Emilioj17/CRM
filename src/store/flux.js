@@ -13,15 +13,18 @@ const getState = ({ getStore, getActions, setStore }) => {
             error: null,
             userId: null,
             contactMessage: null,
-            usuarioActual: [],
-            ingreso: []
+            usuarioActual: null,
+            token: null
+            // ingreso: []
         },
         actions: {
             getContacts: async () => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/contacts", {
                     method: "GET",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -36,10 +39,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             getUsers: async () => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/users", {
                     method: "GET",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -54,10 +59,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             getNotes: async () => {
+                const store = getStore();
                 fetch('http://localhost:5000/api/notes', {
                     method: "GET",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -72,10 +79,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             getDeals: async () => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/deals", {
                     method: "GET",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -90,10 +99,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             getContact: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/contacts/"+id, {
                     method: "GET",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -108,10 +119,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             getUser: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/users/"+id, {
                     method: "GET",
                     header: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -126,10 +139,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             getNote: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/notes/"+id, {
                     method: "GET",
                     header: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -144,10 +159,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             getDeal: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/deals/"+id, {
                     method: "GET",
                     header: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -162,10 +179,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setContact: async (name, lastName, rut, type, phone, email, userId) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/contacts", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "name": name,
@@ -189,10 +208,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setUser: async (name, lastName, rut, type, phone, email, password) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/users", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "name": name,
@@ -216,11 +237,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setNote: async (comment, contactId, userId) => {
-                console.log(comment, contactId, userId);
+                const store = getStore();
                 fetch("http://localhost:5000/api/notes", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "comment": comment,
@@ -240,10 +262,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             setDeal: async (plan, duration, description, contactId, userId) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/deals", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "plan": plan,
@@ -265,10 +289,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editContact: async (id, name, lastName, rut, type, phone, email, userId) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/contacts/"+id, {
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "name": name,
@@ -292,10 +318,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editUser: async (id, name, lastName, rut, type, estado, phone, email) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/users/"+id, {
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "name": name,
@@ -319,10 +347,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editNote: async (id, comment, contactId, userId) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/notes"+id, {
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "comment": comment,
@@ -342,10 +372,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             editDeal: async (id, plan, duration, description, contactId, userId) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/deals/"+id, {
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "plan": plan,
@@ -367,10 +399,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteContact: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/contacts/"+id, {
                     method: "DELETE",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -385,10 +419,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteUser: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/users/"+id, {
                     method: "DELETE",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -403,10 +439,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteNote: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/notes/"+id, {
                     method: "DELETE",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -421,10 +459,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
             },
             deleteDeal: async (id) => {
+                const store = getStore();
                 fetch("http://localhost:5000/api/deals/"+id, {
                     method: "DELETE",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     }
                 }).then((response) => response.json())
                     .then((data) => {
@@ -442,10 +482,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ userId: id })
             },
             setContactMessage: (nombre, email, telefono, motivoDelMensaje, mensaje) => {
+                const store = getStore();
                 fetch("", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
                     },
                     body: JSON.stringify({
                         "nombre": nombre,
@@ -468,6 +510,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 
             },
             getUsuario: (usuario) => {
+                const actions = getActions();
 				fetch("http://localhost:5000/login", {
 					method: "POST",
 					body: JSON.stringify({"email": usuario.correo, "password": usuario.clave})
@@ -477,8 +520,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("Usuario o clave Incorrecto");
 					}
 				}).then(data => {
-					setStore({ usuarioActual: [data[0], data[1]] });
-					setStore({ ingreso: ["Correcto"] });
+                    sessionStorage.setItem("usuarioActual", JSON.stringify(data[0]))
+                    sessionStorage.setItem("token", data[1])
+					setStore({ usuarioActual: data[0], token: data[1] });
+					// setStore({ ingreso: ["Correcto"] });
 					}
 				).catch(error => { console.error("Hay un problemilla", error) })
             },

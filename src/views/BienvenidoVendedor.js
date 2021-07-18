@@ -1,23 +1,30 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/BienvenidoVendedor.css"
 import Heroe from "../img/BienvenidoAdmin_img1.png"
 import Heroe2 from "../img/BienvenidoAdmin_img2.png"
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AppContext } from '../store/appContext';
 
 const BienvenidoVendedor = () => {
-  const { store } = useContext(AppContext);
+  const { store, actions } = useContext(AppContext);
   const nombreUsuario = store.usuarioActual;
   const NombreUsuario = () => {
-    if (nombreUsuario != "") {
+    if (nombreUsuario != null) {
       return (
-        <h2>Bienvenido {nombreUsuario[0]}</h2>
+        <h2>Bienvenido {nombreUsuario.name + " " + nombreUsuario.last_name}</h2>
       )
     } else {
       return (<h2>Bienvenido Vendedor</h2>)
     }
   }
+  let history = useHistory()
+
+  useEffect(() => {
+      if(store.token === null){
+          history.push('/login')
+      }
+  },[]);
 
   return (
     <div className="BienvenidoVendedor">
