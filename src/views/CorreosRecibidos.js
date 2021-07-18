@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/CorreosRecibidos.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { AppContext } from "../store/appContext";
 
 const CorreosRecibidos = () => {
+    const { store } = useContext(AppContext);
     const listaCorreos = [{ "De": "cOvenn", "Asunto": "Esto es 100% SPAM" },
     { "De": "estebanovic", "Asunto": "Esto es 100% SPAM" },
     { "De": "Matias F", "Asunto": "Esto es 100% SPAM" },
@@ -19,6 +21,14 @@ const CorreosRecibidos = () => {
             <li key={index} className="p-2 m-2">De: {correo.De}  Asunto: {correo.Asunto}</li>
         )
     });
+
+    let history = useHistory()
+
+    useEffect(() => {
+        if(store.token === null){
+            history.push('/login')
+        }
+    },[]);
 
     return (
         <div className="CorreosRecibidos">

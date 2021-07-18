@@ -1,13 +1,17 @@
 import { useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { AppContext } from "../store/appContext.js";
 
 function Contact() {
     const { store, actions } = useContext(AppContext);
     const { contacts } = store;
     const { getContacts, deleteContact } = actions;
+    let history = useHistory()
 
     useEffect(() => {
+        if(store.token === null){
+            history.push('/login')
+        }
         getContacts();
     },[]);
 

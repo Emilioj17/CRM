@@ -29,6 +29,12 @@ function EditDeal(props) {
         history.push("/tratos");
     }
 
+    useEffect(() => {
+        if(store.token === null){
+            history.push('/login')
+        }
+    }, []);
+
     return (
         <div className="container">
             <div className="row">

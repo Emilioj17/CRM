@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router";
 
 const EditarContacto = () => {
+
+  let history = useHistory()
+
+  useEffect(() => {
+      if(store.token === null){
+          history.push('/login')
+      }
+  }, []);
+
   return (
     <>
       <div className="container">

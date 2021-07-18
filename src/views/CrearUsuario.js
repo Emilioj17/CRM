@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/CrearUsuario.css";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
 
 const CrearUsuario = () => {
-    const { actions } = useContext(AppContext);
+    const { store, actions } = useContext(AppContext);
     const [name, setName] = useState(null);
     const [lastName, setLastName] = useState(null);
     const [rut, setRut] = useState(null);
@@ -21,6 +21,12 @@ const CrearUsuario = () => {
         actions.setUser(name, lastName, rut, type, phone, email, password)
         history.push("/PanelAdministrador");
     }
+
+    useEffect(() => {
+        if(store.token === null){
+            history.push('/login')
+        }
+    },[]);
 
     return (
         <div className="CrearUsuario py-2">
