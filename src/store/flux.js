@@ -481,34 +481,56 @@ const getState = ({ getStore, getActions, setStore }) => {
             idUser: (id) => {
                 setStore({ userId: id })
             },
-            /* setContactMessage: (nombre, email, telefono, motivoDelMensaje, mensaje) => {
-                fetch("http://localhost:5000/contacto", {
+            setContactMessage: (name, lastName, rut, email, phone, comment) => {
+                let userId = 2;
+                fetch("http://localhost:5000/api/contacts", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + store.token
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        "nombre": nombre,
+                        "name": name,
+                        "last_name": lastName,
+                        "rut": rut,
+                        "type": "Contacto",
+                        "phone": phone,
                         "email": email,
-                        "telefono": telefono,
-                        "motivo": motivoDelMensaje,
-                        "mensaje": mensaje
+                        "user_id": userId
                     })
-                }).then((res) => res.json())
+                }).then((response) => response.json())
                     .then((data) => {
                         setStore({
-                            contactMessage: data
+                            response: data
                         })
+                        fetch("http://localhost:5000/api/notes", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                "comment": comment,
+                                "user_id": userId,
+                                "contact_id": data.id
+                            })
+                        }).then((response) => response.json())
+                            .then((data) => {
+                                setStore({
+                                    response: data
+                                })
+                            })
+                            .catch((error) => {
+                                setStore({
+                                    error: error.message
+                                })
+                            });
                     })
-                    .catch((err) => {
+                    .catch((error) => {
                         setStore({
-                            error: err.message
+                            error: error.message
                         })
                     });
-                
-            } */
-            getUsuario: (usuario) => {
+            },
+            getUsuario: async (mail, password) => {
                 const actions = getActions();
                 fetch("http://localhost:5000/login", {
                     method: "POST",
@@ -571,25 +593,25 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             sendEmail: (email) => {
                 fetch("http://127.0.0.1:5000/enviarCorreo", {
-					method: "POST",
-					body: JSON.stringify(email)
-				}).then(res => {
-					if (res.status === 201) return res.json();
-					else if (res.status === 401) {
-						alert("Error Enviado Correo");
-					}
-				}).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
+                    method: "POST",
+                    body: JSON.stringify(email)
+                }).then(res => {
+                    if (res.status === 201) return res.json();
+                    else if (res.status === 401) {
+                        alert("Error Enviado Correo");
+                    }
+                }).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
             },
             sendEmailRecovery: (email) => {
                 fetch("http://127.0.0.1:5000/enviarCorreo", {
-					method: "POST",
-					body: JSON.stringify(email)
-				}).then(res => {
-					if (res.status === 201) return res.json();
-					else if (res.status === 401) {
-						alert("Error Enviado Correo");
-					}
-				}).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
+                    method: "POST",
+                    body: JSON.stringify(email)
+                }).then(res => {
+                    if (res.status === 201) return res.json();
+                    else if (res.status === 401) {
+                        alert("Error Enviado Correo");
+                    }
+                }).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
             }
         }
     };

@@ -3,56 +3,35 @@ import { useState, useContext } from "react";
 import { useHistory } from "react-router";
 import { AppContext } from "../store/appContext";
 import {FaPhone, FaEnvelope} from 'react-icons/fa'
-import { useForm } from "../hooks/useForm";
+
 
 const Contacto = () => {
-  
-  const initialForm = {
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    comments: ''
-  }
-
-  const validationsForm = (form) => {
-    let errors = {};
-    let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-    let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
-    let regexComments = /^.{1,255}$/;
-
-    if(!form.contact_form_name.trim()){
-      errors.name = 'Este campo es obligatorio'
-    } else if (!regexName.test(form.contact_form_name.trim())){
-      errors.name = 'El campo "Nombre" solo acepta letras y espacios en blanco'
-    }
-
-
-
-    return errors
-    };
-  
-
-  const {form, errors,loading,response,handleChange,handleBlur,handleSubmit} = useForm(initialForm, validationsForm)
-  
-
-
-
   let history = useHistory()
-  const {store, actions} = useContext(AppContext);  
-  const [nombre, setNombre] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [telefono, setTelefono] = useState(null);
-  const [motivo, setMotivoDelMensaje] = useState(null);
+
+  const {store, actions} = useContext(AppContext);
+  
+  const [nombre, setNombre] = useState("");
+  const [rut, setRut] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [motivo, setMotivoDelMensaje] = useState("");
   const [mensaje, setMensaje] = useState('');
 
-/* const handleSubmit = (e) => {
+const handleSubmit = (e) => {
   e.preventDefault();
-  actions.setContactMessage(nombre,email,telefono,motivo,mensaje);
-  history.push('/contacto/success')
-} */
-
-
+  let name = nombre.split(" ")[0];
+  let lastName = nombre.split(" ")[1];
+  console.log("Name: " + name);
+  console.log("Lastname: " + lastName);
+  let comment = motivo + " " + mensaje;
+  actions.setContactMessage(name, lastName, rut, email, telefono, comment);
+  alert("Mensaje enviado");
+  setNombre("");
+  setEmail("");
+  setTelefono("");
+  setMotivoDelMensaje("");
+  setMensaje("");
+}
 
   return (
     <div id="contacto">
@@ -66,53 +45,50 @@ const Contacto = () => {
                 <span className="text-light">Comunicate con nosotros</span>
               </div>
             </nav>
-            <form onClick={handleSubmit}>
+            <form>
               <div className="container border" style={{background:"white"}}>
                 <input
-                  className="w-100 my-2 border"
+                  className="w-100 my-2"
                   type="text"
                   name="contact_form_name"
                   id="contact_form_name"
-                  placeholder="First Name"
-                  onChange={handleChange}
-                  value={form.contact_form_name}
-                  required
-                  onBlur={handleBlur}
-                />
-                {errors.name && <p className="text-danger">{errors.name}</p>}
-
-
-
-
-
-                <input
-                  className="w-100 my-2 border"
-                  type="email"
-                  name="contact_form_email"
-                  id="contact_form_email"
-                  placeholder="Email"
-                  onChange={handleChange}
-                  value={form.contact_form_email}
-                  required
-                  onBlur={handleBlur}
+                  placeholder="Nombre completo"
+                  onChange={(e) => setNombre(e.target.value)}
+                  value={nombre}
                 />
                 <input
-                  className="w-100 my-2 border"
+                  className="w-100 my-2"
                   type="text"
-                  name="contact_form_phone"
-                  id="contact_form_phone"
-                  placeholder="Phone"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={form.contact_form_phone}
+                  name="contact_form_name"
+                  id="contact_form_name"
+                  placeholder="Rut"
+                  onChange={(e) => setRut(e.target.value)}
+                  value={rut}
+                />
+                <input
+                  className="w-100 my-2"
+                  type="text"
+                  name="contact_form_name"
+                  id="contact_form_name"
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+                <input
+                  className="w-100 my-2"
+                  type="text"
+                  name="contact_form_name"
+                  id="contact_form_name"
+                  placeholder="Teléfono"
+                  onChange={(e) => setTelefono(e.target.value)}
+                  value={telefono}
                 />
                 <select
                   name="contact_form_subject"
                   id="contact_form_subject"
                   className="form-select my-2"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={form.contact_form_subject}
+                  onChange={(e) => setMotivoDelMensaje(e.target.value)}
+                  value={motivo}
                 >
                   <option defaultValue>Seleccione el motivo del mensaje</option>
                   <option value="Dudas generales">Dudas generales</option>
@@ -123,17 +99,15 @@ const Contacto = () => {
                 <textarea
                   className="form-control w-100 my-2"
                   rows="8"
-                  name="contact_form_text"
-                  id="contact_form_text"
-                  placeholder="Type your message"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={form.contact_form_text}
-                  required
-
+                  name=""
+                  id=""
+                  placeholder="Escribe tu mensaje"
+                  onChange={(e) => setMensaje(e.target.value)}
+                  value={mensaje}
                 ></textarea>
                 <button
-                  type="submit"                  
+                  type="submit"
+                  onClick={handleSubmit}
                   className="btn btn-primary mb-5"
                 >
                   Enviar
