@@ -96,7 +96,7 @@ const CorreosEnviados = () => {
                         <h4>Correos Enviados</h4>
                     </div>
                     <div className="bodyCuerpoCorreosEnviados p-2">
-                        <div className="text-center" style={charging ? { display: "" } : { display: "none" }}>
+                        <div className="text-center my-5" style={charging ? { display: "" } : { display: "none" }}>
                             <div className="spinner-border text-dark" role="status">
                             </div>
                             <div className="sr-only"> Cargando...</div>
