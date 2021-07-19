@@ -34,13 +34,6 @@ const BienvenidoVendedor = () => {
             <NombreUsuario />
             <p><Link to="/BienvenidoAdministrador">Vista Administrador</Link></p>
           </div>
-          <div>
-            <Link to="#"><button type="button" className="btn btn-success m-1">Inicio</button></Link>
-            <Link to="/contactos"><button type="button" className="btn btn-success m-1">Posibles</button></Link>
-            <Link to="/contactos"><button type="button" className="btn btn-success m-1">Contactos</button></Link>
-            <Link to="/tratos"><button type="button" className="btn btn-success m-1">Tratos</button></Link>
-            <Link to="/sendEmail"><button type="button" className="btn btn-success m-1">Correos</button></Link>
-          </div>
         </div>
         <div className="col-12 Heroe1">
           <h4>Rendimiento a 30 dias</h4>
