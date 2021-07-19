@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { AppContext } from "../store/appContext";
 
 
@@ -15,8 +16,13 @@ function Notes(props) {
         getContact(props.match.params.id);
     }
 
+    let history = useHistory()
+
     useEffect(() => {
         getContact(props.match.params.id);
+        if(store.token === null){
+            history.push('/login')
+        }
     }, []);
 
 

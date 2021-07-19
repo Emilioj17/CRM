@@ -20,7 +20,7 @@ width: 240px;
 height: 60px;
 left: 50px;
 top: 50px;
-background: #E8984A;
+background: #Fcf1d0;
 border-radius: 20px;
 }
 input.Apellido {
@@ -30,7 +30,7 @@ left: 50px;
 top: 60px;
 width: 240px;
 height: 60px;
-background: #E8984A;
+background: #Fcf1d0;
 border-radius: 20px;
 }
 input.Telefono {
@@ -40,7 +40,7 @@ left: 50px;
 top: 70px;
 width: 240px;
 height: 60px;
-background: #E8984A;
+background: #Fcf1d0;
 border-radius: 20px;
 }
 input.Correo{
@@ -50,7 +50,7 @@ left: 50px;
 top: 80px;
 width: 240px;
 height: 60px;
-background: #E8984A;
+background: #Fcf1d0;
 border-radius: 20px;
 }
 input.CrearPassword {
@@ -60,14 +60,14 @@ left: 50px;
 top: 90px;
 width: 240px;
 height: 60px;
-background: #E8984A;
+background: #Fcf1d0;
 border-radius: 20px;
 }
 button.Aceptar {
 position: relative;
 top: 170px;
 left: 50px;
-background-color: darkgreen;
+background-color: lightsteelblue;
 width: 240px;
 height: 60px;
 border-radius: 20px;

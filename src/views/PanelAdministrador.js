@@ -28,9 +28,9 @@ const PanelAdministrador = () => {
     
     useEffect(() => {
         for (let x = 0; usuarios.length > x; x++){
-            if (usuarios[x].estado == "Activo") {
+            if (usuarios[x].estado==="Activo") {
                 usuariosActivosx.push([usuarios[x].name, usuarios[x].last_name, usuarios[x].id])
-            } else if(usuarios[x].estado == "Inactivo"){
+            } else if(usuarios[x].estado==="Inactivo"){
                 usuariosInactivosx.push([usuarios[x].name, usuarios[x].last_name, usuarios[x].id])
             }
         }
@@ -114,7 +114,7 @@ const PanelAdministrador = () => {
         const box4 = ["Espacio del Desarrollador", "API", "Formularios Web", "Cuenta Google"];
 
         const Ebox1 = box1.map((elemento, index) => {
-            if (index == 0) {
+            if (index===0) {
                 return(<div key={index}><strong>{elemento}</strong></div>)
             } else {
                 return (
@@ -124,7 +124,7 @@ const PanelAdministrador = () => {
         });
 
         const Ebox2 = box2.map((elemento, index) => {
-            if (index == 0) {
+            if (index===0) {
                 return(<div key={index}><strong>{elemento}</strong></div>)
             } else {
                 return (
@@ -134,7 +134,7 @@ const PanelAdministrador = () => {
         });
 
         const Ebox3 = box3.map((elemento, index) => {
-            if (index == 0) {
+            if (index===0) {
                 return(<div key={index}><strong>{elemento}</strong></div>)
             } else {
                 return (
@@ -144,7 +144,7 @@ const PanelAdministrador = () => {
         });
 
         const Ebox4 = box4.map((elemento, index) => {
-            if (index == 0) {
+            if (index===0) {
                 return(<div key={index}><strong>{elemento}</strong></div>)
             } else {
                 return (

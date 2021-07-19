@@ -1,4 +1,5 @@
 import React from "react";
+import { BiLogIn } from 'react-icons/bi';
 import { Link as LinkScroll} from "react-scroll";
 import { Link } from "react-router-dom";
 
@@ -27,17 +28,17 @@ function Navbar() {
 							</LinkScroll>
 						</li>
 						<li className="nav-item">
-							<LinkScroll to="nosotros" spy={true} smooth={true} offset={-50} duration={100} className="nav-link" style={{cursor: "pointer"}}>
+							<LinkScroll to="nosotros" spy={true} smooth={true} offset={-10} duration={100} className="nav-link" style={{cursor: "pointer"}}>
 								Nosotros
 							</LinkScroll>
 						</li>
 						<li className="nav-item">
-							<LinkScroll to="products" spy={true} smooth={true} offset={-500} duration={100} className="nav-link" style={{cursor: "pointer"}}>
+							<LinkScroll to="products" spy={true} smooth={true} offset={-100} duration={100} className="nav-link" style={{cursor: "pointer"}}>
 								Producto
 							</LinkScroll>
 						</li>
 						<li className="nav-item">
-							<LinkScroll to="contacto" spy={true} smooth={true} offset={50} duration={100} className="nav-link" style={{cursor: "pointer"}}>
+							<LinkScroll to="contacto" spy={true} smooth={true} offset={-50} duration={100} className="nav-link" style={{cursor: "pointer"}}>
 								Contacto
 							</LinkScroll>
 						</li>
@@ -46,7 +47,7 @@ function Navbar() {
 					<ul className="navbar-nav mb-2 ms-auto">
 						<li className="ms-auto nav-item">
 							<Link className="nav-link Ingresar" to="/login">
-								Ingresar
+								<BiLogIn />
 							</Link>
 						</li>
 					</ul>

@@ -13,11 +13,9 @@ function Login() {
     const history = useHistory();
 
     useEffect(() => {
-        if (store.ingreso == "Correcto") {
+        if (store.usuarioActual!= null) {
             // console.log("Hola desde Login useEffect");
             history.push("/BienvenidoVendedor");
-        } else {
-            console.log(store.ingreso);
         }
     })
 

@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/SendEmail.css"
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AppContext } from '../store/appContext';
 
 
 const SendEmail = () => {
-    const { actions } = useContext(AppContext);
+    const { store, actions } = useContext(AppContext);
     const [email, setEmail] = useState({
         to: "",
         Cc: "",
@@ -18,6 +18,14 @@ const SendEmail = () => {
         e.preventDefault();
         actions.sendEmail(email)
     }
+
+    let history = useHistory()
+
+  useEffect(() => {
+      if(store.token === null){
+          history.push('/login')
+      }
+  },[]);
     
 
     return (

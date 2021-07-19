@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { AppContext } from '../store/appContext';
 
 function Deals() {
@@ -7,9 +7,14 @@ function Deals() {
     const { deals } = store;
     const { getDeals, deleteDeal } = actions;
 
+    let history = useHistory()
+
     useEffect(() => {
+        if(store.token === null){
+            history.push('/login')
+        }
         getDeals();
-    },[]);
+    },[store.token]);
 
     function handleDelete(id){
         deleteDeal(id)
