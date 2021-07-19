@@ -100,7 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             getContact: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/contacts/"+id, {
+                fetch("http://localhost:5000/api/contacts/" + id, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -120,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             getUser: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/users/"+id, {
+                fetch("http://localhost:5000/api/users/" + id, {
                     method: "GET",
                     header: {
                         "Content-Type": "application/json",
@@ -140,7 +140,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             getNote: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/notes/"+id, {
+                fetch("http://localhost:5000/api/notes/" + id, {
                     method: "GET",
                     header: {
                         "Content-Type": "application/json",
@@ -160,7 +160,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             getDeal: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/deals/"+id, {
+                fetch("http://localhost:5000/api/deals/" + id, {
                     method: "GET",
                     header: {
                         "Content-Type": "application/json",
@@ -212,8 +212,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 fetch("http://localhost:5000/api/users", {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + store.token
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
                         "name": name,
@@ -291,7 +290,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             editContact: async (id, name, lastName, rut, type, phone, email, userId) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/contacts/"+id, {
+                fetch("http://localhost:5000/api/contacts/" + id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -320,7 +319,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             editUser: async (id, name, lastName, rut, type, estado, phone, email) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/users/"+id, {
+                fetch("http://localhost:5000/api/users/" + id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -349,7 +348,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             editNote: async (id, comment, contactId, userId) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/notes"+id, {
+                fetch("http://localhost:5000/api/notes" + id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -374,7 +373,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             editDeal: async (id, plan, duration, description, contactId, userId) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/deals/"+id, {
+                fetch("http://localhost:5000/api/deals/" + id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -401,7 +400,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             deleteContact: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/contacts/"+id, {
+                fetch("http://localhost:5000/api/contacts/" + id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -421,7 +420,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             deleteUser: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/users/"+id, {
+                fetch("http://localhost:5000/api/users/" + id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -441,7 +440,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             deleteNote: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/notes/"+id, {
+                fetch("http://localhost:5000/api/notes/" + id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -461,7 +460,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             deleteDeal: async (id) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/deals/"+id, {
+                fetch("http://localhost:5000/api/deals/" + id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -508,25 +507,68 @@ const getState = ({ getStore, getActions, setStore }) => {
                             error: err.message
                         })
                     });
-                
+
             },
-            getUsuario: (usuario) => {
+            getUsuario: async (mail, password) => {
                 const actions = getActions();
-				fetch("http://localhost:5000/login", {
-					method: "POST",
-					body: JSON.stringify({"email": usuario.correo, "password": usuario.clave})
-				}).then(res => {
-					if (res.status === 200) return res.json();
-					else if (res.status === 401) {
-						alert("Usuario o clave Incorrecto");
-					}
-				}).then(data => {
+                fetch("http://localhost:5000/login", {
+                    method: "POST",
+                    body: JSON.stringify({ "email": mail, "password": password })
+                }).then(res => {
+
+                    if (res.status === 200) return res.json();
+                    else if (res.status === 401) {
+                        alert("Usuario o clave Incorrecto");
+                    }
+                }).then(data => {
                     sessionStorage.setItem("usuarioActual", JSON.stringify(data[0]))
                     sessionStorage.setItem("token", data[1])
-					setStore({ usuarioActual: data[0], token: data[1] });
-					// setStore({ ingreso: ["Correcto"] });
-					}
-				).catch(error => { console.error("Hay un problemilla", error) })
+                    setStore({ usuarioActual: data[0], token: data[1] });
+                    // setStore({ ingreso: ["Correcto"] });
+                }
+                ).catch(error => { console.error("Hay un problemilla", error) })
+            },
+            crearUsuario: async (name, lastName, rut, type, phone, email, password) => {
+                fetch("http://localhost:5000/api/users", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "name": name,
+                        "last_name": lastName,
+                        "rut": rut,
+                        "type": type,
+                        "phone": phone,
+                        "email": email,
+                        "password": password
+                    })
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setStore({
+                            response: data
+                        })
+                        fetch("http://localhost:5000/login", {
+                            method: "POST",
+                            body: JSON.stringify({ "email": email, "password": password })
+                        }).then(res => {
+
+                            if (res.status === 200) return res.json();
+                            else if (res.status === 401) {
+                                alert("Usuario o clave Incorrecto");
+                            }
+                        }).then(data => {
+                            sessionStorage.setItem("usuarioActual", JSON.stringify(data[0]))
+                            sessionStorage.setItem("token", data[1])
+                            setStore({ usuarioActual: data[0], token: data[1] });
+                        }
+                        ).catch(error => { console.error("Hay un problemilla", error) })
+                    })
+                    .catch((error) => {
+                        setStore({
+                            error: error.message
+                        })
+                    });
             },
             sendEmail: (email) => {
                 fetch("http://127.0.0.1:5000/enviarCorreo", {
