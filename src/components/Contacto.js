@@ -10,11 +10,11 @@ const Contacto = () => {
 
   const {store, actions} = useContext(AppContext);
   
-  const [nombre, setNombre] = useState(null);
-  const [rut, setRut] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [telefono, setTelefono] = useState(null);
-  const [motivo, setMotivoDelMensaje] = useState(null);
+  const [nombre, setNombre] = useState("");
+  const [rut, setRut] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [motivo, setMotivoDelMensaje] = useState("");
   const [mensaje, setMensaje] = useState('');
 
 const handleSubmit = (e) => {
@@ -52,7 +52,7 @@ const handleSubmit = (e) => {
                   type="text"
                   name="contact_form_name"
                   id="contact_form_name"
-                  placeholder="First Name"
+                  placeholder="Nombre completo"
                   onChange={(e) => setNombre(e.target.value)}
                   value={nombre}
                 />
@@ -79,7 +79,7 @@ const handleSubmit = (e) => {
                   type="text"
                   name="contact_form_name"
                   id="contact_form_name"
-                  placeholder="Phone"
+                  placeholder="Teléfono"
                   onChange={(e) => setTelefono(e.target.value)}
                   value={telefono}
                 />
@@ -101,7 +101,7 @@ const handleSubmit = (e) => {
                   rows="8"
                   name=""
                   id=""
-                  placeholder="Type your message"
+                  placeholder="Escribe tu mensaje"
                   onChange={(e) => setMensaje(e.target.value)}
                   value={mensaje}
                 ></textarea>
