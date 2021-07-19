@@ -537,6 +537,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("Error Enviado Correo");
 					}
 				}).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
+            },
+            sendEmailRecovery: (email) => {
+                fetch("http://127.0.0.1:5000/enviarCorreo", {
+					method: "POST",
+					body: JSON.stringify(email)
+				}).then(res => {
+					if (res.status === 201) return res.json();
+					else if (res.status === 401) {
+						alert("Error Enviado Correo");
+					}
+				}).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
             }
         }
     };

@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState, useContext,useEffect } from 'react';
+import "bootstrap/dist/css/bootstrap.css";
 import { MdSecurity } from 'react-icons/md';
 import { HiMail } from 'react-icons/hi';
 import '../style/Recuperar.css';
+import { AppContext } from '../store/appContext';
+
 
 function Recuperar() {
+    
+    const { store, actions } = useContext(AppContext);
+    const [email, setEmail] = useState ({
+        to: "",
+        Cc: " Recupera Tu Contraseña",
+        subject: " Recupera Tu Contraseña ",
+        body: " Tu Contraseña es: "
+    });
+
+    const HandlerSend = (e) => {
+        e.preventDefault();
+        actions.sendEmailRecovery(email)
+    }
+
+
     return (
         <div className="Recuperar container-fluid">
             <div className="container-fluid">
@@ -17,7 +35,8 @@ function Recuperar() {
                 <HiMail />
             </div>
                 <div className="Input col-md-7">
-                <input  type="text" placeholder="Ingresa Tu Correo"></input>
+                <input  type="text" placeholder="Ingresa Tu Correo" onChange={(e) => setEmail({...email, to: e.target.value})}></input>
+                <button className="button-recuperar" type="button" onClick={HandlerSend}>Recuperar</button>
                 </div>
         </div>
         </div>
