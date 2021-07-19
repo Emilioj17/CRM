@@ -3,35 +3,51 @@ import { useState, useContext } from "react";
 import { useHistory } from "react-router";
 import { AppContext } from "../store/appContext";
 import {FaPhone, FaEnvelope} from 'react-icons/fa'
-
+import { useForm } from "../hooks/useForm";
 
 const Contacto = () => {
-  let history = useHistory()
-
-  const {store, actions} = useContext(AppContext);
   
+  const initialForm = {
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    comments: ''
+  }
+
+  const validationsForm = (form) => {
+    let errors = {};
+
+    if(!form.contact_form_name.trim()){
+      errors.name = 'Este campo es obligatorio'
+    }
+
+
+
+    return errors
+    };
+  
+
+  const {form, errors,loading,response,handleChange,handleBlur,handleSubmit} = useForm(initialForm, validationsForm)
+  
+
+
+
+  let history = useHistory()
+  const {store, actions} = useContext(AppContext);  
   const [nombre, setNombre] = useState(null);
   const [email, setEmail] = useState(null);
   const [telefono, setTelefono] = useState(null);
   const [motivo, setMotivoDelMensaje] = useState(null);
   const [mensaje, setMensaje] = useState('');
 
-const handleSubmit = (e) => {
+/* const handleSubmit = (e) => {
   e.preventDefault();
   actions.setContactMessage(nombre,email,telefono,motivo,mensaje);
   history.push('/contacto/success')
-}
+} */
 
 
-
-
-  const formProcess = (e) => {
-    e.preventDefault();
-    setTimeout(() => {
-      alert("Mensaje enviado");
-      history.push('/contacto/success')
-    }, 500);
-  };
 
   return (
     <div id="contacto">
@@ -45,37 +61,53 @@ const handleSubmit = (e) => {
                 <span className="text-light">Comunicate con nosotros</span>
               </div>
             </nav>
-            <form>
+            <form onClick={handleSubmit}>
               <div className="container border" style={{background:"white"}}>
                 <input
-                  className="w-100 my-2"
+                  className="w-100 my-2 border"
                   type="text"
                   name="contact_form_name"
                   id="contact_form_name"
                   placeholder="First Name"
-                  onChange={(e) => setNombre(e.target.value)}
+                  onChange={handleChange}
+                  value={form.contact_form_name}
+                  required
+                  onBlur={handleBlur}
                 />
+                {errors.name && <p className="text-danger">{errors.name}</p>}
+
+
+
+
+
                 <input
-                  className="w-100 my-2"
-                  type="text"
-                  name="contact_form_name"
-                  id="contact_form_name"
+                  className="w-100 my-2 border"
+                  type="email"
+                  name="contact_form_email"
+                  id="contact_form_email"
                   placeholder="Email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleChange}
+                  value={form.contact_form_email}
+                  required
+                  onBlur={handleBlur}
                 />
                 <input
-                  className="w-100 my-2"
+                  className="w-100 my-2 border"
                   type="text"
-                  name="contact_form_name"
-                  id="contact_form_name"
+                  name="contact_form_phone"
+                  id="contact_form_phone"
                   placeholder="Phone"
-                  onChange={(e) => setTelefono(e.target.value)}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={form.contact_form_phone}
                 />
                 <select
                   name="contact_form_subject"
                   id="contact_form_subject"
                   className="form-select my-2"
-                  onChange={(e) => setMotivoDelMensaje(e.target.value)}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={form.contact_form_subject}
                 >
                   <option defaultValue>Seleccione el motivo del mensaje</option>
                   <option value="Dudas generales">Dudas generales</option>
@@ -86,14 +118,17 @@ const handleSubmit = (e) => {
                 <textarea
                   className="form-control w-100 my-2"
                   rows="8"
-                  name=""
-                  id=""
+                  name="contact_form_text"
+                  id="contact_form_text"
                   placeholder="Type your message"
-                  onChange={(e) => setMensaje(e.target.value)}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={form.contact_form_text}
+                  required
+
                 ></textarea>
                 <button
-                  type="submit"
-                  onClick={handleSubmit}
+                  type="submit"                  
                   className="btn btn-primary mb-5"
                 >
                   Enviar
