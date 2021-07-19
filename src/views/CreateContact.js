@@ -12,11 +12,11 @@ function CreateContact() {
     const [rut, setRut] = useState(null);
     const [phone, setPhone] = useState(null);
     const [email, setEmail] = useState(null);
-    const [idUser, setIdUser] = useState(null);
+    // const [idUser, setIdUser] = useState(null);
     const [type, setType] = useState("Posible");
 
     function handleSubmit(){
-        setContact(name, lastName, rut, type, phone, email, idUser)
+        setContact(name, lastName, rut, type, phone, email, store.usuarioActual.id)
         history.push("/contactos");
     }
 
@@ -50,10 +50,10 @@ function CreateContact() {
                         <label htmlFor="email" className="form-label">Correo</label>
                         <input type="email" className="form-control" id="email" onChange={(event) => setEmail(event.target.value)}/>
                     </div>
-                    <div className="col-md-3 my-3">
+                    {/* <div className="col-md-3 my-3">
                         <label htmlFor="user_id" className="form-label">Id usuario</label>
                         <input type="number" className="form-control" id="user_id" onChange={(event) => setIdUser(event.target.value)}/>
-                    </div>
+                    </div> */}
                     <div className="col-md-3 my-3">
                         <label htmlFor="type" className="form-label">Tipo</label>
                         <select id="type" className="form-select" onChange={(event) => setType(event.target.value)}>

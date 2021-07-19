@@ -22,11 +22,11 @@ const CrearUsuario = () => {
         history.push("/PanelAdministrador");
     }
 
-    useEffect(() => {
-        if(store.token === null){
-            history.push('/login')
-        }
-    },[]);
+    // useEffect(() => {
+    //     if(store.token === null){
+    //         history.push('/login')
+    //     }
+    // },[]);
 
     return (
         <div className="CrearUsuario py-2">
