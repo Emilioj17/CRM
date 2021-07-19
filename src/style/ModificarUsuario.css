@@ -12,7 +12,17 @@
 }
 
 .fotoModificarUsuario {
-	background-color: #c4c4c4;
+	height: 10vw !important;
+	width: 10vw !important;
+	background-image: url("../img/usuario.png");
+	background-repeat: no-repeat;
+	background-size: 7vw;
+	background-position: center;
+}
+
+.fotoModificarUsuario > img {
+	height: 10vw !important;
+	width: 10vw !important;
 }
 
 .divResumen {

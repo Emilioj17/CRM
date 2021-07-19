@@ -39,7 +39,6 @@ const PanelAdministrador = () => {
     }, [usuarios])
 
     const HandlerOnClick = (event) => {
-        console.log("Hola desde Click");
         const id = event.target.id;
         actions.idUser(id)
     }
