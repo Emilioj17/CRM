@@ -482,7 +482,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ userId: id })
             },
             setContactMessage: (name, lastName, rut, email, phone, comment) => {
-                let userId = 2;
+                let userId = 0;
                 fetch("http://localhost:5000/api/contacts", {
                     method: "POST",
                     headers: {
@@ -492,7 +492,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "name": name,
                         "last_name": lastName,
                         "rut": rut,
-                        "type": "Contacto",
+                        "type": "Posible",
                         "phone": phone,
                         "email": email,
                         "user_id": userId

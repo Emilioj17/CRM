@@ -10,7 +10,8 @@ const Contacto = () => {
 
   const {store, actions} = useContext(AppContext);
   
-  const [nombre, setNombre] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [rut, setRut] = useState("");
   const [email, setEmail] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -19,14 +20,14 @@ const Contacto = () => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  let name = nombre.split(" ")[0];
-  let lastName = nombre.split(" ")[1];
   console.log("Name: " + name);
   console.log("Lastname: " + lastName);
   let comment = motivo + " " + mensaje;
   actions.setContactMessage(name, lastName, rut, email, telefono, comment);
   alert("Mensaje enviado");
-  setNombre("");
+  setName("");
+  setLastName("");
+  setRut("");
   setEmail("");
   setTelefono("");
   setMotivoDelMensaje("");
@@ -52,9 +53,18 @@ const handleSubmit = (e) => {
                   type="text"
                   name="contact_form_name"
                   id="contact_form_name"
-                  placeholder="Nombre completo"
-                  onChange={(e) => setNombre(e.target.value)}
-                  value={nombre}
+                  placeholder="Nombre"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                />
+                <input
+                  className="w-100 my-2"
+                  type="text"
+                  name="contact_form_name"
+                  id="contact_form_name"
+                  placeholder="Apellido"
+                  onChange={(e) => setLastName(e.target.value)}
+                  value={lastName}
                 />
                 <input
                   className="w-100 my-2"

@@ -1,3 +1,17 @@
+
+form {
+    max-width: 600px !important;
+    margin: auto !important;
+    background: white !important;
+    border-radius: 5px;
+    border: 1px solid rgba(27, 75, 77, 1) !important;
+    padding: 20px !important;
+    padding-right: 75px !important;
+    padding-left: 75px !important;
+}
+
+/* .login100-form {
+=======
 <<<<<<< HEAD
 /* div.Login.container-fluid {
 position: relative;
@@ -61,8 +75,8 @@ position: relative;
 top: 205px;
 left: 80px;
 } */
-=======
-.login100-form {
+
+/* .login100-form {
     width: 560px;
     min-height: 100vh;
     display: block;
@@ -271,4 +285,4 @@ input {
     font-size: 13px;
     line-height: 1.4;
     color: #999;
-}
+} */
