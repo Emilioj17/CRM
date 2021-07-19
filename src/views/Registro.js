@@ -7,12 +7,12 @@ import { useHistory } from 'react-router';
 function Registro() {
     const { store, actions } = useContext(AppContext);
 
-    const [name, setName] = useState(null);
-    const [lastName, setLastName] = useState(null);
-    const [rut, setRut] = useState(null);
-    const [phone, setPhone] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
+    const [name, setName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [rut, setRut] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
 
     const history = useHistory();
