@@ -11,6 +11,7 @@ const Contacto = () => {
   const {store, actions} = useContext(AppContext);
   
   const [nombre, setNombre] = useState(null);
+  const [rut, setRut] = useState(null);
   const [email, setEmail] = useState(null);
   const [telefono, setTelefono] = useState(null);
   const [motivo, setMotivoDelMensaje] = useState(null);
@@ -18,20 +19,19 @@ const Contacto = () => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  actions.setContactMessage(nombre,email,telefono,motivo,mensaje);
-  history.push('/contacto/success')
+  let name = nombre.split(" ")[0];
+  let lastName = nombre.split(" ")[1];
+  console.log("Name: " + name);
+  console.log("Lastname: " + lastName);
+  let comment = motivo + " " + mensaje;
+  actions.setContactMessage(name, lastName, rut, email, telefono, comment);
+  alert("Mensaje enviado");
+  setNombre("");
+  setEmail("");
+  setTelefono("");
+  setMotivoDelMensaje("");
+  setMensaje("");
 }
-
-
-
-
-  const formProcess = (e) => {
-    e.preventDefault();
-    setTimeout(() => {
-      alert("Mensaje enviado");
-      history.push('/contacto/success')
-    }, 500);
-  };
 
   return (
     <div id="contacto">
@@ -54,6 +54,16 @@ const handleSubmit = (e) => {
                   id="contact_form_name"
                   placeholder="First Name"
                   onChange={(e) => setNombre(e.target.value)}
+                  value={nombre}
+                />
+                <input
+                  className="w-100 my-2"
+                  type="text"
+                  name="contact_form_name"
+                  id="contact_form_name"
+                  placeholder="Rut"
+                  onChange={(e) => setRut(e.target.value)}
+                  value={rut}
                 />
                 <input
                   className="w-100 my-2"
@@ -62,6 +72,7 @@ const handleSubmit = (e) => {
                   id="contact_form_name"
                   placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                 />
                 <input
                   className="w-100 my-2"
@@ -70,12 +81,14 @@ const handleSubmit = (e) => {
                   id="contact_form_name"
                   placeholder="Phone"
                   onChange={(e) => setTelefono(e.target.value)}
+                  value={telefono}
                 />
                 <select
                   name="contact_form_subject"
                   id="contact_form_subject"
                   className="form-select my-2"
                   onChange={(e) => setMotivoDelMensaje(e.target.value)}
+                  value={motivo}
                 >
                   <option defaultValue>Seleccione el motivo del mensaje</option>
                   <option value="Dudas generales">Dudas generales</option>
@@ -90,6 +103,7 @@ const handleSubmit = (e) => {
                   id=""
                   placeholder="Type your message"
                   onChange={(e) => setMensaje(e.target.value)}
+                  value={mensaje}
                 ></textarea>
                 <button
                   type="submit"
