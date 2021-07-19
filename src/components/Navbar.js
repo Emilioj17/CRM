@@ -1,11 +1,21 @@
-import React, { useEffect } from "react";
-import { BiLogIn } from 'react-icons/bi';
+import React, { useContext, useEffect } from "react";
+import { BiLogIn, BiLogOut } from 'react-icons/bi';
 import { Link as LinkScroll} from "react-scroll";
-import { Link, useLocation  } from "react-router-dom";
+import { Link, useHistory, useLocation  } from "react-router-dom";
+import { AppContext } from "../store/appContext";
 
 function Navbar() {
-
+	const { store, actions } = useContext(AppContext);
 	const location = useLocation().pathname;
+	let history = useHistory();
+
+	function handleLogOut(){
+		sessionStorage.removeItem("token");
+		sessionStorage.removeItem("usuarioActual");
+		store.token = null;
+		store.usuarioActual = null;
+		history.push("/");
+	}
 
 	if(location =="/"){
 		return(
@@ -51,7 +61,7 @@ function Navbar() {
 					<ul className="navbar-nav mb-2 ms-auto">
 						<li className="ms-auto nav-item">
 							<Link className="nav-link Ingresar" to="/login">
-								<BiLogIn />
+								<BiLogIn size={22}/>
 							</Link>
 						</li>
 					</ul>
@@ -103,7 +113,7 @@ function Navbar() {
 					<ul className="navbar-nav mb-2 ms-auto">
 						<li className="ms-auto nav-item">
 							<Link className="nav-link Ingresar" to="/login">
-								<BiLogIn />
+								<BiLogIn size={22}/>
 							</Link>
 						</li>
 					</ul>
@@ -149,9 +159,9 @@ function Navbar() {
 					</ul>
 					<ul className="navbar-nav mb-2 ms-auto">
 						<li className="ms-auto nav-item">
-							<Link className="nav-link Ingresar" to="/login">
-								<BiLogIn />
-							</Link>
+							<span onClick={handleLogOut} className="nav-link Ingresar" to="/login" style={{cursor: "pointer"}}>
+								<BiLogOut size={22}/>
+							</span>
 						</li>
 					</ul>
 				</div>

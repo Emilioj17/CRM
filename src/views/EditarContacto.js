@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 
 const EditarContacto = () => {
-
+  const { store, actions } = useContext(AppContext);
   let history = useHistory()
-
   useEffect(() => {
-      if(store.token === null){
-          history.push('/login')
-      }
+    if (store.token === null) {
+      history.push('/login')
+    }
   }, []);
 
   return (
@@ -183,25 +182,25 @@ const EditarContacto = () => {
                       Informacion sobre tipo de cliente
                     </div>
                     <div className="card-body">
-                    <select
-                  name="edit_contact_usertype"
-                  id="edit_contact_usertype"
-                  className="form-select my-2"
-                >
-                  <option defaultValue>Desea transformar en contacto:</option>
-                  <option value="1">Si</option>
-                  <option value="1">No</option>
-                </select>
-                <input className="w-100 my-2" type="text" name="edit_contact_date" id="edit_contact_date" value="Fecha"/>
-                <input className="w-100 my-2" type="text" name="edit_contact_agent" id="edit_contact_agent" value="Nombre del agente"/>
+                      <select
+                        name="edit_contact_usertype"
+                        id="edit_contact_usertype"
+                        className="form-select my-2"
+                      >
+                        <option defaultValue>Desea transformar en contacto:</option>
+                        <option value="1">Si</option>
+                        <option value="1">No</option>
+                      </select>
+                      <input className="w-100 my-2" type="text" name="edit_contact_date" id="edit_contact_date" value="Fecha" />
+                      <input className="w-100 my-2" type="text" name="edit_contact_agent" id="edit_contact_agent" value="Nombre del agente" />
 
-            {/* Button Row */}
-            <div className="row py-3">
-              <div className="col d-flex justify-content-end">
-                <button className="btn btn-success mx-2">Guardar</button>
-                <button className="btn btn-danger">Cancelar</button>
-              </div>
-            </div>
+                      {/* Button Row */}
+                      <div className="row py-3">
+                        <div className="col d-flex justify-content-end">
+                          <button className="btn btn-success mx-2">Guardar</button>
+                          <button className="btn btn-danger">Cancelar</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
