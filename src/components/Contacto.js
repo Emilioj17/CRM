@@ -17,9 +17,14 @@ const Contacto = () => {
 
   const validationsForm = (form) => {
     let errors = {};
+    let regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+    let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+    let regexComments = /^.{1,255}$/;
 
     if(!form.contact_form_name.trim()){
       errors.name = 'Este campo es obligatorio'
+    } else if (!regexName.test(form.contact_form_name.trim())){
+      errors.name = 'El campo "Nombre" solo acepta letras y espacios en blanco'
     }
 
 

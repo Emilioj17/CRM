@@ -10,6 +10,8 @@ function Login() {
         email: "",
         password: ""
     });
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
     const history = useHistory();
 
     useEffect(() => {
@@ -20,7 +22,7 @@ function Login() {
     })
 
     const handlerIngreso = () => {
-        actions.getUsuario(usuario);
+        actions.getUsuario(email, password);
     }
 
     return (
@@ -28,12 +30,12 @@ function Login() {
             <div className="wrap-login100">
                 <span className="login100-form-title p-b-43">Ingresar</span>
                 <div className="wrap-input100 validate-input">
-                    <input className="input100" type="text" name="email" onChange={(e) => setUsuario({ ...usuario, correo: e.target.value })}></input>
+                    <input className="input100" type="text" name="email" onChange={(event) => setEmail(event.target.value)}></input>
                     <span className="focus-input100"></span>
                     <span className="label-input100">Email</span>
                 </div>
                 <div className="wrap-input100 validate-input">
-                    <input className="input100" type="password" name="pass" onChange={(e) => setUsuario({ ...usuario, clave: e.target.value })}></input>
+                    <input className="input100" type="password" name="pass" onChange={(event) => setPassword(event.target.value)}></input>
                     <span className="focus-input100"></span>
                     <span className="label-input100">Password</span>
                 </div>

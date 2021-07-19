@@ -1,31 +1,66 @@
-import React, { useState } from 'react'
-import '../style/Registro.css';
+import React, { useContext, useEffect, useState } from 'react'
+// import '../style/Registro.css';
 import "bootstrap/dist/css/bootstrap.css";
+import { AppContext } from '../store/appContext';
+import { useHistory } from 'react-router';
 
 function Registro() {
+    const { store, actions } = useContext(AppContext);
 
-  const [nameReg, SetNameReg] = useState("")
-  const [lastnameReg, SetLastnameReg] = useState("")
-  const [phoneReg, SetPhoneReg] = useState("")
-  const [emailReg, SetEmailReg] = useState("")
-  const [passwordReg, SetPasswordReg] = useState("")
+    const [name, setName] = useState(null);
+    const [lastName, setLastName] = useState(null);
+    const [rut, setRut] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
 
+
+    const history = useHistory();
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        actions.crearUsuario(name, lastName, rut, "Vendedor", phone, email, password);
+    }
+
+    useEffect(() => {
+        if(store.token != null){
+            history.push("/bienvenidovendedor")
+        }
+    })
 
     return (
-        <div className="Registro container-fluid">
-            <h1 className="Registrate">Registrate</h1>
-            <form>
-            <input className="Nombre" type="text" placeholder="Nombre" onChange={(e) => {SetNameReg(e.target.value);}}></input>
-            <input className="Apellido" type="text" placeholder="Apellido" onChange={(e) => {SetLastnameReg(e.target.value);}}></input>
-            <input className="Telefono" type="" placeholder="Telefono" onChange={(e) => {SetPhoneReg(e.target.value);}}></input>
-            <input className="Correo" placeholder="Correo" onChange={(e) => {SetEmailReg(e.target.value);}}></input>
-            <input className="CrearPassword" type="password" placeholder="Contraseña" onChange={(e) => {SetPasswordReg(e.target.value);}}></input>
-            </form>
-            <div>
-            <button className="btn btn-lg btn-success btn-block" type="submit" value="Send Form">Aceptar</button>
+        <div className="container">
+            <div className="row">
+                <h1 className="my-3">Registro</h1>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className="mb-3 col-6">
+                        <label for="name" className="form-label">Nombre</label>
+                        <input type="text" className="form-control" id="name" onChange={(event) => setName(event.target.value)}/>
+                    </div>
+                    <div className="mb-3 col-6">
+                        <label for="last_name" className="form-label">Apellido</label>
+                        <input type="text" className="form-control" id="last_name" onChange={(event) => setLastName(event.target.value)}/>
+                    </div>
+                    <div className="mb-3 col-6">
+                        <label for="rut" className="form-label">Rut</label>
+                        <input type="text" className="form-control" id="rut" onChange={(event) => setRut(event.target.value)}/>
+                    </div>
+                    <div className="mb-3 col-6">
+                        <label for="phone" className="form-label">Teléfono</label>
+                        <input type="text" className="form-control" id="phone" onChange={(event) => setPhone(event.target.value)}/>
+                    </div>
+                    <div className="mb-3 col-6">
+                        <label for="email" className="form-label">Email</label>
+                        <input type="email" className="form-control" id="email" onChange={(event) => setEmail(event.target.value)}/>
+                    </div>
+                    <div className="mb-3 col-6">
+                        <label for="password" className="form-label">Contraseña</label>
+                        <input type="password" className="form-control" id="password" onChange={(event) => setPassword(event.target.value)}/>
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
             </div>
-        </div>
-
+        </div >
     )
 }
 export default Registro;
