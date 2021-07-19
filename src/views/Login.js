@@ -24,9 +24,9 @@ function Login() {
 
     return (
         <div className="container">
-            <div className="row">
-                <h1 className="my-5">ingresar</h1>
-                <form onSubmit={(e) => handleingreso(e)} >
+            <div className="row my-5">
+                <form className="my-5" onSubmit={(e) => handleingreso(e)} >
+                <h1 className="text-center">Ingresar</h1>
                     <div className="mb-3">
                         <label for="name" className="form-label">Correo</label>
                         <input type="email" className="form-control" id="name" onChange={(event) => setEmail(event.target.value)} />

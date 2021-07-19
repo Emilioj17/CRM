@@ -31,9 +31,9 @@ function Registro() {
 
     return (
         <div className="container">
-            <div className="row">
-                <h1 className="my-5">Registro</h1>
-                    <form onSubmit={(e) => handleSubmit(e)} style={{maxWidth:"500px", margin:"auto"}}>
+            <div className="row my-5">
+                    <form className="my-5" onSubmit={(e) => handleSubmit(e)}>
+                    <h1 className="text-center">Registro</h1>
                     <div className="mb-3">
                         <label for="name" className="form-label">Nombre</label>
                         <input type="text" className="form-control" id="name" onChange={(event) => setName(event.target.value)}/>
