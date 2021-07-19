@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from 'react'
 import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
+import {fotoUsuario} from '../img/usuario.png'
 
 const CrearUsuario = () => {
     const { store, actions } = useContext(AppContext);
@@ -16,17 +17,32 @@ const CrearUsuario = () => {
     const [password, setPassword] = useState(null);
     const [type, setType] = useState("Vendedor");
     const history = useHistory();
-
-    function handleSubmit() {
-        actions.setUser(name, lastName, rut, type, phone, email, password)
-        history.push("/PanelAdministrador");
-    }
+    const [img, setImg] = useState("#");
+    const [imgB64, setImgB64] = useState("#");
 
     // useEffect(() => {
     //     if(store.token === null){
     //         history.push('/login')
     //     }
-    // },[]);
+    // }, []);
+    
+    function handleSubmit() {
+        actions.setUser(name, lastName, rut, type, phone, email, password, imgB64)
+        history.push("/PanelAdministrador");
+    }
+
+    function encodeImageFileAsURL(event) {
+        const imgInp = event.target.files[0]
+        if (imgInp){
+            setImg(URL.createObjectURL(imgInp))
+        }
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            setImgB64(reader.result)
+            console.log('RESULT', reader.result)
+        }
+        reader.readAsDataURL(imgInp);
+      }
 
     return (
         <div className="CrearUsuario py-2">
@@ -40,10 +56,9 @@ const CrearUsuario = () => {
                 </div>
                 <div className="bodyCrearUsuario pb-2">
                     <div className="row m-2 p-2">
-                        <div className="fotoCrearUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> Foto </div>
-                        <div className="col-6">
-                            <div className="divResumen m-2">Nombre Vendedor</div>
-                            <div className="divResumen m-2">Rol Usuario</div>
+                        <div className="fotoCrearUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> <img src={img} alt="Foto Perfil" /> </div>
+                        <div className="col-8">
+                            <div className="divResumen m-2"><input type="file" name="" id="" accept="image/*" onChange={encodeImageFileAsURL}/></div>
                         </div>
                     </div>
                     <div className="mx-2">

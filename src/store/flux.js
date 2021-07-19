@@ -207,7 +207,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
-            setUser: async (name, lastName, rut, type, phone, email, password) => {
+            setUser: async (name, lastName, rut, type, phone, email, password, imgB64) => {
                 const store = getStore();
                 fetch("http://localhost:5000/api/users", {
                     method: "POST",
@@ -222,7 +222,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "type": type,
                         "phone": phone,
                         "email": email,
-                        "password": password
+                        "password": password,
+                        "imgB64": imgB64
                     })
                 }).then((response) => response.json())
                     .then((data) => {
