@@ -1,3 +1,67 @@
+<<<<<<< HEAD
+/* div.Login.container-fluid {
+position: relative;
+top: 100px;
+width: 360px;
+height: 500px;
+background: #1B4B4D;
+border-radius: 100px;
+} 
+h1.Ingresar {
+position: relative;
+text-align: center;
+top: 35px;
+opacity: 80%;
+color: rgba(255, 255, 255, 1)
+}
+input.Usuario {
+text-align: center;
+position: relative;
+width: 240px;
+height: 60px;
+left: 50px;
+top: 90px;
+background: #E8984A;
+border-radius: 20px;
+}
+input.Password {
+text-align: center;
+position: relative;
+left: 50px;
+top: 110px;
+width: 240px;
+height: 60px;
+background: #E8984A;
+border-radius: 20px;
+}
+button.Entrar {
+position: relative;
+width: 240px;
+height: 60px;
+left: 50px;
+top: 160px;
+background: #E8984A;
+border-radius: 20px;
+}
+a.Registrate {
+position: absolute;
+top: 400px;
+width: 120px;
+left: 120px;
+}
+p.Registrate {
+position: absolute;
+left: 145px;
+top: 420px;
+color: rgba(255, 255, 255, 1);
+opacity: 80%;
+} 
+a.Idiota {
+position: relative;
+top: 205px;
+left: 80px;
+} */
+=======
 .login100-form {
     width: 560px;
     min-height: 100vh;

@@ -3,15 +3,18 @@ body {
     min-height: 100vh;
     font-family: 'Open Sans', sans-serif !important;
     color: #1b4b4d;
-    display: flex;
-    flex-direction: column;
+  /*   display: flex;
+    flex-direction: column; */
+}
+textarea{
+    resize: none;
 }
 
-footer {
+/* footer {
     position: relative;
     top: 50vh;
 }
-
+ */
 
 
 
