@@ -69,7 +69,7 @@ function Navbar() {
 			</div>
 		</nav>
 		)
-	}else if(location =="/login"){
+	}else if(location =="/login" || location == "/registro"){
 		return (
 			<nav className="navbar sticky-top navbar-expand-lg navbar-dark" style={{ background: "rgba(27, 75, 77, 1)" }}>
 			<div className="container">
