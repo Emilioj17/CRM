@@ -15,7 +15,8 @@ const ModificarUsuario = () => {
         correo: "",
         rut: "",
         tipo:"",
-        estado:""
+        estado: "",
+        imgB64:""
     });
     const [name, setName] = useState(null);
     const [lastName, setLastName] = useState(null);
@@ -24,11 +25,12 @@ const ModificarUsuario = () => {
     const [email, setEmail] = useState(null);
     const [type, setType] = useState(null);
     const [estado, setEstado] = useState(null);
+    const [img, setImg] = useState("#");
+    const [imgB64, setImgB64]= useState("#")
     let history = useHistory();
 
     useEffect(() => {
         const id = store.userId;
-        console.log(id);
 		fetch("http://localhost:5000/api/users/"+id, {
                     method: "GET",
                     headers: {
@@ -43,9 +45,9 @@ const ModificarUsuario = () => {
                             correo: data.email,
                             rut: data.rut,
                             tipo: data.type,
-                            estado: data.estado
+                            estado: data.estado,
+                            imgB64 : data.imgB64
                         })
-                        console.log(data);
                     })
                     .catch(err => (console.error(err)));
     }, []);
@@ -54,7 +56,7 @@ const ModificarUsuario = () => {
     function handleSubmit() {
         console.log(usuario.nombre);
         const idx = store.userId
-        actions.editUser(idx, name, lastName, rut, type, estado, phone, email)
+        actions.editUser(idx, name, lastName, rut, type, estado, phone, email, imgB64)
         history.push("/PanelAdministrador");
     }
 
@@ -63,6 +65,19 @@ const ModificarUsuario = () => {
         actions.deleteUser(store.userId);
         history.push("/PanelAdministrador");
     }
+
+    function encodeImageFileAsURL(event) {
+        const imgInp = event.target.files[0]
+        if (imgInp){
+            setImg(URL.createObjectURL(imgInp))
+        }
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            setImgB64(reader.result)
+            console.log('RESULT', reader.result)
+        }
+        reader.readAsDataURL(imgInp);
+      }
 
     return (
         <div className="ModificarUsuario py-2">
@@ -77,10 +92,9 @@ const ModificarUsuario = () => {
                 </div>
                 <div className="bodyModificarUsuario pb-2">
                     <div className="row m-2 p-2">
-                        <div className="fotoModificarUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> Foto </div>
+                        <div className="fotoModificarUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> <img src={usuario.imgB64} alt="Foto Perfil" /> </div>
                         <div className="col-6">
-                            <div className="divResumen m-2">Nombre Vendedor: {name} {lastName}</div>
-                            <div className="divResumen m-2">Rol Usuario</div>
+                            <div className="divResumen m-2"><input type="file" name="" id="" accept="image/*" onChange={encodeImageFileAsURL}/></div>
                         </div>
                     </div>
                     <div className="mx-2">

@@ -73,7 +73,11 @@ function Contact() {
             </table>
             :
             <h2 className="text-center"> - no hay datos -</h2>}
-            <Link  className="col-2 btn btn-success my-5 ms-auto" to="crear/contacto">Agregar contacto</Link>
+            <div className="d-flex flex-row-reverse bd-highlight">
+                <Link className="col-2 btn btn-success my-5 mx-2" to="crear/contacto">Agregar contacto</Link>
+                <Link className="col-2 btn btn-danger my-5 mx-2" to="/BienvenidoVendedor">Atras</Link>
+            </div>
+            
         </>
             </div>
         </div>

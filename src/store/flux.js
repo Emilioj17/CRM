@@ -207,7 +207,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
-            setUser: async (name, lastName, rut, type, phone, email, password) => {
+            setUser: async (name, lastName, rut, type, phone, email, password, imgB64) => {
                 const store = getStore();
                 fetch("http://localhost:5000/api/users", {
                     method: "POST",
@@ -222,7 +222,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "type": type,
                         "phone": phone,
                         "email": email,
-                        "password": password
+                        "password": password,
+                        "imgB64": imgB64
                     })
                 }).then((response) => response.json())
                     .then((data) => {
@@ -527,6 +528,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				).catch(error => { console.error("Hay un problemilla", error) })
             },
             sendEmail: (email) => {
+                fetch("http://127.0.0.1:5000/enviarCorreo", {
+					method: "POST",
+					body: JSON.stringify(email)
+				}).then(res => {
+					if (res.status === 201) return res.json();
+					else if (res.status === 401) {
+						alert("Error Enviado Correo");
+					}
+				}).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
+            },
+            sendEmailRecovery: (email) => {
                 fetch("http://127.0.0.1:5000/enviarCorreo", {
 					method: "POST",
 					body: JSON.stringify(email)
