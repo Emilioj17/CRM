@@ -32,7 +32,7 @@ const CorreosEnviados = () => {
 
         return (
             <li key={index} id={index} className="p-2 m-2 correoListado" onClick={(e)=>handlerEmail(e)}><span className="estrellaCorreos" id={index}>{<BsFillStarFill />}</span>
-                <span className="spanPara" id={index}>Para: {para}</span> <span id={index}>Asunto: {asunto}</span> <span id={index}>Resumen: {resumen}</span></li>
+                <span className="spanPara" id={index}>Para: {para}</span> <span id={index}>Asunto: {asunto}</span> <span id={index}>{resumen}</span></li>
         )
     });
 
@@ -44,11 +44,11 @@ const CorreosEnviados = () => {
             
         } else if (listaCorreos2[emailSeleccionado] != undefined) {
             const para = listaCorreos2[emailSeleccionado][0]
-            const hora = listaCorreos2[emailSeleccionado][1] //Hay que setear la Hora
+            const hora = listaCorreos2[emailSeleccionado][1].slice(0, listaCorreos2[emailSeleccionado][1].length -5)
             const asunto = listaCorreos2[emailSeleccionado][2]
             const cuerpo = atob(listaCorreos2[emailSeleccionado][3]) //Hay que decode desde base64 ? deprecado
             return (
-                <div className="bodyCuerpoCorreosEnviadosSobre p-5 pb-0 pt-0 fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
+                <div className="bodyCuerpoCorreosEnviadosSobre fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
                     <div className="p-5 pt-0">
                         <div className="d-flex flex-row-reverse bd-highlight" onClick={()=>setBoxEmail(false)}><span className="text-danger xdeCorreo"><BsFillXCircleFill/></span></div>
                         <div className="d-flex justify-content-between align-items-center my-2">
@@ -91,7 +91,9 @@ const CorreosEnviados = () => {
                     <Link to="/SendEmail"><button type="button" className="btn btn-success m-2">Redactar</button></Link>
                 </div>
                 <div className="col-12 cuerpoCorreosEnviados">
-                    <CorreoAmpliado />
+                    <div className="d-flex justify-content-end">
+                        <CorreoAmpliado />
+                    </div>
                     <div className="headCuerpoCorreosEnviados text-center py-2">
                         <h4>Correos Enviados</h4>
                     </div>
@@ -103,7 +105,7 @@ const CorreosEnviados = () => {
                         </div>
                         {Correos}
                     </div>
-                    <div className="botonesCorreosEnviados d-flex flex-row-reverse m-2">
+                    <div className="botonesCorreosEnviados">
                         <button type="button" className="btn btn-success m-2 disabled">Cargar Más (no disponible)</button>
                     </div>
                 </div>
