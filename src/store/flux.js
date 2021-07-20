@@ -534,6 +534,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const actions = getActions();
                 fetch("http://localhost:5000/login", {
                     method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
                     body: JSON.stringify({ "email": mail, "password": password })
                 }).then(res => {
 
@@ -571,6 +574,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                         fetch("http://localhost:5000/login", {
                             method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
                             body: JSON.stringify({ "email": email, "password": password })
                         }).then(res => {
 

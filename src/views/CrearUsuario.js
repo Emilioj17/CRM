@@ -21,7 +21,7 @@ const CrearUsuario = () => {
     const [imgB64, setImgB64] = useState("#");
 
     // useEffect(() => {
-    //     if(store.token === null){
+    //     if(sessionStorage.getItem("token") === null){
     //         history.push('/login')
     //     }
     // }, []);

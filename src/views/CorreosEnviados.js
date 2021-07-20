@@ -77,7 +77,7 @@ const CorreosEnviados = () => {
     let history = useHistory()
 
     useEffect(() => {
-        if(store.token === null){
+        if(sessionStorage.getItem("token") === null){
             history.push('/login')
         }
     },[]);
