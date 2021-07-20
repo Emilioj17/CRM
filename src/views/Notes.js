@@ -20,7 +20,7 @@ function Notes(props) {
 
     useEffect(() => {
         getContact(props.match.params.id);
-        if(store.token === null){
+        if(sessionStorage.getItem("token") === null){
             history.push('/login')
         }
     }, []);

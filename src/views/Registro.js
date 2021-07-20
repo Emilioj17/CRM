@@ -59,7 +59,7 @@ function Registro() {
                         <input type="password" className="form-control" id="password" onChange={(event) => setPassword(event.target.value)}/>
                     </div>
                     <div className="text-center">
-                    <button type="submit" className="btn btn-primary">Ingresar</button>
+                    <button type="submit" className="btn btn-primary">Registrar</button>
                     </div>
                     <div className="text-center my-3">
                         <Link className="txt2" to="/login">volver</Link>
