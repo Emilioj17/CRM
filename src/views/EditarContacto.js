@@ -151,20 +151,20 @@ const EditarContacto = () => {
                       Ultimos tratos activos
                     </div>
                     <div className="card-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
+                      <ul className="list-group">
+                        <li className="list-group-item">
                           Trato #, Fecha de inicio, Fecha de termino
                         </li>
-                        <li class="list-group-item">
+                        <li className="list-group-item">
                           Trato #, Fecha de inicio, Fecha de termino
                         </li>
-                        <li class="list-group-item">
+                        <li className="list-group-item">
                           Trato #, Fecha de inicio, Fecha de termino
                         </li>
-                        <li class="list-group-item">
+                        <li className="list-group-item">
                           Trato #, Fecha de inicio, Fecha de termino
                         </li>
-                        <li class="list-group-item">
+                        <li className="list-group-item">
                           Trato #, Fecha de inicio, Fecha de termino
                         </li>
                       </ul>

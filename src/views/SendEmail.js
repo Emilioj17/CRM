@@ -44,25 +44,25 @@ const SendEmail = () => {
                     </div>
                     <div className="bodyCuerpoSendEmail p-2">
                         <div className="row">
-                            <div class="col-12 col-md-6">
+                            <div className="col-12 col-md-6">
                                 <h6>Para:</h6>
-                                <input type="text" class="form-control" placeholder="Correo de Destino" onChange={(e) => setEmail({...email, to: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Correo de Destino" onChange={(e) => setEmail({...email, to: e.target.value})}/>
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div className="col-12 col-md-6">
                                 <h6>Cc:</h6>
-                                <input type="text" class="form-control" placeholder="Correo en Copia (Opcional)" onChange={(e) => setEmail({...email, Cc: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Correo en Copia (Opcional)" onChange={(e) => setEmail({...email, Cc: e.target.value})}/>
                             </div>
                         </div>
                         <div className="row py-2">
-                            <div class="col-12">
+                            <div className="col-12">
                                 <h6>Asunto:</h6>
-                                <input type="text" class="form-control" placeholder="Asunto de tu Correo" onChange={(e) => setEmail({...email, subject: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Asunto de tu Correo" onChange={(e) => setEmail({...email, subject: e.target.value})}/>
                             </div>
                         </div>
                         <div className="row py-2">
-                            <div class="col-12">
+                            <div className="col-12">
                                 <h6>Mensaje:</h6>
-                                <textarea class="form-control" placeholder="Escribe tu mensaje Aquí." rows="8" onChange={(e) => setEmail({...email, body: e.target.value})}/>
+                                <textarea className="form-control" placeholder="Escribe tu mensaje Aquí." rows="8" onChange={(e) => setEmail({...email, body: e.target.value})}/>
                             </div>
                         </div>
                     </div>

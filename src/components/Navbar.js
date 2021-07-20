@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { BiLogIn, BiLogOut } from 'react-icons/bi';
 import { Link as LinkScroll } from "react-scroll";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { AppContext } from "../store/appContext";
 
 function Navbar() {
-	const { store, actions } = useContext(AppContext);
+	const { store } = useContext(AppContext);
 	const location = useLocation().pathname;
 	let history = useHistory();
 
@@ -17,7 +17,7 @@ function Navbar() {
 		history.push("/");
 	}
 
-	if (location == "/") {
+	if (location === "/") {
 		return (
 			<nav className="navbar sticky-top navbar-expand-lg navbar-dark">
 				<div className="container">
@@ -69,7 +69,7 @@ function Navbar() {
 				</div>
 			</nav>
 		)
-	} else if (location == "/login" || location == "/registro") {
+	} else if (location === "/login" || location === "/registro") {
 		return (
 			<nav className="navbar sticky-top navbar-expand-lg navbar-dark">
 				<div className="container">

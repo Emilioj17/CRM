@@ -37,12 +37,12 @@ const CorreosEnviados = () => {
     });
 
     const CorreoAmpliado = () => {
-        if (listaCorreos2[emailSeleccionado] == undefined) {
+        if (listaCorreos2[emailSeleccionado] === undefined) {
             return (
                 <div></div>
             )
             
-        } else if (listaCorreos2[emailSeleccionado] != undefined) {
+        } else if (listaCorreos2[emailSeleccionado] !== undefined) {
             const para = listaCorreos2[emailSeleccionado][0]
             const hora = listaCorreos2[emailSeleccionado][1].slice(0, listaCorreos2[emailSeleccionado][1].length -5)
             const asunto = listaCorreos2[emailSeleccionado][2]

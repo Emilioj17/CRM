@@ -8,7 +8,7 @@ import Recuperar from "./views/Recuperar";
 import Remind from "./views/Remind";
 import Products from "./components/Products";
 import Category from "./views/Category";
-import SingleProduct from "./views/SingleProduct";
+// import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
 // import Contacto from "./components/Contacto";

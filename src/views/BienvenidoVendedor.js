@@ -7,7 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AppContext } from '../store/appContext';
 
 const BienvenidoVendedor = () => {
-  const { store, actions } = useContext(AppContext);
+  const { store } = useContext(AppContext);
   const nombreUsuario = store.usuarioActual;
   const NombreUsuario = () => {
     if (nombreUsuario != null) {

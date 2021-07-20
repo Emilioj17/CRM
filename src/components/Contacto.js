@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 import { AppContext } from "../store/appContext";
 import {FaPhone, FaEnvelope} from 'react-icons/fa'
 
 
 const Contacto = () => {
-  let history = useHistory()
+  // let history = useHistory()
 
-  const {store, actions} = useContext(AppContext);
+  const {actions} = useContext(AppContext);
   
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
