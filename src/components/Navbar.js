@@ -144,7 +144,7 @@ function Navbar() {
 								<Link to="/bienvenidovendedor" className="nav-link"> Inicio </Link>
 							</li>
 							<li className="nav-item">
-								<Link to="/contactos" className="nav-link"> Posibles </Link>
+								<Link to="/posibles" className="nav-link"> Posibles </Link>
 							</li>
 							<li className="nav-item">
 								<Link to="/contactos" className="nav-link"> Contactos </Link>

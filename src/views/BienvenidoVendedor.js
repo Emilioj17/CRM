@@ -29,8 +29,8 @@ const BienvenidoVendedor = () => {
   return (
     <div className="BienvenidoVendedor">
       <div className="container">
-        <div className="d-flex justify-content-between align-items-center">
-          <div>
+        <div className="d-flex justify-content-between align-items-center mt-5 my-2">
+          <div> 
             <NombreUsuario />
             <p><Link to="/BienvenidoAdministrador">Vista Administrador</Link></p>
           </div>

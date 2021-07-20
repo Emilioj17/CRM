@@ -31,12 +31,10 @@ const SendEmail = () => {
     return (
         <div className="SendEmail">
             <div className="container">
-                <div className="d-flex justify-content-between align-items-center my-2">
                 <div className="d-flex flex-row-reverse m-2">
                     <Link to="/CorreosRecibidos"><button type="button" className="btn btn-success m-2">Recibidos</button></Link>
                     <Link to="/CorreosEnviados"><button type="button" className="btn btn-success m-2">Enviados</button></Link>
-                    <Link to="#"><button type="button" className="btn btn-success m-2">Redactar</button></Link>
-                </div>
+                    <button type="button" className="btn btn-success m-2 disabled">Redactar</button>
                 </div>
                 <div className="col-12 cuerpoSendEmail">
                     <div className="headCuerpoSendEmail text-center py-2">
