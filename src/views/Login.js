@@ -25,7 +25,7 @@ function Login() {
     return (
         <div className="container">
             <div className="row my-5">
-                <form className="my-5" onSubmit={(e) => handleingreso(e)} >
+                <form className="my-5 login" onSubmit={(e) => handleingreso(e)} >
                 <h1 className="text-center">Ingresar</h1>
                     <div className="mb-3">
                         <label for="name" className="form-label">Correo</label>
