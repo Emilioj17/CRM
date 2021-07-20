@@ -14,12 +14,15 @@ const SendEmail = () => {
         body:""
     });
 
+    let history = useHistory()
+
     const HandlerSend = (e) => {
         e.preventDefault();
         actions.sendEmail(email)
+        history.push('/CorreosRecibidos')  //Ver si funciona
     }
 
-    let history = useHistory()
+    
 
   useEffect(() => {
       if(store.token === null){
