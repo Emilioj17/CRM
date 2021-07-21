@@ -21,8 +21,8 @@ function Navbar() {
 		return (
 			<nav className="navbar sticky-top navbar-expand-lg navbar-dark">
 				<div className="container">
-					<Link className="navbar-brand ms-3" to="/">
-						<img src={`/img/crm-facil-logo.svg`} alt="" width="150"></img>
+					<Link className="navbar-brand ms-3 mx-5"  to="/">
+						<img src={`/img/crm-facil-logo.svg`} alt="" width="170"></img>
 					</Link>
 					<button
 						className="navbar-toggler"
@@ -48,7 +48,7 @@ function Navbar() {
 							</li>
 							<li className="nav-item">
 								<LinkScroll to="products" spy={true} smooth={true} offset={-100} duration={100} className="nav-link" style={{ cursor: "pointer" }}>
-									Producto
+									Productos
 								</LinkScroll>
 							</li>
 							<li className="nav-item">
@@ -73,8 +73,8 @@ function Navbar() {
 		return (
 			<nav className="navbar sticky-top navbar-expand-lg navbar-dark">
 				<div className="container">
-					<Link className="navbar-brand ms-3" to="/">
-						<img src={`/img/crm-facil-logo.svg`} alt="" width="150"></img>
+					<Link className="navbar-brand ms-3 mx-5" to="/">
+						<img src={`/img/crm-facil-logo.svg`} alt="" width="170"></img>
 					</Link>
 					<button
 						className="navbar-toggler"
@@ -100,7 +100,7 @@ function Navbar() {
 							</li>
 							<li className="nav-item">
 								<Link to="/" className="nav-link">
-									Producto
+									Productos
 								</Link>
 							</li>
 							<li className="nav-item">
@@ -125,8 +125,8 @@ function Navbar() {
 		return (
 			<nav className="navbar sticky-top navbar-expand-lg navbar-dark">
 				<div className="container">
-					<Link className="navbar-brand ms-3" to="/">
-						<img src={`/img/crm-facil-logo.svg`} alt="" width="150"></img>
+					<Link className="navbar-brand ms-3 mx-5" to="/">
+						<img src={`/img/crm-facil-logo.svg`} alt="" width="170"></img>
 					</Link>
 					<button
 						className="navbar-toggler"
