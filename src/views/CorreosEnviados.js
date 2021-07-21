@@ -4,6 +4,7 @@ import "../style/CorreosEnviados.css"
 import { Link, useHistory } from "react-router-dom";
 import { BsFillStarFill, BsFillXCircleFill } from 'react-icons/bs'
 import { AppContext } from "../store/appContext";
+import { decode } from 'js-base64';
 
 const CorreosEnviados = () => {
     const { store } = useContext(AppContext);
@@ -46,7 +47,7 @@ const CorreosEnviados = () => {
             const para = listaCorreos2[emailSeleccionado][0]
             const hora = listaCorreos2[emailSeleccionado][1].slice(0, listaCorreos2[emailSeleccionado][1].length -5)
             const asunto = listaCorreos2[emailSeleccionado][2]
-            const cuerpo = atob(listaCorreos2[emailSeleccionado][3]) //Hay que decode desde base64 ? deprecado
+            const cuerpo = decode(listaCorreos2[emailSeleccionado][3]) //Hay que decode desde base64 ? deprecado
             return (
                 <div className="bodyCuerpoCorreosEnviadosSobre fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
                     <div className="p-5 pt-0">

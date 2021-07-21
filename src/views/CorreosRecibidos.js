@@ -4,6 +4,7 @@ import "../style/CorreosRecibidos.css"
 import { Link, useHistory } from "react-router-dom";
 import { BsFillStarFill, BsFillXCircleFill } from 'react-icons/bs'
 import { AppContext } from "../store/appContext";
+import { decode } from 'js-base64';
 
 const CorreosRecibidos = () => {
     const { store } = useContext(AppContext);
@@ -46,7 +47,8 @@ const CorreosRecibidos = () => {
             const para = listaCorreos2[emailSeleccionado][0]
             const hora = listaCorreos2[emailSeleccionado][1].slice(0, listaCorreos2[emailSeleccionado][1].length -5)
             const asunto = listaCorreos2[emailSeleccionado][2]
-            const cuerpo = listaCorreos2[emailSeleccionado][3] //Hay que decode desde base64 ? deprecado. Código trae tags que entorpece lectura.
+            // const cuerpo = <h1>Hello</h1>
+            const cuerpo = decode(listaCorreos2[emailSeleccionado][3]) //Hay que decode desde base64 ? deprecado. Código trae tags que entorpece lectura.
             return (
                 <div className="bodyCuerpoCorreosRecibidosSobre fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
                     <div className="p-5 pt-0">
@@ -60,6 +62,7 @@ const CorreosRecibidos = () => {
                             <div className="align-self-start" > {hora} </div>
                         </div>
                         <div>Asunto: {asunto}</div>
+                        <div>Cuerpo del Correo:</div>
                         <div>{cuerpo}</div>
                         <div className="d-flex flex-row-reverse bd-highlight"><button className="btn btn-success m-2 disabled">Respoder</button><button className="btn btn-success m-2 disabled">Reenviar</button></div>
                     </div>
@@ -112,4 +115,5 @@ const CorreosRecibidos = () => {
             </div>
     );
 };
+
 export default CorreosRecibidos;
