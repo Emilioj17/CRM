@@ -65,7 +65,6 @@ const ModificarUsuario = () => {
     }
 
     const HandlerBorrarUsuario = () => {
-        // console.log(usuariosActivos);
         actions.deleteUser(store.userId);
         history.push("/PanelAdministrador");
     }

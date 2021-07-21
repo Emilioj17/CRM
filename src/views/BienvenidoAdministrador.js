@@ -5,6 +5,7 @@ import Heroe from "../img/BienvenidoAdmin_img1.png"
 import Heroe2 from "../img/BienvenidoAdmin_img2.png"
 import { Link, useHistory } from "react-router-dom";
 import { AppContext } from '../store/appContext';
+import ChartDemo from '../components/Graficos';
 
 const BienvenidoAdministrador = () => {
   const { store, actions } = useContext(AppContext);
@@ -43,13 +44,8 @@ const BienvenidoAdministrador = () => {
             <Link to="/PanelAdministrador"><button type="button" className="btn btn-success">Configuracion</button></Link>
           </div>
         </div>
-        <div className="col-12 Heroe1">
-          <h4>Rendimiento a 30 dias</h4>
-          <img src={Heroe} alt="" />
-        </div>
-        <div className="col-6 Heroe2">
-          <h4>Canal por Fase</h4>
-          <img src={Heroe2} alt="" />
+        <div className="">
+          <ChartDemo />
         </div>
       </div>
     </div>
