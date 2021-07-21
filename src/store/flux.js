@@ -618,6 +618,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                         alert("Error Enviado Correo");
                     }
                 }).catch(error => { console.error("Hay un problemilla con el Envio del Correo: ", error) })
+            },
+            clearInfo: () => {
+                setStore({
+                    contact: null,
+                    user: null,
+                    note: null,
+                    deal: null
+                })
+
             }
         }
     };

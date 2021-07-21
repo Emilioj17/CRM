@@ -38,11 +38,13 @@ function EditDeal(props) {
         actions.getUsers();
         actions.getNotes();
         actions.getDeals();
+        return () => actions.clearInfo();
     }, []);
 
     return (
-        <div className="container">
-            {store.deal !== null && store.contacts && store.users !== null ?
+
+        store.deal !== null && store.contacts && store.users !== null ?
+            <div className="container">
                 <div className="row">
                     <h1 className="my-5">Editar trato</h1>
                     <div className="d-flex flex-column align-items-center">
@@ -98,11 +100,13 @@ function EditDeal(props) {
                         <button className="col-2 btn btn-success my-5 ms-auto" onClick={handleSubmit}>Editar trato</button>
                     </div>
                 </div>
-                :
-                ""
-            }
-
-        </div>
+            </div>
+            :
+            <div className="container">
+                <div className="row">
+                    <h2 className="text-center my-5">Loading</h2>
+                </div>
+            </div>
     )
 }
 
