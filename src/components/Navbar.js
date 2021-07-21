@@ -42,7 +42,7 @@ function Navbar() {
 								</LinkScroll>
 							</li>
 							<li className="nav-item">
-								<LinkScroll to="nosotros" spy={true} smooth={true} offset={-10} duration={100} className="nav-link" style={{ cursor: "pointer" }}>
+								<LinkScroll to="nosotros" spy={true} smooth={true} offset={-100} duration={100} className="nav-link" style={{ cursor: "pointer" }}>
 									Nosotros
 								</LinkScroll>
 							</li>
