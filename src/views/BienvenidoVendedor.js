@@ -24,10 +24,10 @@ const BienvenidoVendedor = () => {
     if (sessionStorage.getItem("token") === null) {
       history.push('/login')
     }
-    actions.getContacts();
-    actions.getUsers();
-    actions.getNotes();
-    actions.getDeals();
+    // actions.getContacts();
+    // actions.getUsers();
+    // actions.getNotes();
+    // actions.getDeals();
   }, []);
 
   return (

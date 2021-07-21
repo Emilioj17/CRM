@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../store/appContext";
 
 
-function Notes(props) {
+function ContactDeals(props) {
     const { store, actions } = useContext(AppContext);
     const { contact } = store;
     const { getContact, setNote } = actions;
@@ -49,7 +49,7 @@ function Notes(props) {
                             <li className="list-group-item" style={{ width: "15%" }}><b>Creado: </b>{contact.create_at}</li>
                         </ul>) : ("")
                 }
-                {contact != null ? (
+                {/* {contact != null ? (
                     <><div className="mt-5 p-0">
                         <label htmlFor="exampleFormControlTextarea1" className="form-label"><b>Nueva nota</b></label>
                         <textarea className="form-control" id="exampleFormControlTextarea1" style={{ width: "100%" }} rows="3" onChange={(event) => setComment(event.target.value)} value={comment}></textarea>
@@ -65,14 +65,25 @@ function Notes(props) {
                             }
                         </div>
                     </>
-                ) : ("")}
-                {contact != null ? (
-                    contact.notes.slice(0).reverse().map((note, i) =>
-                        <ul className="list-group list-group-horizontal my-3" key={i}>
-                            <li className="list-group-item" style={{ width: "17%" }}><b>{"Nota " + note.id + "(" + note.create_at + "):  "}</b></li>
-                            <li className="list-group-item" style={{ width: "83%", minHeight: "100px" }}>{note.comment}</li>
+                ) : ("")} */}
+                {contact != null ?<>
+                    {contact.deals.slice(0).reverse().map((deal, i) =>
+                        <ul className="list-group list-group-horizontal my-5" style={{ minHeight: "85px"}} key={i}>
+                            <li className="list-group-item" style={{ width: "18%" }}><b>{"Trato " + deal.id + "(" + deal.create_at + ") "}</b></li>
+                            <li className="list-group-item" style={{ width: "16%" }}><b>"Plan:"</b>  {deal.plan}</li>
+                            <li className="list-group-item" style={{ width: "18%" }}><b>"Duración:"</b>  {deal.duration}</li>
+                            <li className="list-group-item" style={{ width: "48%" }}><b>"Descripción:"</b>  {deal.description}</li>
                         </ul>
-                    )) : ("")}
+                        )}
+                        <div className="d-flex flex-row-reverse bd-highlight">
+                               <Link className="col-2 btn btn-success my-5 mx-2" to="/crear/trato">Agregar Trato</Link>
+                            {store.contact.type === "contacto" ?
+                                <Link className="col-2 btn btn-danger my-5 mx-2" to="/contactos">Volver</Link> :
+                                <Link className="col-2 btn btn-danger my-5 mx-2" to="/posibles">Volver</Link>
+                            }
+                    </div>
+                    </>
+                    : ("")}
 
 
             </div>
@@ -81,4 +92,4 @@ function Notes(props) {
 
 }
 
-export default Notes
+export default ContactDeals

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../store/appContext';
 
 function EditContact(props) {
@@ -86,8 +87,12 @@ function EditContact(props) {
                             <option>Posible</option>
                         </select>
                     </div>
-                    <div className="col-12 d-flex">
-                        <button className="col-2 btn btn-success my-5 ms-auto" onClick={handleSubmit}>Editar contacto</button>
+                    <div className="d-flex flex-row-reverse bd-highlight">
+                        <button className="col-2 btn btn-success my-5 mx-2" onClick={handleSubmit}>Editar contacto</button>
+                        {    store.contact.type === "contacto"   ?
+                            <Link className="col-2 btn btn-danger my-5 mx-2" to="/contactos">Volver</Link>:
+                            <Link className="col-2 btn btn-danger my-5 mx-2" to="/posibles">Volver</Link>
+                        }
                     </div></div> : " "}
         </div>
     )

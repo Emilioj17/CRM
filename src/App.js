@@ -33,6 +33,7 @@ import EditContact from "./views/EditContact";
 import Notes from "./views/Notes";
 import Footer from "./components/Footer";
 import Posibles from "./views/posibles";
+import ContactDeals from "./views/ContactDeals";
 
 
 function App() {
@@ -63,7 +64,8 @@ function App() {
           <Route exact path="/tratos" component= {Deals} />
           <Route exact path="/contactos" component= {Contacts} />
           <Route exact path="/posibles" component= {Posibles} />
-          <Route exact path="/contactos/:id" component= {Notes} />
+          <Route exact path="/contactos/:id/notas" component= {Notes} />
+          <Route exact path="/contactos/:id/tratos" component= {ContactDeals} />
           <Route exact path="/crear/contacto" component= {CreateContact} />
           <Route exact path="/crear/trato" component= {CreateDeal} />
           <Route exact path="/editar/trato/:id" component= {EditDeal} />
