@@ -25,16 +25,20 @@ function CreateDeal() {
         setUserId(event.target.options[selectedIndex].getAttribute('user-id'));
     }
 
-    function handleSubmit(){
+    function handleSubmit() {
         setDeal(plan, duration, description, contactId, userId)
         history.push("/tratos");
     }
 
     useEffect(() => {
-        if(sessionStorage.getItem("token") === null){
+        if (sessionStorage.getItem("token") === null) {
             history.push('/login')
         }
-    },[]);
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
+    }, []);
 
     return (
         <div className="container">
@@ -85,7 +89,7 @@ function CreateDeal() {
                     </div>
                     <div className="col-6 my-3">
                         <label for="description">Descripción</label>
-                        <textarea className="form-control" id="description" rows="3"onChange={(event) => setDescription(event.target.value)}></textarea>
+                        <textarea className="form-control" id="description" rows="3" onChange={(event) => setDescription(event.target.value)}></textarea>
                     </div>
                 </div>
 

@@ -11,12 +11,12 @@ const ModificarUsuario = () => {
     const [usuario, setUsuario] = useState({
         nombre: "",
         apellido: "",
-        telefono:"",
+        telefono: "",
         correo: "",
         rut: "",
-        tipo:"",
+        tipo: "",
         estado: "",
-        imgB64:""
+        imgB64: ""
     });
     const [name, setName] = useState(null);
     const [lastName, setLastName] = useState(null);
@@ -26,30 +26,34 @@ const ModificarUsuario = () => {
     const [type, setType] = useState(null);
     const [estado, setEstado] = useState(null);
     const [img, setImg] = useState("#");
-    const [imgB64, setImgB64]= useState("#")
+    const [imgB64, setImgB64] = useState("#")
     let history = useHistory();
 
     useEffect(() => {
         const id = store.userId;
-		fetch("http://localhost:5000/api/users/"+id, {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }).then((response) => response.json())
-                    .then((data) => {
-                        setUsuario({
-                            nombre: data.name,
-                            apellido: data.last_name,
-                            telefono: data.phone,
-                            correo: data.email,
-                            rut: data.rut,
-                            tipo: data.type,
-                            estado: data.estado,
-                            imgB64 : data.imgB64
-                        })
-                    })
-                    .catch(err => (console.error(err)));
+        fetch("http://localhost:5000/api/users/" + id, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response) => response.json())
+            .then((data) => {
+                setUsuario({
+                    nombre: data.name,
+                    apellido: data.last_name,
+                    telefono: data.phone,
+                    correo: data.email,
+                    rut: data.rut,
+                    tipo: data.type,
+                    estado: data.estado,
+                    imgB64: data.imgB64
+                })
+            })
+            .catch(err => (console.error(err)));
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
     }, []);
 
 
@@ -68,7 +72,7 @@ const ModificarUsuario = () => {
 
     function encodeImageFileAsURL(event) {
         const imgInp = event.target.files[0]
-        if (imgInp){
+        if (imgInp) {
             setImg(URL.createObjectURL(imgInp))
         }
         const reader = new FileReader();
@@ -77,7 +81,7 @@ const ModificarUsuario = () => {
             console.log('RESULT', reader.result)
         }
         reader.readAsDataURL(imgInp);
-      }
+    }
 
     return (
         <div className="ModificarUsuario py-2">
@@ -94,7 +98,7 @@ const ModificarUsuario = () => {
                     <div className="row m-2 p-2">
                         <div className="fotoModificarUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> <img src={usuario.imgB64} alt="Foto Perfil" /> </div>
                         <div className="col-6">
-                            <div className="divResumen m-2"><input type="file" name="" id="" accept="image/*" onChange={encodeImageFileAsURL}/></div>
+                            <div className="divResumen m-2"><input type="file" name="" id="" accept="image/*" onChange={encodeImageFileAsURL} /></div>
                         </div>
                     </div>
                     <div className="mx-2">
@@ -103,36 +107,36 @@ const ModificarUsuario = () => {
                             <form className="row g-3">
                                 <div className="col-md-6">
                                     <label htmlFor="name" className="form-label">Nombre</label>
-                                    <input type="text" className="form-control" id="name" onChange={(event) => setName(event.target.value)} placeholder={usuario.nombre}/>
+                                    <input type="text" className="form-control" id="name" onChange={(event) => setName(event.target.value)} placeholder={usuario.nombre} />
                                 </div>
                                 <div className="col-md-6">
                                     <label htmlFor="last_name" className="form-label">Apellido</label>
-                                    <input type="text" className="form-control" id="last_name" onChange={(event) => setLastName(event.target.value)} placeholder={usuario.apellido}/>
+                                    <input type="text" className="form-control" id="last_name" onChange={(event) => setLastName(event.target.value)} placeholder={usuario.apellido} />
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="rut" className="form-label">Rut</label>
-                                    <input type="text" className="form-control" id="rut" onChange={(event) => setRut(event.target.value)} placeholder={usuario.rut}/>
+                                    <input type="text" className="form-control" id="rut" onChange={(event) => setRut(event.target.value)} placeholder={usuario.rut} />
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="phone" className="form-label">Teléfono</label>
-                                    <input type="text" className="form-control" id="phone" onChange={(event) => setPhone(event.target.value)} placeholder={usuario.telefono}/>
+                                    <input type="text" className="form-control" id="phone" onChange={(event) => setPhone(event.target.value)} placeholder={usuario.telefono} />
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="email" className="form-label">Correo</label>
-                                    <input type="text" className="form-control" id="email" onChange={(event) => setEmail(event.target.value)} placeholder={usuario.correo}/>
+                                    <input type="text" className="form-control" id="email" onChange={(event) => setEmail(event.target.value)} placeholder={usuario.correo} />
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="estado" className="form-label">Estado de Usuario</label>
                                     <select id="estado" className="form-select" onChange={(event) => setEstado(event.target.value)} placeholder={usuario.estado}>
-                                        <option selected={usuario.tipo==="Activo"?"selected":""}>Activo</option>
-                                        <option selected={usuario.tipo==="Inactivo"?"selected":""}>Inactivo</option>
+                                        <option selected={usuario.tipo === "Activo" ? "selected" : ""}>Activo</option>
+                                        <option selected={usuario.tipo === "Inactivo" ? "selected" : ""}>Inactivo</option>
                                     </select>
                                 </div>
                                 <div className="col-6">
                                     <label htmlFor="admin" className="form-label">Rol de Usuario</label>
                                     <select id="admin" className="form-select" onChange={(event) => setType(event.target.value)} placeholder={usuario.tipo}>
-                                        <option selected={usuario.tipo==="Vendedor"?"selected":""}>Vendedor</option>
-                                        <option selected={usuario.tipo==="Administrador"?"selected":""}>Administrador</option>
+                                        <option selected={usuario.tipo === "Vendedor" ? "selected" : ""}>Vendedor</option>
+                                        <option selected={usuario.tipo === "Administrador" ? "selected" : ""}>Administrador</option>
                                     </select>
                                 </div>
                             </form>

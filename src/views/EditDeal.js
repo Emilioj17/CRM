@@ -34,6 +34,10 @@ function EditDeal(props) {
         if (sessionStorage.getItem("token") === null) {
             history.push('/login')
         }
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
     }, []);
 
     return (

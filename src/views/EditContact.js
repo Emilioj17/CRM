@@ -17,12 +17,12 @@ function EditContact(props) {
 
     function handleSubmit() {
         editContact(props.match.params.id, name, lastName, rut, type, phone, email, idUser)
-        if(type ==="Posible"){
+        if (type === "Posible") {
             history.push("/posibles");
-        }else{
+        } else {
             history.push("/contactos");
         }
-        
+
     }
 
     function onSelectUser(event) {
@@ -35,6 +35,10 @@ function EditContact(props) {
         if (sessionStorage.getItem("token") === null) {
             history.push('/login')
         }
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
     }, []);
 
     return (

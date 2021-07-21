@@ -5,14 +5,17 @@ import { AppContext } from "../store/appContext.js";
 function Posibles() {
     const { store, actions } = useContext(AppContext);
     const { contacts } = store;
-    const { getContacts, deleteContact } = actions;
+    const { deleteContact } = actions;
     let history = useHistory()
 
     useEffect(() => {
         if (sessionStorage.getItem("token") === null) {
             history.push('/login')
         }
-        getContacts();
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
     }, []);
 
     function handleDelete(id) {

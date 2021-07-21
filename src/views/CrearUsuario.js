@@ -20,11 +20,15 @@ const CrearUsuario = () => {
     const [img, setImg] = useState("#");
     const [imgB64, setImgB64] = useState("#");
 
-    // useEffect(() => {
-    //     if(sessionStorage.getItem("token") === null){
-    //         history.push('/login')
-    //     }
-    // }, []);
+    useEffect(() => {
+        //  if(sessionStorage.getItem("token") === null){
+        //      history.push('/login')
+        //  }
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
+    }, []);
     
     function handleSubmit() {
         actions.setUser(name, lastName, rut, type, phone, email, password, imgB64)

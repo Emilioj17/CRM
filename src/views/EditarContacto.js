@@ -7,6 +7,10 @@ const EditarContacto = () => {
   useEffect(() => {
     if (store.token === null) {
       history.push('/login')
+      actions.getContacts();
+      actions.getUsers();
+      actions.getNotes();
+      actions.getDeals();
     }
   }, []);
 

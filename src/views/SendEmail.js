@@ -11,7 +11,7 @@ const SendEmail = () => {
         to: "",
         Cc: "",
         subject: "",
-        body:""
+        body: ""
     });
 
     const HandlerSend = (e) => {
@@ -21,12 +21,16 @@ const SendEmail = () => {
 
     let history = useHistory()
 
-  useEffect(() => {
-      if(sessionStorage.getItem("token") === null){
-          history.push('/login')
-      }
-  },[]);
-    
+    useEffect(() => {
+        if (sessionStorage.getItem("token") === null) {
+            history.push('/login')
+        }
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
+    }, []);
+
 
     return (
         <div className="SendEmail">
@@ -44,23 +48,23 @@ const SendEmail = () => {
                         <div className="row">
                             <div className="col-12 col-md-6">
                                 <h6>Para:</h6>
-                                <input type="text" className="form-control" placeholder="Correo de Destino" onChange={(e) => setEmail({...email, to: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Correo de Destino" onChange={(e) => setEmail({ ...email, to: e.target.value })} />
                             </div>
                             <div className="col-12 col-md-6">
                                 <h6>Cc:</h6>
-                                <input type="text" className="form-control" placeholder="Correo en Copia (Opcional)" onChange={(e) => setEmail({...email, Cc: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Correo en Copia (Opcional)" onChange={(e) => setEmail({ ...email, Cc: e.target.value })} />
                             </div>
                         </div>
                         <div className="row py-2">
                             <div className="col-12">
                                 <h6>Asunto:</h6>
-                                <input type="text" className="form-control" placeholder="Asunto de tu Correo" onChange={(e) => setEmail({...email, subject: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Asunto de tu Correo" onChange={(e) => setEmail({ ...email, subject: e.target.value })} />
                             </div>
                         </div>
                         <div className="row py-2">
                             <div className="col-12">
                                 <h6>Mensaje:</h6>
-                                <textarea className="form-control" placeholder="Escribe tu mensaje Aquí." rows="8" onChange={(e) => setEmail({...email, body: e.target.value})}/>
+                                <textarea className="form-control" placeholder="Escribe tu mensaje Aquí." rows="8" onChange={(e) => setEmail({ ...email, body: e.target.value })} />
                             </div>
                         </div>
                     </div>
