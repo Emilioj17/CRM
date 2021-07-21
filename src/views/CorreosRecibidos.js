@@ -26,8 +26,7 @@ const CorreosRecibidos = () => {
     }, [])
 
     const Correos = listaCorreos2.map((correo, index) => {
-        var para = correo[0].split("@");
-        para=para[0]
+        var para = correo[0]
         var asunto = correo[2].slice(0, 20);
         var resumen = correo[4];
 
@@ -47,7 +46,6 @@ const CorreosRecibidos = () => {
             const para = listaCorreos2[emailSeleccionado][0]
             const hora = listaCorreos2[emailSeleccionado][1].slice(0, listaCorreos2[emailSeleccionado][1].length -5)
             const asunto = listaCorreos2[emailSeleccionado][2]
-            // const cuerpo = <h1>Hello</h1>
             const cuerpo = decode(listaCorreos2[emailSeleccionado][3]) //Hay que decode desde base64 ? deprecado. Código trae tags que entorpece lectura.
             return (
                 <div className="bodyCuerpoCorreosRecibidosSobre fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
