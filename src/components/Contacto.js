@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 import { AppContext } from "../store/appContext";
 import {FaPhone, FaEnvelope} from 'react-icons/fa'
 
 
 const Contacto = () => {
-  let history = useHistory()
+  // let history = useHistory()
 
-  const {store, actions} = useContext(AppContext);
+  const {actions} = useContext(AppContext);
   
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -131,7 +131,7 @@ const handleSubmit = (e) => {
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.6916667979667!2d-70.61851098426537!3d-33.431282103915905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf7c99c8e8af%3A0x9e6c15ae46a25dc7!2sAntonio%20Varas%20416%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1626104879146!5m2!1ses-419!2scl"
                   width="600"
-                  height="450"
+                  height="498"
                   className="card-img-top"
                   title="map_location"
                 ></iframe>

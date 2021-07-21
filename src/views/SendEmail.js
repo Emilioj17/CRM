@@ -11,7 +11,7 @@ const SendEmail = () => {
         to: "",
         Cc: "",
         subject: "",
-        body:""
+        body: ""
     });
 
     let history = useHistory()
@@ -24,22 +24,24 @@ const SendEmail = () => {
 
     
 
-  useEffect(() => {
-      if(sessionStorage.getItem("token") === null){
-          history.push('/login')
-      }
-  },[]);
-    
+    useEffect(() => {
+        if (sessionStorage.getItem("token") === null) {
+            history.push('/login')
+        }
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
+    }, []);
+
 
     return (
         <div className="SendEmail">
             <div className="container">
-                <div className="d-flex justify-content-between align-items-center my-2">
                 <div className="d-flex flex-row-reverse m-2">
                     <Link to="/CorreosRecibidos"><button type="button" className="btn btn-success m-2">Recibidos</button></Link>
                     <Link to="/CorreosEnviados"><button type="button" className="btn btn-success m-2">Enviados</button></Link>
-                    <Link to="#"><button type="button" className="btn btn-success m-2">Redactar</button></Link>
-                </div>
+                    <button type="button" className="btn btn-success m-2 disabled">Redactar</button>
                 </div>
                 <div className="col-12 cuerpoSendEmail">
                     <div className="headCuerpoSendEmail text-center py-2">
@@ -47,25 +49,25 @@ const SendEmail = () => {
                     </div>
                     <div className="bodyCuerpoSendEmail p-2">
                         <div className="row">
-                            <div class="col-12 col-md-6">
+                            <div className="col-12 col-md-6">
                                 <h6>Para:</h6>
-                                <input type="text" class="form-control" placeholder="Correo de Destino" onChange={(e) => setEmail({...email, to: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Correo de Destino" onChange={(e) => setEmail({ ...email, to: e.target.value })} />
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div className="col-12 col-md-6">
                                 <h6>Cc:</h6>
-                                <input type="text" class="form-control" placeholder="Correo en Copia (Opcional)" onChange={(e) => setEmail({...email, Cc: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Correo en Copia (Opcional)" onChange={(e) => setEmail({ ...email, Cc: e.target.value })} />
                             </div>
                         </div>
                         <div className="row py-2">
-                            <div class="col-12">
+                            <div className="col-12">
                                 <h6>Asunto:</h6>
-                                <input type="text" class="form-control" placeholder="Asunto de tu Correo" onChange={(e) => setEmail({...email, subject: e.target.value})}/>
+                                <input type="text" className="form-control" placeholder="Asunto de tu Correo" onChange={(e) => setEmail({ ...email, subject: e.target.value })} />
                             </div>
                         </div>
                         <div className="row py-2">
-                            <div class="col-12">
+                            <div className="col-12">
                                 <h6>Mensaje:</h6>
-                                <textarea class="form-control" placeholder="Escribe tu mensaje Aquí." rows="8" onChange={(e) => setEmail({...email, body: e.target.value})}/>
+                                <textarea className="form-control" placeholder="Escribe tu mensaje Aquí." rows="8" onChange={(e) => setEmail({ ...email, body: e.target.value })} />
                             </div>
                         </div>
                     </div>

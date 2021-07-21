@@ -8,7 +8,7 @@ import Recuperar from "./views/Recuperar";
 import Remind from "./views/Remind";
 import Products from "./components/Products";
 import Category from "./views/Category";
-import SingleProduct from "./views/SingleProduct";
+// import SingleProduct from "./views/SingleProduct";
 import Checkout from "./views/Checkout";
 import Profile from "./views/Profile";
 // import Contacto from "./components/Contacto";
@@ -32,6 +32,7 @@ import NotFound from "./views/NotFound";
 import EditContact from "./views/EditContact";
 import Notes from "./views/Notes";
 import Footer from "./components/Footer";
+import Posibles from "./views/posibles";
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <Route exact path="/BienvenidoVendedor" component={BienvenidoVendedor} />
           <Route exact path="/tratos" component= {Deals} />
           <Route exact path="/contactos" component= {Contacts} />
+          <Route exact path="/posibles" component= {Posibles} />
           <Route exact path="/contactos/:id" component= {Notes} />
           <Route exact path="/crear/contacto" component= {CreateContact} />
           <Route exact path="/crear/trato" component= {CreateDeal} />

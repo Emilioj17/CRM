@@ -10,7 +10,7 @@ function Notes(props) {
 
     const [comment, setComment] = useState(null);
 
-    function handlePutNote(){
+    function handlePutNote() {
         setNote(comment, contact.id, contact.user_id);
         setComment("");
         getContact(props.match.params.id);
@@ -20,46 +20,50 @@ function Notes(props) {
 
     useEffect(() => {
         getContact(props.match.params.id);
-        if(sessionStorage.getItem("token") === null){
+        if (sessionStorage.getItem("token") === null) {
             history.push('/login')
         }
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
     }, []);
 
 
     return (
         <div className="container">
             <div className="row">
-                
 
-              
+
+
                 {
                     contact != null ? (
                         <ul className="list-group list-group-horizontal my-5">
-                            <li className="list-group-item" style={{width: "7%"}}><b>id: </b>{contact.id}</li>
-                            <li className="list-group-item" style={{width: "25%"}}><b>Nombre: </b>{contact.name + " " + contact.last_name}</li>
-                            <li className="list-group-item" style={{width: "15%"}}><b>Rut: </b>{contact.rut}</li>
-                            <li className="list-group-item" style={{width: "23%"}}><b>Mail: </b>{contact.email}</li>
-                            <li className="list-group-item" style={{width: "15%"}}><b>Teléfono: </b>{contact.phone}</li>
-                            <li className="list-group-item" style={{width: "15%"}}><b>Creado: </b>{contact.create_at}</li>
+                            <li className="list-group-item" style={{ width: "7%" }}><b>id: </b>{contact.id}</li>
+                            <li className="list-group-item" style={{ width: "25%" }}><b>Nombre: </b>{contact.name + " " + contact.last_name}</li>
+                            <li className="list-group-item" style={{ width: "15%" }}><b>Rut: </b>{contact.rut}</li>
+                            <li className="list-group-item" style={{ width: "23%" }}><b>Mail: </b>{contact.email}</li>
+                            <li className="list-group-item" style={{ width: "15%" }}><b>Teléfono: </b>{contact.phone}</li>
+                            <li className="list-group-item" style={{ width: "15%" }}><b>Creado: </b>{contact.create_at}</li>
                         </ul>) : ("")
                 }
-                { contact != null ? (
+                {contact != null ? (
                     <><div className="mt-5">
                         <label htmlFor="exampleFormControlTextarea1" className="form-label"><b>Nueva nota</b></label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"onChange={(event) => setComment(event.target.value)} value={comment}></textarea>
-                  </div>
-                  <button className="col-2 btn btn-success mt-3 mb-5 ms-auto" onClick={handlePutNote}>Agregar nota</button>
-                  </>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={(event) => setComment(event.target.value)} value={comment}></textarea>
+                    </div>
+                        <button className="col-2 btn btn-success mt-3 mb-5 ms-auto" onClick={handlePutNote}>Agregar nota</button>
+                    </>
                 ) : ("")}
-                { contact != null ? (
+                {contact != null ? (
                     contact.notes.slice(0).reverse().map((note, i) =>
-                    <ul className="list-group list-group-horizontal my-3" key={i}>
-                            <li className="list-group-item" style={{width: "17%"}}><b>{"Nota " + note.id + "(" + note.create_at + "):  "}</b></li>
-                            <li className="list-group-item" style={{width: "83%", minHeight: "100px"}}>{note.comment}</li>
-                    </ul>
-                )) : ("")}
+                        <ul className="list-group list-group-horizontal my-3" key={i}>
+                            <li className="list-group-item" style={{ width: "17%" }}><b>{"Nota " + note.id + "(" + note.create_at + "):  "}</b></li>
+                            <li className="list-group-item" style={{ width: "83%", minHeight: "100px" }}>{note.comment}</li>
+                        </ul>
+                    )) : ("")}
 
-            
+
             </div>
         </div>
     )

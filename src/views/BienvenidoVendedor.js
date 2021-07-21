@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/BienvenidoVendedor.css"
 import Heroe from "../img/BienvenidoAdmin_img1.png"
@@ -21,15 +21,19 @@ const BienvenidoVendedor = () => {
   let history = useHistory()
 
   useEffect(() => {
-      if(sessionStorage.getItem("token") === null){
-          history.push('/login')
-      }
-  },[]);
+    if (sessionStorage.getItem("token") === null) {
+      history.push('/login')
+    }
+    actions.getContacts();
+    actions.getUsers();
+    actions.getNotes();
+    actions.getDeals();
+  }, []);
 
   return (
     <div className="BienvenidoVendedor">
       <div className="container">
-        <div className="d-flex justify-content-between align-items-center">
+        <div className="d-flex justify-content-between align-items-center mt-5 my-2">
           <div>
             <NombreUsuario />
             <p><Link to="/BienvenidoAdministrador">Vista Administrador</Link></p>

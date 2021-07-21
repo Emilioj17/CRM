@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
 
 const ContactoSuccess = () => {
-  const { store } = useContext(AppContext);
+  const { store, actions } = useContext(AppContext);
   const history = useHistory();
   const handleClick = () => {
     history.push("/");
@@ -12,6 +12,10 @@ const ContactoSuccess = () => {
   useEffect(() => {
     if (store.token === null) {
       history.push('/login')
+      actions.getContacts();
+      actions.getUsers();
+      actions.getNotes();
+      actions.getDeals();
     }
   }, []);
 

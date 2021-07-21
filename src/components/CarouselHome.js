@@ -14,13 +14,13 @@ function CarouselHome() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" className="d-block w-100" alt="..." />
+            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-business-woman.jpg" className="d-block w-100" alt="..." style={{height:"800px"}}/>
           </div>
           <div className="carousel-item">
-            <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" className="d-block w-100" alt="..." />
+            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-realistic.jpg" className="d-block w-100" alt="..."  style={{height:"800px"}}/>
           </div>
           <div className="carousel-item">
-            <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" className="d-block w-100 img_banner" alt="..." />
+            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-dog.jpg" className="d-block w-100 img_banner" alt="..." style={{height:"800px"}}/>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

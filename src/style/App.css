@@ -1,21 +1,90 @@
 body {
-    background: #Fcf1d0;
+    background: #e1daea;
     min-height: 100vh;
-    font-family: 'Open Sans', sans-serif !important;
-    color: #1b4b4d;
+    font-family: 'Roboto Mono', monospace !important;
+    color: #111538;
   /*   display: flex;
     flex-direction: column; */
 }
+
 textarea{
     resize: none;
 }
 
-/* footer {
-    position: relative;
-    top: 50vh;
+footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #111538;
+    color: #f2edf8;
 }
- */
 
+a{
+    color: #3B49C4;
+}
+
+thead {
+    background-color: #111538;
+}
+
+.divResumen {
+    background-color: #111538 !important;
+}
+
+.headCuerpoSendEmail, .headCuerpoCorreosRecibidos, .headCuerpoCorreosEnviados{
+    background-color: #111538 !important;
+}
+
+.navbar {
+    background-color: #111538;
+}
+
+.navbar-collapse{
+    height: 75px;
+}
+
+.nav-link {
+    color: #e1daea !important;
+    font-weight: 500;
+    padding-top: 22px;
+}
+
+.nav-link.active{
+    color: #f2edf8 !important;
+    font-weight: 550;
+    padding-top: 22px;
+}
+
+.bg-primary{
+    background-color: #111538 !important;
+}
+
+.btn-primary{
+    background-color: #111538 !important;
+    border-color: #30366b;
+}
+
+.btn-secondary{
+    background-color: #3B49C4 !important;
+    border-color: #5c69e2;
+}
+
+.btn-danger{
+    background-color: #681b26 !important;
+    border-color: #913b47;
+}
+
+.btn-success{
+    background-color: #134d55 !important;
+    border-color: #2a747e;
+}
+
+
+#root{
+    position: relative;
+    padding-bottom: 250px;
+    min-height: 100vh
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');

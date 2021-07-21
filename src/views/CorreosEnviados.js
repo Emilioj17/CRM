@@ -37,12 +37,12 @@ const CorreosEnviados = () => {
     });
 
     const CorreoAmpliado = () => {
-        if (listaCorreos2[emailSeleccionado] == undefined) {
+        if (listaCorreos2[emailSeleccionado] === undefined) {
             return (
                 <div></div>
             )
             
-        } else if (listaCorreos2[emailSeleccionado] != undefined) {
+        } else if (listaCorreos2[emailSeleccionado] !== undefined) {
             const para = listaCorreos2[emailSeleccionado][0]
             const hora = listaCorreos2[emailSeleccionado][1].slice(0, listaCorreos2[emailSeleccionado][1].length -5)
             const asunto = listaCorreos2[emailSeleccionado][2]
@@ -87,7 +87,7 @@ const CorreosEnviados = () => {
             <div className="container">
                 <div className="d-flex flex-row-reverse m-2">
                     <Link to="/CorreosRecibidos"><button type="button" className="btn btn-success m-2">Recibidos</button></Link>
-                    <Link to="#"><button type="button" className="btn btn-success m-2">Enviados</button></Link>
+                    <button type="button" className="btn btn-success m-2 disabled">Enviados</button>
                     <Link to="/SendEmail"><button type="button" className="btn btn-success m-2">Redactar</button></Link>
                 </div>
                 <div className="col-12 cuerpoCorreosEnviados">

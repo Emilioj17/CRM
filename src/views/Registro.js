@@ -32,7 +32,7 @@ function Registro() {
     return (
         <div className="container">
             <div className="row my-5">
-                    <form className="my-5" onSubmit={(e) => handleSubmit(e)}>
+                    <form className="my-5 login" onSubmit={(e) => handleSubmit(e)}>
                     <h1 className="text-center">Registro</h1>
                     <div className="mb-3">
                         <label for="name" className="form-label">Nombre</label>
