@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../style/CorreosRecibidos.css"
 import { Link, useHistory } from "react-router-dom";
-import { BsFillStarFill, BsFillXCircleFill } from 'react-icons/bs'
+import { BsFillStarFill, BsXSquare } from 'react-icons/bs'
 import { AppContext } from "../store/appContext";
 import { decode } from 'js-base64';
 
@@ -48,21 +48,23 @@ const CorreosRecibidos = () => {
             const asunto = listaCorreos2[emailSeleccionado][2]
             const cuerpo = decode(listaCorreos2[emailSeleccionado][3]) //Hay que decode desde base64 ? deprecado. Código trae tags que entorpece lectura.
             return (
-                <div className="bodyCuerpoCorreosRecibidosSobre fixed-bottom" style={boxEmail ? { display: "" } : { display: "none" }}>
-                    <div className="p-5 pt-0">
-                        <div className="d-flex flex-row-reverse bd-highlight" onClick={()=>setBoxEmail(false)}><span className="text-danger xdeCorreo"><BsFillXCircleFill/></span></div>
-                        <div className="d-flex justify-content-between align-items-center my-2">
-                            <div>
-                                <h5>Correo Saliente</h5>
+                <div className="bodyCuerpoCorreosRecibidosSobre fixed-bottom p-0" style={boxEmail ? { display: "" } : { display: "none" }}>
+                    <div className="p-1 pt-0">
+                        <div className="d-flex justify-content-between align-items-start correoPrimero">
+                            <div className="p-2">
                                 <p>De: Me</p>
                                 <p>Para: {para}</p>
                             </div>
-                            <div className="align-self-start" > {hora} </div>
+                            <div className="text-danger xdeCorreo" onClick={()=>setBoxEmail(false)}><BsXSquare/></div>
                         </div>
-                        <div>Asunto: {asunto}</div>
-                        <div>Cuerpo del Correo:</div>
-                        <div>{cuerpo}</div>
-                        <div className="d-flex flex-row-reverse bd-highlight"><button className="btn btn-success m-2 disabled">Respoder</button><button className="btn btn-success m-2 disabled">Reenviar</button></div>
+                        <div className="d-flex justify-content-between align-items-center p-2 correoSegundo">
+                            <div>
+                                <div>Asunto: {asunto}</div>
+                            </div>
+                            <div> {hora} </div>
+                        </div>
+                        <iframe className="iframeCorreo correoTercero" srcdoc={`${cuerpo}`} frameborder="0"></iframe>
+                        <div className="d-flex flex-row-reverse bd-highlight correoCuarto"><button className="btn btn-success m-2 disabled">Respoder</button><button className="btn btn-success m-2 disabled">Reenviar</button></div>
                     </div>
                 </div>
             )
