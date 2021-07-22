@@ -52,8 +52,8 @@ const CorreosRecibidos = () => {
                     <div className="p-1 pt-0">
                         <div className="d-flex justify-content-between align-items-start correoPrimero">
                             <div className="p-2">
-                                <p>De: Me</p>
-                                <p>Para: {para}</p>
+                                <p>Para: Me</p>
+                                <p>De: {para}</p>
                             </div>
                             <div className="text-danger xdeCorreo" onClick={()=>setBoxEmail(false)}><BsXSquare/></div>
                         </div>
