@@ -54,8 +54,36 @@ thead {
     padding-top: 22px;
 }
 
+.fc {
+    margin-top: 8px;
+}
+
+.fc-header-toolbar {
+    color: white;
+    background-color: #111538;
+    padding: 10px;
+    margin-bottom: 0 !important;
+}
+
+.fc-button{
+    background-color: #f2edf8 !important;
+    color: #111538 !important;
+}
+
+.fc-col-header-cell{
+    background-color: #3B49C4 !important;
+}
+
+.fc-col-header-cell a{
+    color: white;
+}
+
 .bg-primary{
     background-color: #111538 !important;
+}
+
+.btn {
+    border-radius: 0.15rem;
 }
 
 .btn-primary{

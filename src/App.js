@@ -34,6 +34,7 @@ import Notes from "./views/Notes";
 import Footer from "./components/Footer";
 import Posibles from "./views/posibles";
 import ContactDeals from "./views/ContactDeals";
+import Calendar from "./views/Calendar";
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
           <Route exact path="/contactos" component= {Contacts} />
           <Route exact path="/posibles" component= {Posibles} />
           <Route exact path="/contactos/:id/notas" component= {Notes} />
+          <Route exact path="/calendario" component= {Calendar} />
           <Route exact path="/contactos/:id/tratos" component= {ContactDeals} />
           <Route exact path="/crear/contacto" component= {CreateContact} />
           <Route exact path="/crear/trato" component= {CreateDeal} />

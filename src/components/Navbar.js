@@ -155,6 +155,9 @@ function Navbar() {
 							<li className="nav-item">
 								<Link to="/sendEmail" className="nav-link"> Correos </Link>
 							</li>
+							<li className="nav-item">
+								<Link to="/calendario" className="nav-link"> Calendario </Link>
+							</li>
 
 						</ul>
 						<ul className="navbar-nav mb-2 ms-auto">

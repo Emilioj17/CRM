@@ -12,7 +12,10 @@ function Contact() {
         if(sessionStorage.getItem("token") === null){
             history.push('/login')
         }
-        getContacts();
+        actions.getContacts();
+        actions.getUsers();
+        actions.getNotes();
+        actions.getDeals();
     },[]);
 
     function handleDelete(id){
