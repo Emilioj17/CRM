@@ -28,6 +28,7 @@ function ContactDeals(props) {
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
         return () => actions.clearInfo();
     }, []);
@@ -38,8 +39,13 @@ function ContactDeals(props) {
             <>
                 <div className="container">
                     <div className="row">
-                        <div className="d-flex justify-content-between align-items-center mt-5 my-2">
-                        <h2>Tratos {contact.name + " " + contact.last_name}</h2>
+                    <div className="mt-5 my-2 d-flex ms-auto">
+                            <h2>Tratos</h2>
+                            <div className="ms-auto">
+                                <Link className="btn btn-primary m-1 " to={"/contactos/"+contact.id+"/notas"}>Notas</Link>
+                                <Link className="btn btn-primary m-1 " to={"/contactos/"+contact.id+"/tratos"}>Eventos</Link>
+                                <Link className="btn btn-primary m-1 disabled" to={"/contactos/"+contact.id+"/tratos"}>Tratos</Link>
+                            </div>
                         </div>
 
                         <ul className="list-group list-group-horizontal my-2">

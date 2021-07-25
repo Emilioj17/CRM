@@ -31,6 +31,7 @@ const SendEmail = () => {
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
     }, []);
 
@@ -39,9 +40,9 @@ const SendEmail = () => {
         <div className="SendEmail">
             <div className="container">
                 <div className="d-flex flex-row-reverse m-2">
-                    <Link to="/CorreosRecibidos"><button type="button" className="btn btn-success m-2">Recibidos</button></Link>
-                    <Link to="/CorreosEnviados"><button type="button" className="btn btn-success m-2">Enviados</button></Link>
-                    <button type="button" className="btn btn-success m-2 disabled">Redactar</button>
+                    <Link to="/CorreosRecibidos"><button type="button" className="btn btn-primary m-2">Recibidos</button></Link>
+                    <Link to="/CorreosEnviados"><button type="button" className="btn btn-primary m-2">Enviados</button></Link>
+                    <button type="button" className="btn btn-primary m-2 disabled">Redactar</button>
                 </div>
                 <div className="col-12 cuerpoSendEmail">
                     <div className="headCuerpoSendEmail text-center py-2">

@@ -4,10 +4,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             contacts: null,
             users: null,
             notes: null,
+            events: null,
             deals: null,
             contact: null,
             user: null,
             note: null,
+            event: null,
             deal: null,
             response: null,
             error: null,
@@ -75,6 +77,26 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => {
                         setStore({
                             error: "notes " + error.message
+                        })
+                    });
+            },
+            getEvents: async () => {
+                const store = getStore();
+                fetch('http://localhost:5000/api/events', {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
+                    }
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setStore({
+                            events: data
+                        })
+                    })
+                    .catch((error) => {
+                        setStore({
+                            error: "events " + error.message
                         })
                     });
             },
@@ -155,6 +177,25 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch((error) => {
                         setStore({
                             error: "note " + error.message
+                        })
+                    });
+            }, getEvent: async (id) => {
+                const store = getStore();
+                fetch("http://localhost:5000/api/events/" + id, {
+                    method: "GET",
+                    header: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
+                    }
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setStore({
+                            event: data
+                        })
+                    })
+                    .catch((error) => {
+                        setStore({
+                            error: "event " + error.message
                         })
                     });
             },
@@ -261,6 +302,32 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
+            setEvent: async (comment, date, contactId, userId) => {
+                const store = getStore();
+                fetch("http://localhost:5000/api/events", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
+                    },
+                    body: JSON.stringify({
+                        "comment": comment,
+                        "date": date,
+                        "user_id": userId,
+                        "contact_id": contactId
+                    })
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setStore({
+                            response: data
+                        })
+                    })
+                    .catch((error) => {
+                        setStore({
+                            error: error.message
+                        })
+                    });
+            },
             setDeal: async (plan, duration, description, contactId, userId) => {
                 const store = getStore();
                 fetch("http://localhost:5000/api/deals", {
@@ -348,7 +415,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             editNote: async (id, comment, contactId, userId) => {
                 const store = getStore();
-                fetch("http://localhost:5000/api/notes" + id, {
+                fetch("http://localhost:5000/api/notes/" + id, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -356,6 +423,32 @@ const getState = ({ getStore, getActions, setStore }) => {
                     },
                     body: JSON.stringify({
                         "comment": comment,
+                        "user_id": contactId,
+                        "contact_id": userId
+                    })
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setStore({
+                            response: data
+                        })
+                    })
+                    .catch((error) => {
+                        setStore({
+                            error: error.message
+                        })
+                    });
+            },
+            editEvent: async (id, date, comment, contactId, userId) => {
+                const store = getStore();
+                fetch("http://localhost:5000/api/events/" + id, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
+                    },
+                    body: JSON.stringify({
+                        "comment": comment,
+                        "date": date,
                         "user_id": contactId,
                         "contact_id": userId
                     })
@@ -441,6 +534,26 @@ const getState = ({ getStore, getActions, setStore }) => {
             deleteNote: async (id) => {
                 const store = getStore();
                 fetch("http://localhost:5000/api/notes/" + id, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + store.token
+                    }
+                }).then((response) => response.json())
+                    .then((data) => {
+                        setStore({
+                            response: data
+                        })
+                    })
+                    .catch((error) => {
+                        setStore({
+                            error: error.message
+                        })
+                    });
+            },
+            deleteEvent: async (id) => {
+                const store = getStore();
+                fetch("http://localhost:5000/api/events/" + id, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",

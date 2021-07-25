@@ -39,6 +39,7 @@ function EditContact(props) {
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
         return () => actions.clearInfo();
     }, []);

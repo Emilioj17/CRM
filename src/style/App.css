@@ -47,7 +47,6 @@ thead {
     font-weight: 500;
     padding-top: 22px;
 }
-
 .nav-link.active{
     color: #f2edf8 !important;
     font-weight: 550;
@@ -104,6 +103,12 @@ thead {
 .btn-success{
     background-color: #134d55 !important;
     border-color: #2a747e;
+}
+
+.test{
+    height: 20px;
+    width: 20px;
+    background: #000;
 }
 
 

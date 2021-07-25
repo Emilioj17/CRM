@@ -16,6 +16,7 @@ function Deals() {
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
     }, [store.token]);
 

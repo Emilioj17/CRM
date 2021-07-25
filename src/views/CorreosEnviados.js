@@ -90,9 +90,9 @@ const CorreosEnviados = () => {
         <div className="CorreosEnviados">
             <div className="container">
                 <div className="d-flex flex-row-reverse m-2">
-                    <Link to="/CorreosRecibidos"><button type="button" className="btn btn-success m-2">Recibidos</button></Link>
-                    <button type="button" className="btn btn-success m-2 disabled">Enviados</button>
-                    <Link to="/SendEmail"><button type="button" className="btn btn-success m-2">Redactar</button></Link>
+                    <Link to="/CorreosRecibidos"><button type="button" className="btn btn-primary m-2">Recibidos</button></Link>
+                    <button type="button" className="btn btn-primary m-2 disabled">Enviados</button>
+                    <Link to="/SendEmail"><button type="button" className="btn btn-primary m-2">Redactar</button></Link>
                 </div>
                 <div className="col-12 cuerpoCorreosEnviados">
                     <CorreoAmpliado />

@@ -10,6 +10,7 @@ const EditarContacto = () => {
       actions.getContacts();
       actions.getUsers();
       actions.getNotes();
+      actions.getEvents();
       actions.getDeals();
     }
   }, []);
