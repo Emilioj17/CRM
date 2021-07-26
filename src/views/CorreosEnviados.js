@@ -108,7 +108,7 @@ const CorreosEnviados = () => {
                         {Correos}
                     </div>
                     <div className="botonesCorreosEnviados d-flex flex-row-reverse m-2">
-                        <button type="button" className="btn btn-success m-2 disabled">Cargar Más (no disponible)</button>
+                        <button type="button" className="btn btn-primary m-2 disabled">Cargar Más (no disponible)</button>
                     </div>
                 </div>
                 </div>
