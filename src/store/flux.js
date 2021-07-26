@@ -384,7 +384,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
-            editUser: async (id, name, lastName, rut, type, estado, phone, email) => {
+            editUser: async (id, name, lastName, rut, type, estado, phone, email, imgB64) => {
                 const store = getStore();
                 fetch("http://localhost:5000/api/users/" + id, {
                     method: "PUT",
@@ -399,7 +399,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         "type": type,
                         "estado": estado,
                         "phone": phone,
-                        "email": email
+                        "email": email,
+                        "imgB64": imgB64
                     })
                 }).then((response) => response.json())
                     .then((data) => {

@@ -47,7 +47,8 @@ const ModificarUsuario = () => {
                     tipo: data.type,
                     estado: data.estado,
                     imgB64: data.imgB64
-                })
+                });
+                setImg(data.imgB64)
             })
             .catch(err => (console.error(err)));
         actions.getContacts();
@@ -57,6 +58,9 @@ const ModificarUsuario = () => {
         actions.getDeals();
     }, []);
 
+    useEffect(() => {
+        setImg(imgB64)
+    }, [imgB64])
 
     function handleSubmit() {
         console.log(usuario.nombre);
@@ -66,15 +70,15 @@ const ModificarUsuario = () => {
     }
 
     const HandlerBorrarUsuario = () => {
-        // console.log(usuariosActivos);
         actions.deleteUser(store.userId);
         history.push("/PanelAdministrador");
     }
 
     function encodeImageFileAsURL(event) {
+        console.log(event.target.files[0]);
         const imgInp = event.target.files[0]
         if (imgInp) {
-            setImg(URL.createObjectURL(imgInp))
+            setImgB64(URL.createObjectURL(imgInp))
         }
         const reader = new FileReader();
         reader.onloadend = function () {
@@ -97,7 +101,7 @@ const ModificarUsuario = () => {
                 </div>
                 <div className="bodyModificarUsuario pb-2">
                     <div className="row m-2 p-2">
-                        <div className="fotoModificarUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> <img src={usuario.imgB64} alt="Foto Perfil" /> </div>
+                        <div className="fotoModificarUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> <img src={img} alt="Foto Perfil" /> </div>
                         <div className="col-6">
                             <div className="divResumen m-2"><input type="file" name="" id="" accept="image/*" onChange={encodeImageFileAsURL} /></div>
                         </div>
