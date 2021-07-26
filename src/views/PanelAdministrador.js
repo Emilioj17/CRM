@@ -24,7 +24,7 @@ const PanelAdministrador = () => {
                         setUsuarios(data)
                     })
                     .catch(err => (console.error(err)));
-    }, []);
+    }, [usuarios]);
     
     useEffect(() => {
         for (let x = 0; usuarios.length > x; x++){

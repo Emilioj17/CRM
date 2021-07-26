@@ -133,8 +133,8 @@ const ModificarUsuario = () => {
                                 <div className="col-6">
                                     <label htmlFor="estado" className="form-label">Estado de Usuario</label>
                                     <select id="estado" className="form-select" onChange={(event) => setEstado(event.target.value)} placeholder={usuario.estado}>
-                                        <option selected={usuario.tipo === "Activo" ? "selected" : ""}>Activo</option>
-                                        <option selected={usuario.tipo === "Inactivo" ? "selected" : ""}>Inactivo</option>
+                                        <option selected={usuario.tipo == "Activo" ? "selected" : ""}>Activo</option>
+                                        <option selected={usuario.tipo == "Inactivo" ? "selected" : ""}>Inactivo</option>
                                     </select>
                                 </div>
                                 <div className="col-6">
