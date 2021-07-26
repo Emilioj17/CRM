@@ -64,7 +64,7 @@ const CorreosRecibidos = () => {
                             <div> {hora} </div>
                         </div>
                         <iframe className="iframeCorreo correoTercero" srcdoc={`${cuerpo}`} frameborder="0"></iframe>
-                        <div className="d-flex flex-row-reverse bd-highlight correoCuarto"><button className="btn btn-success m-2 disabled">Respoder</button><button className="btn btn-success m-2 disabled">Reenviar</button></div>
+                        <div className="d-flex flex-row-reverse bd-highlight correoCuarto"><button className="btn btn-primary m-2 disabled">Respoder</button><button className="btn btn-primary m-2 disabled">Reenviar</button></div>
                     </div>
                 </div>
             )

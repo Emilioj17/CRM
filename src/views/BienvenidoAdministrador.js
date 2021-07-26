@@ -40,7 +40,7 @@ const BienvenidoAdministrador = () => {
             <p><Link to="/BienvenidoVendedor">Vista Vendedor</Link></p>
           </div>
           <div>
-            <Link to="/PanelAdministrador"><button type="button" className="btn btn-success">Configuracion</button></Link>
+            <Link to="/PanelAdministrador"><button type="button" className="btn btn-primary">Configuracion</button></Link>
           </div>
         </div>
         <div className="col-12 Heroe1">

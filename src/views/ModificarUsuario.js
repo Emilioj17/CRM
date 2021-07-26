@@ -94,7 +94,7 @@ const ModificarUsuario = () => {
                 <div className="d-flex justify-content-between align-items-center m-2 pb-2">
                     <h2>Modificar Usuario</h2>
                     <div>
-                        <button type="button" className="btn btn-success m-2" onClick={handleSubmit}>Guardar</button>
+                        <button type="button" className="btn btn-primary m-2" onClick={handleSubmit}>Guardar</button>
                         <button type="button" className="btn btn-danger mx-3" onClick={HandlerBorrarUsuario}>Borrar</button>
                         <Link to="/PanelAdministrador"><button type="button" className="btn btn-warning m-2">Cancelar</button></Link>
                     </div>

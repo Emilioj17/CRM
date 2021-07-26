@@ -66,7 +66,7 @@ function ContactDeals(props) {
                             </ul>
                         )}
                         <div className="d-flex flex-row-reverse bd-highlight">
-                            <Link className="col-2 btn btn-success my-5 mx-2" to="/crear/trato">Agregar Trato</Link>
+                            <Link className="col-2 btn btn-primary my-5 mx-2" to="/crear/trato">Agregar Trato</Link>
                             {store.contact.type === "contacto" ?
                                 <Link className="col-2 btn btn-danger my-5 mx-2" to="/contactos">Volver</Link> :
                                 <Link className="col-2 btn btn-danger my-5 mx-2" to="/posibles">Volver</Link>

@@ -92,7 +92,7 @@ function EditContact(props) {
                             </select>
                         </div>
                         <div className="d-flex flex-row-reverse bd-highlight">
-                            <button className="col-2 btn btn-success my-5 mx-2" onClick={handleSubmit}>Editar contacto</button>
+                            <button className="col-2 btn btn-primary my-5 mx-2" onClick={handleSubmit}>Editar contacto</button>
                             {store.contact.type === "contacto" ?
                                 <Link className="col-2 btn btn-danger my-5 mx-2" to="/contactos">Volver</Link> :
                                 <Link className="col-2 btn btn-danger my-5 mx-2" to="/posibles">Volver</Link>

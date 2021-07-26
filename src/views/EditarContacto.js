@@ -202,7 +202,7 @@ const EditarContacto = () => {
                       {/* Button Row */}
                       <div className="row py-3">
                         <div className="col d-flex justify-content-end">
-                          <button className="btn btn-success mx-2">Guardar</button>
+                          <button className="btn btn-primary mx-2">Guardar</button>
                           <button className="btn btn-danger">Cancelar</button>
                         </div>
                       </div>

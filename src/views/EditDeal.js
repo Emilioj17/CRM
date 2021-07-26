@@ -98,7 +98,7 @@ function EditDeal(props) {
                     </div>
 
                     <div className="col-12 d-flex">
-                        <button className="col-2 btn btn-success my-5 ms-auto" onClick={handleSubmit}>Editar trato</button>
+                        <button className="col-2 btn btn-primary my-5 ms-auto" onClick={handleSubmit}>Editar trato</button>
                     </div>
                 </div>
             </div>

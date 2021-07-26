@@ -118,7 +118,7 @@ thead {
     min-height: 100vh
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
     table {
       display: block;
       overflow-x: auto;
