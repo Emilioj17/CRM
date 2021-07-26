@@ -39,7 +39,7 @@ const SendEmail = () => {
     return (
         <div className="SendEmail">
             <div className="container">
-                <div className="d-flex flex-row-reverse m-2">
+                <div className="d-flex flex-row-reverse m-2 p-2">
                     <Link to="/CorreosRecibidos"><button type="button" className="btn btn-primary m-2">Recibidos</button></Link>
                     <Link to="/CorreosEnviados"><button type="button" className="btn btn-primary m-2">Enviados</button></Link>
                     <button type="button" className="btn btn-primary m-2 disabled">Redactar</button>

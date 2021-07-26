@@ -14,13 +14,13 @@ function CarouselHome() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-business-woman.jpg" className="d-block w-100" alt="..." style={{height:"800px"}}/>
+            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-business-woman.jpg" className="d-block w-100" alt="..." style={{maxHeight:"800px", height:"80%"}}/>
           </div>
           <div className="carousel-item">
-            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-realistic.jpg" className="d-block w-100" alt="..."  style={{height:"800px"}}/>
+            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-realistic.jpg" className="d-block w-100" alt="..."  style={{maxHeight:"800px", height:"80%"}}/>
           </div>
           <div className="carousel-item">
-            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-dog.jpg" className="d-block w-100 img_banner" alt="..." style={{height:"800px"}}/>
+            <img src="https://storage.googleapis.com/website-production/uploads/2017/10/stock-photo-guide-dog.jpg" className="d-block w-100 img_banner" alt="..." style={{maxHeight:"800px", height:"80%"}}/>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

@@ -38,9 +38,9 @@ thead {
     background-color: #111538;
 }
 
-.navbar-collapse{
+/* .navbar-collapse{
     height: 75px;
-}
+} */
 
 .nav-link {
     color: #e1daea !important;
@@ -116,6 +116,13 @@ thead {
     position: relative;
     padding-bottom: 250px;
     min-height: 100vh
+}
+
+@media screen and (max-width: 420px) {
+    table {
+      display: block;
+      overflow-x: auto;
+    }
 }
 
 

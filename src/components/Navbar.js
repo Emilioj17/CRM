@@ -21,18 +21,17 @@ function Navbar() {
 		return (
 			<nav className="navbar sticky-top navbar-expand-lg navbar-dark">
 				<div className="container">
-					<Link className="navbar-brand ms-3 mx-5"  to="/">
+					<Link className="navbar-brand ms-3 mx-5" to="/">
 						<img src={`/img/crm-facil-logo.svg`} alt="" width="170"></img>
 					</Link>
-					<button
-						className="navbar-toggler"
+					<button class="navbar-toggler"
 						type="button"
 						data-bs-toggle="collapse"
 						data-bs-target="#navbarSupportedContent"
 						aria-controls="navbarSupportedContent"
 						aria-expanded="false"
 						aria-label="Toggle navigation">
-						<span className="navbar-toggler-icon" />
+						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div className="collapse navbar-collapse" id="navbarSupportedContent" >
 						<ul className="navbar-nav mb-2">

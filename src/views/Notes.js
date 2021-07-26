@@ -46,19 +46,19 @@ function Notes(props) {
         contact != null ?
             <>
                 <div className="container">
-                    <div className="row">
-                        <div className="mt-5 my-2">
+                    <div className="row p-2">
+                        <div className="mt-5 p-0 my-2">
                             <h2>Registro</h2>
                         </div>
 
 
-                        <ul className="list-group list-group-horizontal my-2">
-                            <li className="list-group-item" style={{ width: "7%" }}><b>id: </b>{contact.id}</li>
-                            <li className="list-group-item" style={{ width: "25%" }}><b>Nombre: </b>{contact.name + " " + contact.last_name}</li>
-                            <li className="list-group-item" style={{ width: "15%" }}><b>Rut: </b>{contact.rut}</li>
-                            <li className="list-group-item" style={{ width: "23%" }}><b>Mail: </b>{contact.email}</li>
-                            <li className="list-group-item" style={{ width: "15%" }}><b>Teléfono: </b>{contact.phone}</li>
-                            <li className="list-group-item" style={{ width: "15%" }}><b>Creado: </b>{contact.create_at}</li>
+                        <ul className="list-group list-group-horizontal-lg my-2">
+                            <li className="list-group-item flex-fill" ><b>id: </b>{contact.id}</li>
+                            <li className="list-group-item flex-fill" ><b>Nombre: </b>{contact.name + " " + contact.last_name}</li>
+                            <li className="list-group-item flex-fill" ><b>Rut: </b>{contact.rut}</li>
+                            <li className="list-group-item flex-fill" ><b>Mail: </b>{contact.email}</li>
+                            <li className="list-group-item flex-fill" ><b>Teléfono: </b>{contact.phone}</li>
+                            <li className="list-group-item flex-fill" ><b>Creado: </b>{contact.create_at}</li>
                         </ul>
 
 
@@ -66,11 +66,11 @@ function Notes(props) {
                             <h4>Tratos</h4>
                         </div>
                         {contact.deals.slice(0).reverse().map((deal, i) =>
-                            <ul className="list-group list-group-horizontal my-1" style={{ minHeight: "85px" }} key={i}>
-                                <li className="list-group-item" style={{ width: "18%" }}><b>{"Trato " + deal.id + "(" + deal.create_at + ") "}</b></li>
-                                <li className="list-group-item" style={{ width: "16%" }}><b>"Plan:"</b>  {deal.plan}</li>
-                                <li className="list-group-item" style={{ width: "18%" }}><b>"Duración:"</b>  {deal.duration}</li>
-                                <li className="list-group-item" style={{ width: "48%" }}><b>"Descripción:"</b>  {deal.description}</li>
+                            <ul className="list-group list-group-horizontal-lg my-1"  key={i} style={{width:"100%"}}>
+                                <li className="list-group-item flex-fill" ><b>{"Trato " + deal.id + "(" + deal.create_at + ") "}</b></li>
+                                <li className="list-group-item flex-fill" ><b>"Plan:"</b>  {deal.plan}</li>
+                                <li className="list-group-item flex-fill" ><b>"Duración:"</b>  {deal.duration}</li>
+                                <li className="list-group-item flex-fill" style={{ minHeight: "85px" }}><b>"Descripción:"</b>  {deal.description}</li>
                             </ul>
                         )}
 
@@ -82,45 +82,45 @@ function Notes(props) {
                             <input type="date" className="form-control" id="date-event" placeholder={new Date()} style={{width:"33.3%"}} onChange={(event) => setDate(event.target.value)} value={date}/>
                         </div>
 
-                        <div className="mt-1 p-0">
+                        <div className="mt-1" style={{paddingLeft:"0px"}}>
                              <label htmlFor="description-event" className="form-label"><b>Descripción</b></label>
-                            <textarea className="form-control" id="description-event" style={{ width: "100%" }} rows="3" onChange={(event) => setEventComment(event.target.value)} value={eventComment}></textarea>
+                            <textarea className="form-control" id="description-event"  rows="3" onChange={(event) => setEventComment(event.target.value)} value={eventComment}></textarea>
                         </div>
 
                         <div className="d-flex flex-row-reverse bd-highlight">
                             {eventComment.length > 0 && date !== ""?
-                                <button className="col-2 btn btn-success my-2 mx-2" onClick={handlePutEvent}>Agregar evento</button> :
-                                <button className="col-2 btn btn-success my-2 mx-2 disabled" onClick={handlePutEvent}>Agregar evento</button>
+                                <button className="col-4 col-lg-2 btn btn btn-primary my-2 mb-5 mx-2" onClick={handlePutEvent}>Agregar evento</button> :
+                                <button className="col-4 col-lg-2 btn btn btn-primary my-2 mb-5 mx-2 disabled" onClick={handlePutEvent}>Agregar evento</button>
                             }
                         </div>
                         {contact.events !== null ?
                             contact.events.slice(0).reverse().map((event, i) =>
-                                <ul className="list-group list-group-horizontal my-3" key={i}>
-                                    <li className="list-group-item" style={{ width: "20%" }}><b>{"Evento " + event.id + "(" + event.date + "):  "}</b></li>
-                                    <li className="list-group-item" style={{ width: "80%", minHeight: "100px" }}>{event.comment}</li>
+                                <ul className="list-group list-group my-3" key={i}>
+                                    <li className="list-group-item flex-fill" ><b>{"Evento " + event.id + "(" + event.date + "):  "}</b></li>
+                                    <li className="list-group-item flex-fill" style={{ minHeight: "100px" }}>{event.comment}</li>
                                 </ul>
                             )
                             : ""
                         }
 
 
-                        <div className="mt-5 my-2 p-0">
+                        <div className="mt-5 p-0 my-2">
                             <h4>Notas</h4>
                         </div>
-                        <div className="mt-1 p-0">
+                        <div className="mt-1" style={{paddingLeft:"0px"}}>
                             <label htmlFor="exampleFormControlTextarea1" className="form-label"><b>Nueva nota</b></label>
                             <textarea className="form-control" id="exampleFormControlTextarea1" style={{ width: "100%" }} rows="3" onChange={(event) => setComment(event.target.value)} value={comment}></textarea>
                         </div>
                         <div className="d-flex flex-row-reverse bd-highlight">
                             {comment.length > 0?
-                                <button className="col-2 btn btn-success my-2 mb-3 mx-2" onClick={handlePutNote}>Agregar Nota</button> :
-                                <button className="col-2 btn btn-success my-2 mb-3 mx-2 disabled" onClick={handlePutNote}>Agregar Nota</button>
+                                <button className="col-4 col-lg-2 btn btn-primary my-2 mb-5 mx-2" onClick={handlePutNote}>Agregar Nota</button> :
+                                <button className="col-4 col-lg-2 btn btn-primary my-2 mb-5 mx-2 disabled" onClick={handlePutNote}>Agregar Nota</button>
                             }
                         </div>
                         {contact.notes.slice(0).reverse().map((note, i) =>
-                            <ul className="list-group list-group-horizontal my-3" key={i}>
-                                <li className="list-group-item" style={{ width: "17%" }}><b>{"Nota " + note.id + "(" + note.create_at + "):  "}</b></li>
-                                <li className="list-group-item" style={{ width: "83%", minHeight: "100px" }}>{note.comment}</li>
+                            <ul className="list-group list-group my-3 " key={i}>
+                                <li className="list-group-item" ><b>{"Nota " + note.id + "(" + note.create_at + "):  "}</b></li>
+                                <li className="list-group-item" style={{minHeight: "100px" }}>{note.comment}</li>
                             </ul>
                         )}
 

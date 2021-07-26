@@ -26,8 +26,8 @@ function Contact() {
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="d-flex justify-content-between align-items-center my-2 mt-5 my-2">
+            <div className="row p-2">
+                <div className="d-flex justify-content-between align-items-center my-2 mt-5 my-2 p-0">
                     <h2>Contactos</h2>
                 </div>
 
@@ -69,8 +69,8 @@ function Contact() {
                 </table>
 
                 <div className="d-flex flex-row-reverse bd-highlight">
-                    <Link className="col-2 btn btn-success my-5 mx-2" to="crear/contacto">Agregar contacto</Link>
-                    <Link className="col-2 btn btn-danger my-5 mx-2" to="/BienvenidoVendedor">Atras</Link>
+                    <Link className="col-4 col-lg-2 btn btn btn-primary my-5 mx-2" to="crear/contacto">Agregar contacto</Link>
+                    <Link className="col-4 col-lg-2 btn btn btn-danger my-5 mx-2" to="/BienvenidoVendedor">Atras</Link>
                 </div>
             </div>
         </div>
