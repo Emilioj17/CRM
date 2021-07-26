@@ -27,8 +27,8 @@ function Deals() {
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="d-flex justify-content-between align-items-center mt-5 my-2">
+            <div className="row p-2">
+                <div className="d-flex justify-content-between align-items-center mt-5 my-2 p-0">
                     <h2 >Tratos</h2>
                 </div>
                 <>
@@ -69,8 +69,8 @@ function Deals() {
                     </table>
 
                     <div className="d-flex flex-row-reverse bd-highlight">
-                        <Link type="button" className="col-2 btn btn-success my-5 mx-2" to="/crear/trato">Agregar Trato</Link>
-                        <Link className="col-2 btn btn-danger my-5 mx-2" to="/BienvenidoVendedor">Atras</Link>
+                        <Link type="button" className="col-4 col-lg-2 btn btn-primary my-5 mx-2" to="/crear/trato">Agregar Trato</Link>
+                        <Link className="col-4 col-lg-2 btn btn-danger my-5 mx-2" to="/BienvenidoVendedor">Atras</Link>
                     </div>
                 </>
             </div>

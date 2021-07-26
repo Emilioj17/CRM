@@ -50,8 +50,8 @@ function Calendar() {
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="d-flex justify-content-between align-items-center my-2 mt-5 my-2">
+            <div className="row p-2">
+                <div className="d-flex justify-content-between align-items-center my-2 mt-5 my-2  p-0">
                     <h2>Calendario</h2>
                 </div>
                 <FullCalendar
