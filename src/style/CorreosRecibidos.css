@@ -16,7 +16,8 @@
 
 .xdeCorreo {
 	cursor: pointer;
-	font-size: 32px;
+	margin: 0;
+	padding: 0;
 }
 
 .estrellaCorreos:hover {
@@ -25,40 +26,53 @@
 
 .cuerpoCorreosRecibidos {
 	background-color: rgb(255, 255, 255, 0.8);
-	display: grid;
-	grid-template-columns: 1% 98% 1%;
-	grid-template-rows: 5% auto 7%;
 }
 
 .headCuerpoCorreosRecibidos {
 	background-color: #fb6767;
 	color: white;
 	min-height: 3rem;
-	grid-column: 1/4;
-	grid-row: 1/2;
-}
-
-.bodyCuerpoCorreosRecibidos {
-	grid-column: 1/4;
-	grid-row: 2/3;
 }
 
 .bodyCuerpoCorreosRecibidosSobre {
-	max-width: 50vw;
-	max-height: 50vh;
-	margin-left: 50vw;
+	width: 70vw;
+	height: 90vh;
+	margin-left: 30vw;
 	overflow-y: scroll;
 	z-index: 8;
-	grid-column: 1/4;
-	grid-row: 1/4;
 }
 
 .bodyCuerpoCorreosRecibidosSobre > div {
 	background-color: rgb(179, 168, 168);
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 2fr 1fr 8fr 1fr;
+	grid-template-areas:
+		"correoPrimero"
+		"correoSegundo"
+		"correoTercero"
+		"correoCuarto";
+}
+
+.correoPrimero {
+	grid-area: "correoPrimero";
+}
+
+.correoSegundo {
+	grid-area: "correoSegundo";
+}
+
+.correoCuarto {
+	grid-area: "correoCuarto";
+}
+
+.iframeCorreo {
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	grid-area: "correoTercero";
 }
 
 .botonesCorreosRecibidos {
-	grid-column: 1/4;
-	grid-row: 3/4;
 	min-height: 3.5rem;
 }

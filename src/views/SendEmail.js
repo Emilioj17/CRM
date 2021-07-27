@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/SendEmail.css"
 import { Link, useHistory } from "react-router-dom";
 import { AppContext } from '../store/appContext';
@@ -31,6 +30,7 @@ const SendEmail = () => {
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
     }, []);
 
@@ -38,10 +38,10 @@ const SendEmail = () => {
     return (
         <div className="SendEmail">
             <div className="container">
-                <div className="d-flex flex-row-reverse m-2">
-                    <Link to="/CorreosRecibidos"><button type="button" className="btn btn-success m-2">Recibidos</button></Link>
-                    <Link to="/CorreosEnviados"><button type="button" className="btn btn-success m-2">Enviados</button></Link>
-                    <button type="button" className="btn btn-success m-2 disabled">Redactar</button>
+                <div className="d-flex flex-row-reverse m-2 p-2">
+                    <Link to="/CorreosRecibidos"><button type="button" className="btn btn-primary m-2">Recibidos</button></Link>
+                    <Link to="/CorreosEnviados"><button type="button" className="btn btn-primary m-2">Enviados</button></Link>
+                    <button type="button" className="btn btn-primary m-2 disabled">Redactar</button>
                 </div>
                 <div className="col-12 cuerpoSendEmail">
                     <div className="headCuerpoSendEmail text-center py-2">
@@ -72,8 +72,8 @@ const SendEmail = () => {
                         </div>
                     </div>
                     <div className="botonesSendEmail d-flex flex-row-reverse m-2">
+                        <button type="button" className="btn btn-primary m-2" onClick={HandlerSend}>Enviar</button>
                         <Link to="/CorreosRecibidos"><button type="button" className="btn btn-danger m-2">Cancelar</button></Link>
-                        <button type="button" className="btn btn-success m-2" onClick={HandlerSend}>Enviar</button>
                     </div>
                 </div>
             </div>

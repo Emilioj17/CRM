@@ -8,7 +8,7 @@ function Products() {
 
       <div className="container mb-5 ">
           <h1>Productos</h1>
-        <div className="row d-flex">
+        <div className="mt-5 row d-flex">
           {/* Productos columna izquierda */}
           <div className="col-md-6 border">
            

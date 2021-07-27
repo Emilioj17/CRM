@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AppContext } from '../store/appContext';
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/IngresarUsuario.css";
 
 function Login() {
@@ -12,7 +11,6 @@ function Login() {
 
     useEffect(() => {
         if (store.usuarioActual != null) {
-            // console.log("Hola desde Login useEffect");
             history.push("/BienvenidoVendedor");
         }
     })

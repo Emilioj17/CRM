@@ -38,24 +38,47 @@ thead {
     background-color: #111538;
 }
 
-.navbar-collapse{
-    height: 75px;
-}
-
 .nav-link {
     color: #e1daea !important;
     font-weight: 500;
     padding-top: 22px;
 }
-
 .nav-link.active{
     color: #f2edf8 !important;
     font-weight: 550;
     padding-top: 22px;
 }
 
+.fc {
+    margin-top: 8px;
+}
+
+.fc-header-toolbar {
+    color: white;
+    background-color: #111538;
+    padding: 10px;
+    margin-bottom: 0 !important;
+}
+
+.fc-button{
+    background-color: #f2edf8 !important;
+    color: #111538 !important;
+}
+
+.fc-col-header-cell{
+    background-color: #3B49C4 !important;
+}
+
+.fc-col-header-cell a{
+    color: white;
+}
+
 .bg-primary{
     background-color: #111538 !important;
+}
+
+.btn {
+    border-radius: 0.15rem;
 }
 
 .btn-primary{
@@ -78,11 +101,24 @@ thead {
     border-color: #2a747e;
 }
 
+.test{
+    height: 20px;
+    width: 20px;
+    background: #000;
+}
+
 
 #root{
     position: relative;
     padding-bottom: 250px;
     min-height: 100vh
+}
+
+@media screen and (max-width: 500px) {
+    table {
+      display: block;
+      overflow-x: auto;
+    }
 }
 
 

@@ -1,12 +1,11 @@
 import React from 'react'
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/ModificarUsuario.css";
 import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
 
-const ModificarUsuario = () => {
+function ModificarUsuario() {
     const { store, actions } = useContext(AppContext);
     const [usuario, setUsuario] = useState({
         nombre: "",
@@ -47,15 +46,20 @@ const ModificarUsuario = () => {
                     tipo: data.type,
                     estado: data.estado,
                     imgB64: data.imgB64
-                })
+                });
+                setImg(data.imgB64)
             })
             .catch(err => (console.error(err)));
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
     }, []);
 
+    useEffect(() => {
+        setImg(imgB64)
+    }, [imgB64])
 
     function handleSubmit() {
         console.log(usuario.nombre);
@@ -65,15 +69,15 @@ const ModificarUsuario = () => {
     }
 
     const HandlerBorrarUsuario = () => {
-        // console.log(usuariosActivos);
         actions.deleteUser(store.userId);
         history.push("/PanelAdministrador");
     }
 
     function encodeImageFileAsURL(event) {
+        console.log(event.target.files[0]);
         const imgInp = event.target.files[0]
         if (imgInp) {
-            setImg(URL.createObjectURL(imgInp))
+            setImgB64(URL.createObjectURL(imgInp))
         }
         const reader = new FileReader();
         reader.onloadend = function () {
@@ -89,14 +93,14 @@ const ModificarUsuario = () => {
                 <div className="d-flex justify-content-between align-items-center m-2 pb-2">
                     <h2>Modificar Usuario</h2>
                     <div>
-                        <button type="button" className="btn btn-success m-2" onClick={handleSubmit}>Guardar</button>
+                        <button type="button" className="btn btn-primary m-2" onClick={handleSubmit}>Guardar</button>
                         <button type="button" className="btn btn-danger mx-3" onClick={HandlerBorrarUsuario}>Borrar</button>
                         <Link to="/PanelAdministrador"><button type="button" className="btn btn-warning m-2">Cancelar</button></Link>
                     </div>
                 </div>
                 <div className="bodyModificarUsuario pb-2">
                     <div className="row m-2 p-2">
-                        <div className="fotoModificarUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> <img src={usuario.imgB64} alt="Foto Perfil" /> </div>
+                        <div className="fotoModificarUsuario rounded-circle col-2 col-md-1 d-flex align-items-center justify-content-center"> <img src={img} alt="Foto Perfil" /> </div>
                         <div className="col-6">
                             <div className="divResumen m-2"><input type="file" name="" id="" accept="image/*" onChange={encodeImageFileAsURL} /></div>
                         </div>
@@ -128,8 +132,8 @@ const ModificarUsuario = () => {
                                 <div className="col-6">
                                     <label htmlFor="estado" className="form-label">Estado de Usuario</label>
                                     <select id="estado" className="form-select" onChange={(event) => setEstado(event.target.value)} placeholder={usuario.estado}>
-                                        <option selected={usuario.tipo === "Activo" ? "selected" : ""}>Activo</option>
-                                        <option selected={usuario.tipo === "Inactivo" ? "selected" : ""}>Inactivo</option>
+                                        <option selected={usuario.tipo == "Activo" ? "selected" : ""}>Activo</option>
+                                        <option selected={usuario.tipo == "Inactivo" ? "selected" : ""}>Inactivo</option>
                                     </select>
                                 </div>
                                 <div className="col-6">
@@ -148,4 +152,4 @@ const ModificarUsuario = () => {
     )
 }
 
-export default ModificarUsuario;
+export default ModificarUsuario

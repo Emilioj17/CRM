@@ -1,5 +1,4 @@
 import React, { useState, useContext,useEffect } from 'react';
-import "bootstrap/dist/css/bootstrap.css";
 import { MdSecurity } from 'react-icons/md';
 import { HiMail } from 'react-icons/hi';
 import '../style/Recuperar.css';

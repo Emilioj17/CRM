@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/BienvenidoVendedor.css"
 import Heroe from "../img/BienvenidoAdmin_img1.png"
 import Heroe2 from "../img/BienvenidoAdmin_img2.png"
@@ -24,10 +23,10 @@ const BienvenidoVendedor = () => {
     if (sessionStorage.getItem("token") === null) {
       history.push('/login')
     }
-    actions.getContacts();
-    actions.getUsers();
-    actions.getNotes();
-    actions.getDeals();
+    // actions.getContacts();
+    // actions.getUsers();
+    // actions.getNotes();
+    // actions.getDeals();
   }, []);
 
   return (

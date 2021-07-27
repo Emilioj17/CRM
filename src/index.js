@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import "@popperjs/core";
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/js/bootstrap.bundle"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/App.css'
+// import '@popperjs/core';
+// import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle';
+
 
 ReactDOM.render(
   <React.StrictMode>

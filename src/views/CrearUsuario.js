@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/CrearUsuario.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from 'react'
@@ -27,6 +26,7 @@ const CrearUsuario = () => {
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
     }, []);
     
@@ -54,7 +54,7 @@ const CrearUsuario = () => {
                 <div className="d-flex justify-content-between align-items-center m-2 pb-2">
                     <h2>Crear Usuario</h2>
                     <div>
-                        <button type="button" className="btn btn-success m-2" onClick={handleSubmit}>Guardar</button>
+                        <button type="button" className="btn btn-primary m-2" onClick={handleSubmit}>Guardar</button>
                         <Link to="/PanelAdministrador"><button type="button" className="btn btn-danger m-2">Cancelar</button></Link>
                     </div>
                 </div>

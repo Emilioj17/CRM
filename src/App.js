@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ContextWrapper from "./store/appContext";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
@@ -33,12 +33,14 @@ import EditContact from "./views/EditContact";
 import Notes from "./views/Notes";
 import Footer from "./components/Footer";
 import Posibles from "./views/posibles";
+import ContactDeals from "./views/ContactDeals";
+import Calendar from "./views/Calendar";
 
 
 function App() {
   return (
     <>
-      <Router>
+      <BrowserRouter>
        <Navbar />
         <Switch>
           {/* Pagina Principal */}
@@ -63,7 +65,9 @@ function App() {
           <Route exact path="/tratos" component= {Deals} />
           <Route exact path="/contactos" component= {Contacts} />
           <Route exact path="/posibles" component= {Posibles} />
-          <Route exact path="/contactos/:id" component= {Notes} />
+          <Route exact path="/contactos/:id/notas" component= {Notes} />
+          <Route exact path="/calendario" component= {Calendar} />
+          <Route exact path="/contactos/:id/tratos" component= {ContactDeals} />
           <Route exact path="/crear/contacto" component= {CreateContact} />
           <Route exact path="/crear/trato" component= {CreateDeal} />
           <Route exact path="/editar/trato/:id" component= {EditDeal} />
@@ -80,9 +84,9 @@ function App() {
           <Route exact path="/CrearUsuario" component={CrearUsuario} />
           <Route exact path="/ModificarUsuario" component={ModificarUsuario} />
           {/* 404 */}
-          <Route path='*' component={<NotFound/>} />
+          <Route path='*' component={NotFound} />
         </Switch>
-      </Router>
+      </BrowserRouter>
       <Footer/>
     </>
   );

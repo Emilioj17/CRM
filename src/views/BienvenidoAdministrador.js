@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/BienvenidoAdministrador.css"
 import Heroe from "../img/BienvenidoAdmin_img1.png"
 import Heroe2 from "../img/BienvenidoAdmin_img2.png"
@@ -24,10 +23,10 @@ const BienvenidoAdministrador = () => {
   useEffect(() => {
     if (sessionStorage.getItem("token") === null) {
       history.push('/login')
-      actions.getContacts();
-      actions.getUsers();
-      actions.getNotes();
-      actions.getDeals();
+      // actions.getContacts();
+      // actions.getUsers();
+      // actions.getNotes();
+      // actions.getDeals();
     }
   }, []);
 
@@ -40,7 +39,7 @@ const BienvenidoAdministrador = () => {
             <p><Link to="/BienvenidoVendedor">Vista Vendedor</Link></p>
           </div>
           <div>
-            <Link to="/PanelAdministrador"><button type="button" className="btn btn-success">Configuracion</button></Link>
+            <Link to="/PanelAdministrador"><button type="button" className="btn btn-primary">Configuracion</button></Link>
           </div>
         </div>
         <div className="col-12 Heroe1">

@@ -37,6 +37,7 @@ function CreateDeal() {
         actions.getContacts();
         actions.getUsers();
         actions.getNotes();
+        actions.getEvents();
         actions.getDeals();
     }, []);
 
@@ -94,7 +95,7 @@ function CreateDeal() {
                 </div>
 
                 <div className="col-12 d-flex flex-row-reverse bd-highlight">
-                    <button className="col-2 btn btn-success my-5 mx-2" onClick={handleSubmit}>Crear trato</button>
+                    <button className="col-2 btn btn-primary my-5 mx-2" onClick={handleSubmit}>Crear trato</button>
                     <Link className="col-2 btn btn-danger my-5 mx-2" to="/tratos">Atras</Link>
                 </div>
             </div>

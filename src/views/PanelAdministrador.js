@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/PanelAdministrador.css";
 import { Link } from "react-router-dom";
 import { useContext } from 'react';
@@ -24,7 +23,7 @@ const PanelAdministrador = () => {
                         setUsuarios(data)
                     })
                     .catch(err => (console.error(err)));
-    }, []);
+    }, [usuarios]);
     
     useEffect(() => {
         for (let x = 0; usuarios.length > x; x++){
@@ -174,7 +173,7 @@ const PanelAdministrador = () => {
                 </div>
                 <DivUsuarios />
                 <div className="col-12 col-md-6 d-flex justify-content-start">
-                    <Link to="/CrearUsuario"><button type="button" className="btn btn-success me-3">Crear</button></Link>
+                    <Link to="/CrearUsuario"><button type="button" className="btn btn-primary me-3">Crear</button></Link>
                     <Link to="/ModificarUsuario"><button type="button" className="btn btn-warning">Modificar</button></Link>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-5">
