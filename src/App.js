@@ -35,6 +35,8 @@ import Footer from "./components/Footer";
 import Posibles from "./views/posibles";
 import ContactDeals from "./views/ContactDeals";
 import Calendar from "./views/Calendar";
+import Modal from "./views/Modal";
+
 
 
 function App() {
@@ -42,6 +44,7 @@ function App() {
     <>
       <BrowserRouter>
        <Navbar />
+       
         <Switch>
           {/* Pagina Principal */}
           <Route exact path="/" component={Home} />
@@ -49,6 +52,7 @@ function App() {
           <Route exact path="/registro" component={Registro} />
           <Route exact path="/recuperar" component={Recuperar} />
           <Route exact path="/products" component={Products} />
+          <Route exact path="/chat" component={Modal} />
           {/* <Route exact path="/contacto" component={Contacto} /> */}
           <Route exact path="/contacto/success" component={ContactoSuccess} />
           {/* <Route exact path="/nosotros" component={Nosotros} /> */}
