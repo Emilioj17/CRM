@@ -61,8 +61,8 @@ function Posibles() {
                             </tr>
                         )
                         :
-                        <td colspan="9" style={{height:"100px", padding:"20px"}}><h2 className="text-center"> - no hay datos -</h2></td>
-                    : <td colspan="9" style={{height:"100px", padding:"20px"}}><h2 className="text-center"> - no hay datos -</h2></td>}
+                        <td colSpan="9" style={{height:"100px", padding:"20px"}}><h2 className="text-center"> - no hay datos -</h2></td>
+                    : <td colSpan="9" style={{height:"100px", padding:"20px"}}><h2 className="text-center"> - no hay datos -</h2></td>}
 
                     </tbody>
                 </table>

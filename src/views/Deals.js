@@ -63,7 +63,7 @@ function Deals() {
                                             <button type="button" className="btn btn-danger mx-1" onClick={() => handleDelete(object.id)}>Eliminar</button></td>
                                     </tr>)
                                 :
-                                <td colspan="9" style={{ height: "100px", padding: "20px" }}><h2 className="text-center"> - no hay datos -</h2></td>
+                                <td colSpan="9" style={{ height: "100px", padding: "20px" }}><h2 className="text-center"> - no hay datos -</h2></td>
                             }
                         </tbody>
                     </table>

@@ -1,12 +1,11 @@
 import React from 'react'
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/ModificarUsuario.css";
 import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import { AppContext } from '../store/appContext';
 
-const ModificarUsuario = () => {
+function ModificarUsuario() {
     const { store, actions } = useContext(AppContext);
     const [usuario, setUsuario] = useState({
         nombre: "",
@@ -153,4 +152,4 @@ const ModificarUsuario = () => {
     )
 }
 
-export default ModificarUsuario;
+export default ModificarUsuario

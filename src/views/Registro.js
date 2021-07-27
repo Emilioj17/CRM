@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-// import '../style/Registro.css';
-import "bootstrap/dist/css/bootstrap.css";
 import { AppContext } from '../store/appContext';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';

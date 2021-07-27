@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/BienvenidoAdministrador.css"
 import Heroe from "../img/BienvenidoAdmin_img1.png"
 import Heroe2 from "../img/BienvenidoAdmin_img2.png"

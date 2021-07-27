@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/CrearUsuario.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from 'react'

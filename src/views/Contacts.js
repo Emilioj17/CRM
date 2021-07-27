@@ -63,8 +63,11 @@ function Contact() {
                                     </tr>
                                 )
                                 :
-                                <td colspan="9" style={{ height: "100px", padding: "20px" }}><h2 className="text-center"> - no hay datos -</h2></td>
-                            : <td colspan="9" style={{ height: "100px", padding: "20px" }}><h2 className="text-center"> - no hay datos -</h2></td>}
+                                <tr>
+                                    <td colSpan="9" style={{ height: "100px", padding: "20px" }}><h2 className="text-center"> - no hay datos -</h2></td>
+                                </tr>
+                            : <tr><td colSpan="9" style={{ height: "100px", padding: "20px" }}><h2 className="text-center"> - no hay datos -</h2></td>
+                            </tr>}
                     </tbody>
                 </table>
 

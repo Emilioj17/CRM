@@ -4,6 +4,7 @@ import { Link as LinkScroll } from "react-scroll";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { AppContext } from "../store/appContext";
 
+
 function Navbar() {
 	const { store } = useContext(AppContext);
 	const location = useLocation().pathname;
@@ -24,16 +25,16 @@ function Navbar() {
 					<Link className="navbar-brand ms-3 mx-5" to="/">
 						<img src={`/img/crm-facil-logo.svg`} alt="" width="170"></img>
 					</Link>
-					<button class="navbar-toggler"
+					<button className="navbar-toggler" 
 						type="button"
 						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent"
+						data-bs-target="#navbarNav"
+						aria-controls="navbarNav"
 						aria-expanded="false"
 						aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
+						<span className="navbar-toggler-icon"></span>
 					</button>
-					<div className="collapse navbar-collapse" id="navbarSupportedContent" >
+					<div className="collapse navbar-collapse" id="navbarNav" >
 						<ul className="navbar-nav mb-2">
 							<li className="nav-item">
 								<LinkScroll to="carousel" spy={true} smooth={true} offset={-500} duration={100} className="nav-link" style={{ cursor: "pointer" }}>
@@ -67,6 +68,7 @@ function Navbar() {
 					</div>
 				</div>
 			</nav>
+			
 		)
 	} else if (location === "/login" || location === "/registro") {
 		return (

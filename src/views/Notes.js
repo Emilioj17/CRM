@@ -1,4 +1,3 @@
-import { Button } from "bootstrap";
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
@@ -65,14 +64,19 @@ function Notes(props) {
                         <div className="mt-5 my-2 p-0">
                             <h4>Tratos</h4>
                         </div>
-                        {contact.deals.slice(0).reverse().map((deal, i) =>
+                        {contact.deals !== null && contact.deals.length > 0 ? 
+                        contact.deals.slice(0).reverse().map((deal, i) =>
                             <ul className="list-group list-group-horizontal-lg my-1" key={i} style={{ width: "100%" }}>
                                 <li className="list-group-item flex-fill" ><b>{"Trato " + deal.id + "(" + deal.create_at + ") "}</b></li>
                                 <li className="list-group-item flex-fill" ><b>"Plan:"</b>  {deal.plan}</li>
                                 <li className="list-group-item flex-fill" ><b>"Duración:"</b>  {deal.duration}</li>
                                 <li className="list-group-item flex-fill" style={{ minHeight: "85px" }}><b>"Descripción:"</b>  {deal.description}</li>
                             </ul>
-                        )}
+                        )
+                        : 
+                        <ul className="list-group list-group-horizontal-lg my-1 text-center" style={{ width: "100%" }}>
+                                <li className="list-group-item flex-fill" ><b>- No hay tratos todavía -</b></li>
+                            </ul>}
                         <div className="d-flex flex-row-reverse bd-highlight">
                             <Link to="/crear/trato" className="col-4 col-lg-2 btn btn btn-primary my-5 mb-3 mx-2" onClick={handlePutEvent}>Nuevo trato</Link>
                         </div>

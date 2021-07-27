@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ContextWrapper from "./store/appContext";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
@@ -40,7 +40,7 @@ import Calendar from "./views/Calendar";
 function App() {
   return (
     <>
-      <Router>
+      <BrowserRouter>
        <Navbar />
         <Switch>
           {/* Pagina Principal */}
@@ -84,9 +84,9 @@ function App() {
           <Route exact path="/CrearUsuario" component={CrearUsuario} />
           <Route exact path="/ModificarUsuario" component={ModificarUsuario} />
           {/* 404 */}
-          <Route path='*' component={<NotFound/>} />
+          <Route path='*' component={NotFound} />
         </Switch>
-      </Router>
+      </BrowserRouter>
       <Footer/>
     </>
   );

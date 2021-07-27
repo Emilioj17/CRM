@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/SendEmail.css"
 import { Link, useHistory } from "react-router-dom";
 import { AppContext } from '../store/appContext';

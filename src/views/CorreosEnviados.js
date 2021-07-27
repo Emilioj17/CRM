@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "../style/CorreosEnviados.css"
 import { Link, useHistory } from "react-router-dom";
 import { BsFillStarFill, BsXSquare } from 'react-icons/bs'
