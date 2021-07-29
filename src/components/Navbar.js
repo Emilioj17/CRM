@@ -154,10 +154,13 @@ function Navbar() {
 								<Link to="/tratos" className="nav-link"> Tratos </Link>
 							</li>
 							<li className="nav-item">
-								<Link to="/sendEmail" className="nav-link"> Correos </Link>
+								<Link to="/CorreosRecibidos" className="nav-link"> Correos </Link>
 							</li>
 							<li className="nav-item">
 								<Link to="/calendario" className="nav-link"> Calendario </Link>
+							</li>
+							<li className="nav-item">
+								<Link to="/chat" className="nav-link"> Chat </Link>
 							</li>
 
 						</ul>
