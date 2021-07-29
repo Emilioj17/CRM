@@ -1,0 +1,63 @@
+
+.chat_board main::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  .chat_board  main::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  .chat_board main::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }  
+  .chat_board button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }  
+  
+  .chat_board ul, li {
+    text-align: left;
+    list-style: none;
+  }
+  
+  .chat_board p {
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    text-align: left;
+  }
+  
+  .chat_board .message {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .chat_board .sent {
+    flex-direction: row-reverse;
+  }
+  
+  .chat_board .sent p {
+    color: white;
+    background: #0b93f6;
+}
+.chat_board .received p {
+    background: #e5e5ea;
+    color: black;
+  }
+  
+  .chat_board img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 2px 5px;
+  }
+
+  .chat_board hr {
+      color: black;
+  }
+  
+  .chat_board .btn-primary {
+    background-color:#5cb85c !important;
+    border-color: seashell;
+}

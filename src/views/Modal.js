@@ -8,6 +8,8 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
+import '../style/Chat.css'
+
 //Conectar con la DB
 firebase.initializeApp({
     apiKey: "AIzaSyB60oWTvucHLKr1phwOur809PUri0ikmEM",
@@ -28,15 +30,34 @@ function Chat() {
   
     return (
       <div>
-        <header>
-          <h1>CRM Facil</h1>
+<div className="container chat_board my-5">
+<div className="card border-success mb-3">
+  <div className="card-header bg-primary text-light border-success d-flex justify-content-between">
+        
+          <h1 className="text-center">CRM Facil ChatRoom</h1>
           <SignOut />
-        </header>
+        
+
+  </div>
+  <div className="card-body text-success">
+
+      <div className="chat_board">
   
         <section>
           {usuario ? <ChatRoom /> : <SignIn />}
         </section>
   
+      </div>
+
+  
+  </div>
+</div>
+
+</div>
+
+
+
+
       </div>
     );
   }
@@ -50,7 +71,10 @@ function Chat() {
   
     return (
       <>
-        <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <div className="d-flex justify-content-center">
+        <button className="sign-in chat_board btn btn-success" onClick={signInWithGoogle}>Sign in with Google</button>
+
+      </div>
       </>
     )
   
@@ -58,7 +82,7 @@ function Chat() {
   
   function SignOut() {
     return auth.currentUser && (
-      <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+      <button className="sign-out btn btn-danger" onClick={() => auth.signOut()}>Sign Out</button>
     )
   }
   
@@ -90,6 +114,8 @@ function Chat() {
     }
   
     return (<>
+      <div className="chat_board">
+
       <main>
   
         {mensajes && mensajes.map(msg => <ChatMessage key={msg.id} message={msg} />)}
@@ -97,14 +123,16 @@ function Chat() {
         <span ref={scrollDummy}></span>
   
       </main>
+        <hr className="chat_board" />
   
-      <form className="chat-body" onSubmit={sendMessage}>
+      <form className="chat-body form-control d-flex border-0" onSubmit={sendMessage}>
   
-        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Escribe algo" />
+        <input className=" form-control w-75 form-select-lg" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Escribe algo" />
   
-        <button type="submit" disabled={!formValue}>Enviar</button>
+        <button className=" w-25 btn btn-primary btn-lg" type="submit" disabled={!formValue}>Enviar</button>
   
       </form>
+      </div>
     </>)
   }
   
@@ -115,9 +143,9 @@ function Chat() {
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
   
     return (<>
-      <div className={`message ${messageClass}`}>
+      <div className={`message ${messageClass} chat_board`}>
         <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
-        <p>{text}</p>
+        <p className="overflow-auto">{text}</p>
       </div>
     </>)
   }
