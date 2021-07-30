@@ -33,15 +33,12 @@ function Login() {
                         <label for="last_name" className="form-label">Contraseña</label>
                         <input type="password" className="form-control" id="last_name" onChange={(event) => setPassword(event.target.value)} />
                     </div>
-                    <div className="text-center my-3">
-                        <Link className="txt1" to="/recuperar">¿Olvidaste Tu Contraseña?</Link>
-                    </div>
                     <div className="text-center">
                         <button type="submit" className="btn btn-primary">Ingresar</button>
                     </div>
-                    <div className="text-center my-3">
+                    {/* <div className="text-center my-3">
                         <Link className="txt2" to="/registro">¿Usuario nuevo?</Link>
-                    </div>
+                    </div> */}
 
                 </form>
             </div>

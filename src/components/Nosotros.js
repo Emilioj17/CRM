@@ -27,9 +27,9 @@ const Nosotros = () => {
               </div>
               <div className="col-md-10">
                 <div className="card-body">
-                  <h4 className="card-title">Fabián López</h4>
-                  <h5 className="card-title">Web Developer</h5>
-                  <p className="card-text text-muted">Chileno, 20 años. Actualmente resido en Chile. Estudiante en 4Geeks Academy CL. Estudiante de Producción AudioVisual.</p>
+                  <h4 className="card-title">Caracteristica a destacar</h4>
+                  <h5 className="card-title">Descripcion breve</h5>
+                  <p className="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium unde reprehenderit sunt recusandae ducimus, voluptatibus possimus exercitationem nisi dolore libero asperiores obcaecati sint sed ullam placeat dignissimos illum ea nemo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum autem voluptatem ab odit veritatis ducimus saepe accusantium quia. Amet laboriosam quia praesentium sequi optio quo necessitatibus ipsam est similique. Eius.</p>
                 </div>
               </div>
             </div>
@@ -57,9 +57,9 @@ const Nosotros = () => {
             </div>
             <div className="col-md-10">
               <div className="card-body">
-                <h4 className="card-title">Emilio Jelves</h4>
-                <h5 className="card-title">Desarrollador</h5>
-                <p className="card-text text-muted">Some JavaScript and Python coding, since 2020. Attempt to be a fullstack. Special skills and experience in traditional business and entrepreneurship..</p>
+                <h4 className="card-title">Caracteristica a destacar:</h4>
+                <h5 className="card-title">Descripcion breve</h5>
+                <p className="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium unde reprehenderit sunt recusandae ducimus, voluptatibus possimus exercitationem nisi dolore libero asperiores obcaecati sint sed ullam placeat dignissimos illum ea nemo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum autem voluptatem ab odit veritatis ducimus saepe accusantium quia. Amet laboriosam quia praesentium sequi optio quo necessitatibus ipsam est similique. Eius.</p>
               </div>
             </div>
           </div>
