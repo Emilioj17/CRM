@@ -35,6 +35,9 @@ function Login() {
                     </div>
                     <div className="text-center">
                         <button type="submit" className="btn btn-primary">Ingresar</button>
+                    <p className="forgot-password text-right">
+                        <Link to='/recuperar'>¿Olvidaste Tu Contraseña?</Link>
+                    </p>
                     </div>
                     {/* <div className="text-center my-3">
                         <Link className="txt2" to="/registro">¿Usuario nuevo?</Link>

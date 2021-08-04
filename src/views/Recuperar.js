@@ -2,43 +2,47 @@ import React, { useState, useContext,useEffect } from 'react';
 import { MdSecurity } from 'react-icons/md';
 import { HiMail } from 'react-icons/hi';
 import '../style/Recuperar.css';
-import { AppContext } from '../store/appContext';
+import axios from 'axios';
 
 
 function Recuperar() {
-    
-    const { store, actions } = useContext(AppContext);
-    const [email, setEmail] = useState ({
-        to: "",
-        Cc: " Recupera Tu Contraseña",
-        subject: " Recupera Tu Contraseña ",
-        body: " Tu Contraseña es: "
-    });
 
+    
     const HandlerSend = (e) => {
         e.preventDefault();
-        actions.sendEmailRecovery(email)
+
+        const data = {
+            email: this.email
+        };
+
+        axios.post('forgot' , data).then(
+            res => {
+                console.log(res)
+            }
+        ).catch(
+            err => {
+                console.log(err);
+            }
+        )
     }
 
 
     return (
-        <div className="Recuperar container-fluid">
-            <div className="container-fluid">
-              <div className="row-secured">
-                  <MdSecurity />
-              </div>
-            </div>
-           <h3 className="Recupera">Recupera Tu Clave</h3>
-        <div className="Correo container-fluid">
-            <div className="Mail col-md-5">
-                <HiMail />
-            </div>
-                <div className="Input col-md-7">
-                <input  type="text" placeholder="Ingresa Tu Correo" onChange={(e) => setEmail({...email, to: e.target.value})}></input>
-                <button className="button-recuperar" type="button" onClick={HandlerSend}>Recuperar</button>
+        <div className="container">
+        <div className="row my-5">
+            <form className="my-5 recuperar" onSubmit={(e) => HandlerSend(e)} >
+            <h1 className="text-center">Recuperar</h1>
+                <div className="md-3">
+                    <p className="icon-security"> <MdSecurity /> </p>
+                    <label for="name" className="form-label "> Ingresa Tu Correo <HiMail /></label>
+                    <input type="email" className="form-control" id="name" onChange={e => this.email = e.target.value} />
                 </div>
+                <div className="text-center">
+                    <button type="submit" className="btn btn-primary">Recuperar</button>
+                </div>
+            </form>
         </div>
-        </div>
+    </div>
     )
 }
 export default Recuperar;
