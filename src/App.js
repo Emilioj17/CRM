@@ -5,6 +5,7 @@ import Home from "./views/Home";
 import Login from "./views/Login";
 import Registro from "./views/Registro";
 import Recuperar from "./views/Recuperar";
+import PasswordResetvalidation from "./views/PasswordResetvalidation";
 import Remind from "./views/Remind";
 import Products from "./components/Products";
 import Category from "./views/Category";
@@ -51,6 +52,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/registro" component={Registro} />
           <Route exact path="/recuperar" component={Recuperar} />
+          <Route exact path="/recuperar/:token" component={PasswordResetvalidation} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/chat" component={Modal} />
           {/* <Route exact path="/contacto" component={Contacto} /> */}

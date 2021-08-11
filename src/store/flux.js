@@ -277,6 +277,16 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     });
             },
+            //sendEmailResetPassword: async(email) => {
+                //const result = { statusResponse: true, error: null }
+                 //try {
+                //    await firebase.auth().sendPasswordResetEmail(email)
+               // } catch(error) {
+                   // result.statusResponse = false
+                 //   result.error = error
+               // }
+            //    return result
+           // },
             setNote: async (comment, contactId, userId) => {
                 const store = getStore();
                 fetch("http://localhost:5000/api/notes", {
